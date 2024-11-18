@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>에브리타임 스타일</title>
+    <title>자유게시판</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="common.css">
 </head>
 <body>
-    <!-- 네비게이션 -->
+    <!-- 네비게이션
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">에브리타임</a>
+            <a class="navbar-brand" href="/">자유게시판</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,10 +35,29 @@
             </div>
         </div>
     </nav>
-
+-->
+    <nav th:fragment="navbarFragment" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">SW WEB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item left">
+                        <a class="nav-link" href="#">로그인</a>
+                    </li>
+                    <li class="nav-item right">
+                        <a class="nav-link" href="/test.html">홍보게시판</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- 콘텐츠 -->
     <div class="container my-4">
-        <h1>자유 게시판</h1>
+        <h1>홍보게시판</h1>
         <table class="table">
             <thead>
                 <tr>
