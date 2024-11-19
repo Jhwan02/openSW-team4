@@ -1,4 +1,5 @@
 <!--<html layout:decorate="~{layout}">
+<h2>인원모집게시판</h2>
 <div layout:fragment="content" class="container my-3">
     <table class="table">
         <thead class="table-dark">
@@ -12,7 +13,7 @@
             <tr th:each="question, loop : ${paging}">
 				<td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
                 <td>
-                    <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+					<a th:href="@{/recruit/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
 					<span class="text-danger small ms-2"
 					   th:if="${#lists.size(question.answerList) > 0}" 
 					   th:text="${#lists.size(question.answerList)}">
@@ -23,7 +24,7 @@
         </tbody>
     </table>-->
 	<!-- 페이징처리 시작 -->
-	   <!-- <div th:if="${!paging.isEmpty()}">
+	   <!--<div th:if="${!paging.isEmpty()}">
 	        <ul class="pagination justify-content-center">
 	            <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
 	                <a class="page-link"
@@ -43,13 +44,19 @@
 	                </a>
 	            </li>
 	        </ul>
-	    </div>-->
+	    </div>
+		<div>
+		    <a th:if="${paging.hasPrevious()}" th:href="@{/recruit/list(page=${paging.number - 1})}">이전</a>
+		    <a th:if="${paging.hasNext()}" th:href="@{/recruit/list(page=${paging.number + 1})}">다음</a>
+		</div>-->
+
 	    <!-- 페이징처리 끝 -->
-	<!--<a th:href="@{/question/create}" class="btn btn-primary">
+	<!--<a th:href="@{/recruit/create}" class="btn btn-primary">
 	질문 등록하기</a>
 </div>
-</html> -->
+</html>-->
 <html layout:decorate="~{layout}">
+<h2>인원모집게시판</h2>
 <div layout:fragment="content" class="container my-3">
     <table class="table">
         <thead class="table-dark">
@@ -63,7 +70,7 @@
             <tr th:each="question, loop : ${paging}">
                 <td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
                 <td>
-                    <a th:href="@{/question/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
+                    <a th:href="@{/recruit/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
                     <span class="text-danger small ms-2"
                         th:if="${#lists.size(question.answerList) > 0}" 
                         th:text="${#lists.size(question.answerList)}">
@@ -95,7 +102,6 @@
         </ul>
     </div>
     <!-- 페이징처리 끝 -->
-    <a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
+    <a th:href="@{/recruit/create}" class="btn btn-primary">질문 등록하기</a>
 </div>
 </html>
-

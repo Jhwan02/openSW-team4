@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif; /* 비슷한 서체 */
     background-color: #f9f9f9;
-    color: #gray; /* 기본 텍스트 색상 */
+    color: gray; /* 기본 텍스트 색상 */
 }
 
 .navbar {
@@ -12,7 +12,7 @@ body {
 
 .navbar .navbar-brand {
     font-weight: bold;
-    color: #gray;
+    color: gray;
 }
 
 .navbar .nav-link {
@@ -24,13 +24,13 @@ body {
 }
 
 .table {
-    background-color: #gray; /* 테이블 배경 */
+    background-color: gray; /* 테이블 배경 */
     border: 1px solid #ddd;
 }
 
 .table th {
-    background-color: #gray;
-    color: #gray;
+    background-color: gray;
+    color: gray;
 }
 
 .table td {
