@@ -1,0 +1,49 @@
+/* recruit.css */
+
+
+body {
+    font-family: Arial, sans-serif; /* 비슷한 서체 */
+    background-color: #f9f9f9;
+    color: white; /* 기본 텍스트 색상 */
+}
+
+.navbar {
+    background-color: navy; /* 네비게이션 바 배경색 */
+    border-bottom: 1px solid #ddd; /* 하단 경계선 */
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    color: white !important; /* 텍스트 색상: 화이트 */
+}
+
+.navbar .nav-link {
+    color: white !important; /* 텍스트 색상: 화이트 */
+}
+
+.navbar .nav-link:hover {
+    color: #ffcc00 !important; /* 강조 색상: 밝은 노란색 */
+}
+
+
+.navbar-custom .nav-link:hover {
+    color: lightgray !important;      /* 호버 시 색상: 밝은 회색 */
+}
+
+.navbar-custom .navbar-toggler-icon {
+    filter: invert(1);    
+	}            /* 햄버거 메뉴 색상 반전 */
+
+.table {
+    background-color: navy; /* 테이블 배경 */
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: navy;
+    color: white;
+}
+
+.table td {
+    color: navy;
+}
