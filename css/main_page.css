@@ -1,0 +1,292 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    background-color: #f8f9fa;
+    color: #f8f9fa;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.Header {
+    background-color: #ffffff;
+}
+
+.nav{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 55px 0 55px;
+}
+
+.nav .logo{
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    color: black;
+}
+
+.nav-bar{
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar a:hover {
+    color: #000000; /* 호버 시 색상 변경 */
+}
+
+.nav-bar li{
+    margin: 20px 40px 0 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar li a{
+    color: #666666;
+	text-decoration: none;
+}
+
+.nav-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right .search-button{
+    margin-right: 10px;
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-right .search-button p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right .search-button i{
+    margin-left: 10px;
+    font-size: 14px;
+    color: black;
+}
+
+.nav-bar .login-button{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-right .login-button p {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-right .login-button p:hover{
+    color: #000000;
+}
+
+.nav-right .login-button i{
+    color: #000000;
+}
+/* .custom-navbar .nav-link {
+    font-size: 1rem;
+    color: white !important;
+    padding: 10px 20px;
+}
+
+.custom-navbar .nav-link:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+} */
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    height: calc(100vh - 150px); /* 화면 높이에서 Navbar(80px)와 Footer(60px) 제외 */
+    width: 100vw;
+    background-color: #b6bcbc;
+}
+
+.hero-left {
+    flex: 1;
+    background-color: #b6bcbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b6bcbc;
+    border: none;
+}
+
+.hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 영역을 꽉 채우도록 설정 */
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 600px;
+    background-color: #b6bcbc;
+}
+
+.hero-content .header-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* .hero-content h1 span {
+    color: #007bff;
+} */
+
+.hero-content .sub-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* .hero-section .content {
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-section h1 span {
+    color: #ffd700;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+} */
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    color: #000000;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+
+/* modal */
+/* Modal Styles */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #ffffff;
+    color: #000000;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-header .btn-close {
+    background-color: white;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    line-height: 0;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-close:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body label {
+    color: #000000;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.modal-body input {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.modal-body button {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.modal-body button:hover {
+    background-color: #0056b3;
+}
