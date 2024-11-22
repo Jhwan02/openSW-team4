@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 배경 변화</title>
+    <style>
+        /* 기본 설정 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* 스크롤바 숨기기 */
+        }
+
+        /* 스크롤 컨테이너 */
+        .container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory; /* 세로 스크롤 스냅 */
+        }
+
+        /* 개별 섹션 스타일 */
+        .section {
+            height: 100vh; /* 화면 전체 높이 */
+            scroll-snap-align: start; /* 스냅 기준점 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .section1 { background-color: #ff7f7f; }
+        .section2 { background-color: #7f7fff; }
+        .section3 { background-color: #7fff7f; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section section1">Section 1</div>
+        <div class="section section2">Section 2</div>
+        <div class="section section3">Section 3</div>
+    </div>
+
+    <!-- GSAP 라이브러리 로드 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP 애니메이션 코드 -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 섹션별로 배경색 전환
+        gsap.utils.toArray(".section").forEach((section, i) => {
+            gsap.to("body", {
+                backgroundColor: window.getComputedStyle(section).backgroundColor, // 섹션 배경색 가져오기
+                duration: 1, // 애니메이션 지속 시간
+                scrollTrigger: {
+                    trigger: section, // 현재 섹션을 트리거로 설정
+                    start: "top 50%", // 트리거가 화면 중앙에 도달하면 시작
+                    end: "bottom 50%", // 트리거가 화면 중앙을 지나면 끝
+                    scrub: true, // 스크롤에 따라 부드럽게 애니메이션
+                }
+            });
+        });
+    </script>
+</body>
+</html>
