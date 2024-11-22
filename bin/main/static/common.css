@@ -1,38 +1,292 @@
-/* common.css */
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif; /* 비슷한 서체 */
-    background-color: #f9f9f9;
-    color: whilte; /* 기본 텍스트 색상 */
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.navbar {
-    background-color: #fff; /* 네비게이션 바 배경색 */
-    border-bottom: 1px solid #ddd; /* 하단 경계선 */
+/* Navbar */
+.Header {
+    background-color: #ffffff;
 }
 
-.navbar .navbar-brand {
-    font-weight: bold;
-    color: gray;
+.nav{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 55px 0 55px;
 }
 
-.navbar .nav-link {
+.nav .logo{
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    color: black;
+}
+
+.nav-bar{
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar a:hover {
+    color: #000000; /* 호버 시 색상 변경 */
+}
+
+.nav-bar li{
+    margin: 20px 40px 0 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar li a{
+    color: #666666;
+	text-decoration: none;
+}
+
+.nav-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right .search-button{
+    margin-right: 10px;
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-right .search-button p {
+    margin: 0;
+    font-size: 14px;
     color: #333;
+    display: flex;
+    align-items: center;
 }
 
-.navbar .nav-link:hover {
-    color: #ff6600; /* 강조 색상 */
+.nav-right .search-button i{
+    margin-left: 10px;
+    font-size: 14px;
+    color: black;
 }
 
-.table {
-    background-color: gray; /* 테이블 배경 */
+.nav-bar .login-button{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-right .login-button p {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-right .login-button p:hover{
+    color: #000000;
+}
+
+.nav-right .login-button i{
+    color: #000000;
+}
+
+/* Hero Section */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-section {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    background-color: #b6bcbc;
+}
+
+.hero-section img {
+    max-width: 100%;
+    height: auto;
+}  
+
+.hero-left {
+    flex: 1;
+    background-color: #b6bcbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b6bcbc;
+    border: none;
+}
+
+.hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 영역을 꽉 채우도록 설정 */
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 600px;
+    background-color: #b6bcbc;
+}
+
+.hero-content .header-text {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.hero-content .sub-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: lightgray;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: black;
+}
+  
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    color: #000000;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+
+/* modal */
+/* Modal Styles */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #ffffff;
+    color: #000000;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-header .btn-close {
+    background-color: white;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    line-height: 0;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-close:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body label {
+    color: #000000;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.modal-body input {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.modal-body button {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
     border: 1px solid #ddd;
 }
 
-.table th {
-    background-color: gray;
-    color: gray;
+.modal-body button:hover {
+    background-color: #0056b3;
 }
 
-.table td {
-    color: #333;
-}

@@ -11,4 +11,9 @@ public class MainController {
         return "redirect:/question/list";
 
     }
+	@GetMapping("//")
+    public String root1() {
+        return "main_page"; // main_page.html을 반환
+    }
 }
+
