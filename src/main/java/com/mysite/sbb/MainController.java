@@ -14,3 +14,4 @@ public class MainController {
     public String trick() {
       return "trick";
   }
+}
