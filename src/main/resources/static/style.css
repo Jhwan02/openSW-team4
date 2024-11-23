@@ -1,10 +1,9 @@
-/* recruit.css */
-
 
 body {
     font-family: Arial, sans-serif; /* 비슷한 서체 */
     background-color: #f9f9f9;
-    color: white; /* 기본 텍스트 색상 */
+    color: black; /* 기본 텍스트 색상 */
+	
 }
 
 .Header {
@@ -114,7 +113,7 @@ body {
 
 /*recruit 두번째 navbar*/
 .navbar-secondary {
-    background-color: #6c85a1; /* 연한 네이비 색상 */
+    background-color: lightgray; 
     color: white;
     border-bottom: 1px solid #ddd; /* 하단 경계선 */
     width: 100%; /* 부모 요소 너비와 맞춤 */
@@ -123,9 +122,16 @@ body {
 
 .navbar-secondary .navbar-brand,
 .navbar-secondary .nav-link {
-    color: white !important; /* 텍스트 색상 */
+    color: black !important; /* 텍스트 색상 */
 }
 
 .navbar-secondary .nav-link:hover {
     color: #ffcc00 !important; /* 호버 강조 색상 */
 }
+
+.btn-primary{
+	background-color: white;
+	color:#000000;
+	border-color: #000000;
+}
+
