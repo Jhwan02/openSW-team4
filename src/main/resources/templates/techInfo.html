@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>IT Blog Posts</title>
+    <link rel="stylesheet" href="techInfo.css">
+</head>
+<body>
+    <h1>IT Blog Posts</h1>
+    <ul>
+        <li th:if="${#lists.isEmpty(blogPosts)}">데이터가 없습니다.</li>
+        <li th:each="post : ${blogPosts}">
+            <a th:href="${post.link}" th:text="${post.title}" target="_blank"></a>
+            <p th:text="'Date: ' + ${post.date}"></p>
+        </li>
+    </ul>
+    
+    </div>
+</body>
+</html>
