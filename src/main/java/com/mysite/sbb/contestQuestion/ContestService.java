@@ -1,4 +1,5 @@
-package com.mysite.sbb.recruitmentQuestion;
+package com.mysite.sbb.contestQuestion;
+
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,16 +18,16 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class RecruitmentQuestionService {
+public class ContestService {
 
-    private final RecruitmentQuestionRepository recruitmentQuestionRepository;
+    private final ContestRepository questionRepository;
 
-    public List<RecruitmentQuestion> getList() {
-        return this.recruitmentQuestionRepository.findAll();
+    public List<ContestQuestion> getList() {
+        return this.questionRepository.findAll();
     }
     
-    public RecruitmentQuestion getQuestion(Integer id) {  
-        Optional<RecruitmentQuestion> question = this.recruitmentQuestionRepository.findById(id);
+    public ContestQuestion getQuestion(Integer id) {  
+        Optional<ContestQuestion> question = this.questionRepository.findById(id);
         if (question.isPresent()) {
             return question.get();
         } else {
@@ -34,18 +35,17 @@ public class RecruitmentQuestionService {
         }
     }
     
-    public Page<RecruitmentQuestion> getList(int page) {
+    public Page<ContestQuestion> getList(int page) {
     	List<Sort.Order> sorts = new ArrayList<>();
         sorts.add(Sort.Order.desc("createDate"));
     	Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
-        return this.recruitmentQuestionRepository.findAll(pageable);
+        return this.questionRepository.findAll(pageable);
     }
     public void create(String subject, String content) {
-        RecruitmentQuestion q = new RecruitmentQuestion();
+        ContestQuestion q = new ContestQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
-        this.recruitmentQuestionRepository.save(q);
+        this.questionRepository.save(q);
     }
 }
-

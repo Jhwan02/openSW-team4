@@ -11,24 +11,31 @@
 	import org.springframework.web.bind.annotation.RequestMapping;
 	import jakarta.validation.Valid;
 	import org.springframework.validation.BindingResult;
-	@Controller
-	@RequiredArgsConstructor
+	
 	@RequestMapping("/recruit/answer")
+	@RequiredArgsConstructor
+	@Controller
 	public class RecruitmentAnswerController {
 	
 	    private final RecruitmentQuestionService recruitmentQuestionService;
 	    private final RecruitmentAnswerService recruitmentAnswerService;
 	
 	    @PostMapping("/create/{id}")
-	    public String createAnswer(Model model, @PathVariable("id") Integer id, 
-	            @Valid RecruitmentAnswerForm answerForm, BindingResult bindingResult) {
-	        RecruitmentQuestion question = this.recruitmentQuestionService.getQuestion(id);
+	    public String createAnswer(@PathVariable("id") Integer id,
+	                               @Valid RecruitmentAnswerForm recruitAnswerForm,
+	                               BindingResult bindingResult,
+	                               Model model) {
+	        RecruitmentQuestion question = recruitmentQuestionService.getQuestion(id);
+
 	        if (bindingResult.hasErrors()) {
-	            model.addAttribute("question", question);
+	            model.addAttribute("question", question); // question 추가
 	            return "recruit_detail";
 	        }
-	        this.recruitmentAnswerService.create(question, answerForm.getContent());
-	        return String.format("redirect:/recruit/detail/%s", id);
+
+	        recruitmentAnswerService.create(question, recruitAnswerForm.getContent());
+	        return String.format("redirect:/recruit/detail/%d", id);
+
 	    }
-	}
+	    }
+	
 	

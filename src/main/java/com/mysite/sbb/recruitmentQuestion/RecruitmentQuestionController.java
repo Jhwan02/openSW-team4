@@ -10,43 +10,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mysite.sbb.answer.AnswerForm;
+import com.mysite.sbb.question.QuestionForm;
+import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswerForm;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-@Controller
+
 @RequestMapping("/recruit")
 @RequiredArgsConstructor
+@Controller
 public class RecruitmentQuestionController {
-
-    private final RecruitmentQuestionService questionService;
+private final RecruitmentQuestionService recruitQuestionService;
     
-
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value="page", defaultValue="0") int page) {
-        Page<RecruitmentQuestion> paging = this.questionService.getList(page);
+        Page<RecruitmentQuestion> paging = this.recruitQuestionService.getList(page);
         model.addAttribute("paging", paging);
         return "recruit_list";
     }
-
+    
     @GetMapping("/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
-        RecruitmentQuestion question = this.questionService.getQuestion(id);
+    public String detail(Model model, @PathVariable("id") Integer id, RecruitmentAnswerForm recruitAnswerForm) {
+    	RecruitmentQuestion question = recruitQuestionService.getQuestion(id);
         model.addAttribute("question", question);
+        model.addAttribute("recruitAnswerForm", new RecruitmentAnswerForm()); // recruitAnswerForm 초기화
         return "recruit_detail";
     }
+
+
+    
     @GetMapping("/create")
-    public String questionCreate(Model model) {
-        model.addAttribute("recruitForm", new RecruitmentQuestionForm());
+    public String questionCreate(RecruitmentQuestionForm recruitmentQuestionForm) {
         return "recruit_form"; // recruit_form.html 렌더링
     }
-
+    
     @PostMapping("/create")
-    public String questionCreate(@Valid RecruitmentQuestionForm questionForm, BindingResult bindingResult) {
+    public String questionCreate(@Valid RecruitmentQuestionForm recruitQuestionForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "recruit_form";
         }
-        this.questionService.create(questionForm.getSubject(), questionForm.getContent());
+        this.recruitQuestionService.create(recruitQuestionForm.getSubject(), recruitQuestionForm.getContent());
         return "redirect:/recruit/list";
     }
+    
 }
+
