@@ -21,7 +21,7 @@ public class techBlogCrawler{
     // public void run(String... args) throws Exception {
     //     performCrawling(); // 애플리케이션 시작 시 메서드 실행
     // }
-    @Scheduled(fixedRate = 3600000) // 1시간마다 실행
+    @Scheduled(fixedRate = 60000) // 1시간마다 실행
     public void performCrawling() {
         String url = "https://techblogposts.com/ko"; // 크롤링할 페이지 URL
 
