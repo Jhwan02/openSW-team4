@@ -6,15 +6,33 @@
     <link rel="stylesheet" href="techInfo.css">
 </head>
 <body>
-    <h1>IT Blog Posts</h1>
-    <ul>
-        <li th:if="${#lists.isEmpty(blogPosts)}">데이터가 없습니다.</li>
-        <li th:each="post : ${blogPosts}">
+    <header class="Header">  
+        <nav class="nav">
+          <img src="img/1866_file01/211. 메인 캐릭터_우왕이.png" alt="logo" class="logo">
+    
+          <ul class="nav-bar">
+            <li><a href="#">공모전</a></li>
+            <li><a href="/recruit/list">인원 모집</a></li>
+            <li><a href="techInfo">IT 기술</a></li>
+            <li><a href="/question/list">자유</a></li>
+          </ul>
+    
+          <div class="nav-right">
+            <div class="search-button"><p>검색</p><span><i class="fa-solid fa-magnifying-glass"></i></span></div>
+            <div class="login-button" id="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <p>로그인</p>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <ul class="container">
+        <li th:each="post : ${blogPosts}" class="container-list">
             <a th:href="${post.link}" th:text="${post.title}" target="_blank"></a>
-            <!-- <p th:text="'Date: ' + ${post.date}"></p> -->
+            <p th:text="'Date: ' + ${post.date}"></p>
         </li>
     </ul>
-    
-    </div>
+
+    <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
 </body>
 </html>
