@@ -44,7 +44,7 @@ public class techBlogCrawler{
                 String date = fullDateTime.substring(0, 10); // 날짜만 추출
 
                 // 데이터 저장
-                if (blogPostRepository.findByTitleAndDate(title, date).isEmpty()){
+                if (blogPostRepository.findByTitle(title).isEmpty()){
                     blogPost blogPost = new blogPost();
                     blogPost.setTitle(title);
                     blogPost.setLink(link);
