@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 
@@ -20,7 +21,7 @@ public class techBlogCrawler{
     // public void run(String... args) throws Exception {
     //     performCrawling(); // 애플리케이션 시작 시 메서드 실행
     // }
-
+    @Scheduled(fixedRate = 3600000) // 1시간마다 실행
     public void performCrawling() {
         String url = "https://techblogposts.com/ko"; // 크롤링할 페이지 URL
 
@@ -43,13 +44,15 @@ public class techBlogCrawler{
                 String date = fullDateTime.substring(0, 10); // 날짜만 추출
 
                 // 데이터 저장
-                blogPost blogPost = new blogPost();
-                blogPost.setTitle(title);
-                blogPost.setLink(link);
-                blogPost.setDate(date);
-
-                // DB에 저장
-                blogPostRepository.save(blogPost);
+                if (blogPostRepository.findByTitleAndDate(title, date).isEmpty()){
+                    blogPost blogPost = new blogPost();
+                    blogPost.setTitle(title);
+                    blogPost.setLink(link);
+                    blogPost.setDate(date);
+    
+                    // DB에 저장
+                    blogPostRepository.save(blogPost);
+                }
 
                 // 콘솔 출력
                 //System.out.println("제목: " + title);
@@ -62,3 +65,4 @@ public class techBlogCrawler{
         }
     }
 }
+
