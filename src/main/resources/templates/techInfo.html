@@ -29,7 +29,7 @@
     <ul class="container">
         <li th:each="post : ${blogPosts}" class="container-list">
             <a th:href="${post.link}" th:text="${post.title}" target="_blank"></a>
-            <p th:text="'Date: ' + ${post.date}"></p>
+            <p th:text="'Date: ' + ${post.date}" class="date-info"></p>
         </li>
     </ul>
 
