@@ -21,7 +21,7 @@ public class techBlogCrawler{
     // public void run(String... args) throws Exception {
     //     performCrawling(); // 애플리케이션 시작 시 메서드 실행
     // }
-    @Scheduled(fixedRate = 60000) // 1시간마다 실행
+    @Scheduled(fixedRate = 3600000) // 1시간마다 실행
     public void performCrawling() {
         String url = "https://techblogposts.com/ko"; // 크롤링할 페이지 URL
 
@@ -35,31 +35,29 @@ public class techBlogCrawler{
             for (Element post : posts) {
                 // 제목 및 링크 추출
                 Element titleElement = post.selectFirst("a");
-                String title = titleElement.attr("title"); // aria-label 속성에서 제목 추출
-                String link = titleElement.attr("href"); // href 속성에서 링크 추출
-
-                // 작성일 추출 (작성일 클래스가 div 안에 있는 경우)
-                Element dateElement = post.selectFirst("._1kme5q5 time"); // 정확한 클래스명으로 변경 필요
-                String fullDateTime = dateElement.attr("datetime");
-                String date = fullDateTime.substring(0, 10); // 날짜만 추출
-
-                // 데이터 저장
-                if (blogPostRepository.findByTitle(title).isEmpty()){
-                    blogPost blogPost = new blogPost();
-                    blogPost.setTitle(title);
-                    blogPost.setLink(link);
-                    blogPost.setDate(date);
+                if (titleElement != null){
+                    String title = titleElement.attr("title"); // aria-label 속성에서 제목 추출
+                    String link = titleElement.attr("href"); // href 속성에서 링크 추출
+                    Element dateElement = post.selectFirst("._1kme5q5 time"); // 정확한 클래스명으로 변경 필요
+                    String fullDateTime = dateElement.attr("datetime");
+                    String date = fullDateTime.substring(0, 10); // 날짜만 추출
     
-                    // DB에 저장
-                    blogPostRepository.save(blogPost);
+                    // 데이터 저장
+                    if (blogPostRepository.findByTitle(title).isEmpty()){
+                        blogPost blogPost = new blogPost();
+                        blogPost.setTitle(title);
+                        blogPost.setLink(link);
+                        blogPost.setDate(date);
+        
+                        // DB에 저장
+                        blogPostRepository.save(blogPost);
+                    }
+    
+                
                 }
-
-                // 콘솔 출력
-                //System.out.println("제목: " + title);
-                //System.out.println("링크: " + link);
-                //System.out.println("작성일: " + date);
-                //System.out.println("=========================");
             }
+
+                
         } catch (IOException e) {
             e.printStackTrace();
         }
