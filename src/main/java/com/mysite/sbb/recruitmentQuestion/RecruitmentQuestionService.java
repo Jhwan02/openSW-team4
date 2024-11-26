@@ -19,14 +19,14 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class RecruitmentQuestionService {
 
-    private final RecruitmentQuestionRepository questionRepository;
+    private final RecruitmentQuestionRepository recruitmentQuestionRepository;
 
     public List<RecruitmentQuestion> getList() {
-        return this.questionRepository.findAll();
+        return this.recruitmentQuestionRepository.findAll();
     }
     
     public RecruitmentQuestion getQuestion(Integer id) {  
-        Optional<RecruitmentQuestion> question = this.questionRepository.findById(id);
+        Optional<RecruitmentQuestion> question = this.recruitmentQuestionRepository.findById(id);
         if (question.isPresent()) {
             return question.get();
         } else {
@@ -38,14 +38,14 @@ public class RecruitmentQuestionService {
     	List<Sort.Order> sorts = new ArrayList<>();
         sorts.add(Sort.Order.desc("createDate"));
     	Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
-        return this.questionRepository.findAll(pageable);
+        return this.recruitmentQuestionRepository.findAll(pageable);
     }
     public void create(String subject, String content) {
         RecruitmentQuestion q = new RecruitmentQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
-        this.questionRepository.save(q);
+        this.recruitmentQuestionRepository.save(q);
     }
 }
 
