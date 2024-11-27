@@ -1,35 +1,37 @@
-package com.mysite.sbb;
+package com.mysite.sbb.WebCrawler;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class WebCrawler {
 
-    public static void main(String[] args) {
+    @Autowired
+    private CrawlerRepository crawlerRepository; // ÌÉÄÏûÖÏùÑ Î™ÖÏãúÏ†ÅÏúºÎ°ú ÏÑ†Ïñ∏
+
+    public void crawlAndSaveCompetitions() {
         String url = "https://linkareer.com/list/activity?filterBy_interestIDs=13&filterType=INTEREST&orderBy_direction=DESC&orderBy_field=CREATED_AT&page=1";
 
         try {
-            // ¿• ∆‰¿Ã¡ˆ∏¶ ∞°¡ÆøÕº≠ Document ∞¥√º∑Œ ∫Ø»Ø
             Document doc = Jsoup.connect(url).get();
-
-            // ∆Ø¡§ ≈¨∑°Ω∫ ¿Ã∏ßø° «ÿ¥Á«œ¥¬ ¡§∫∏∏¶ ∞°¡Æø¿±‚
             Elements items = doc.select(".activity-list-card-item-wrapper");
 
             for (Element item : items) {
-                // ¿ÃπÃ¡ˆ ∏µ≈©, ¡¶∏Ò, ≥Ø¬• √ﬂ√‚
                 String imageUrl = item.select(".image-link img").attr("src");
                 String title = item.select(".activity-title").text();
                 String date = item.select(".SecondInfoText__StyledWrapper-sc-16c35a9-0").text();
 
-                // √ﬂ√‚«— ¡§∫∏ √‚∑¬
-                System.out.println("Image URL: " + imageUrl);
-                System.out.println("Title: " + title);
-                System.out.println("Date: " + date);
-                System.out.println();
+                // Save directly to database
+                WebCrawlerEntity entity = new WebCrawlerEntity(imageUrl, title, date);
+                
+                // Save using CrawlerRepository
+                crawlerRepository.save(entity);
             }
         } catch (IOException e) {
             e.printStackTrace();
