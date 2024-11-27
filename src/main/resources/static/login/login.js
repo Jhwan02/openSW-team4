@@ -1,5 +1,5 @@
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // 폼 기본 동작 막기
+document.getElementById("loginButton").addEventListener("click", function(event) {
+    event.preventDefault(); // 기본 동작 방지
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -15,10 +15,41 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     .then(data => {
         if (data === 'success') {
             alert("로그인 성공!");
-            location.reload(); // 페이지 새로고침 (필요한 경우)
+            window.location.href = "/"; // 메인 페이지로 이동
         } else {
             alert("로그인 실패! 아이디와 비밀번호를 확인하세요.");
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Error:', error);
+        alert("로그인 중 오류가 발생했습니다.");
+    });
+});
+
+document.getElementById("registerButton").addEventListener("click", function(event) {
+    event.preventDefault(); // 기본 동작 방지
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    fetch('/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data === 'success') {
+            alert("회원가입 성공!");
+            window.location.href = "/"; // 메인 페이지로 이동
+        } else {
+            alert("회원가입 실패! 아이디가 이미 존재합니다.");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("회원가입 중 오류가 발생했습니다.");
+    });
 });

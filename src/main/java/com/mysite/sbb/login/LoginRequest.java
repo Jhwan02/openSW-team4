@@ -13,7 +13,7 @@ public class LoginRequest {
         this.password = password;
     }
 
-    // getter와 setter 메서드
+    // Getter와 Setter 메서드
     public String getUsername() {
         return username;
     }
