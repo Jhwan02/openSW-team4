@@ -28,7 +28,7 @@ public class AuthController {
     // 회원가입 메서드
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
-        boolean result = userService.register(request.getUsername(), request.getPassword());
+        boolean result = userService.register(request.getId(),request.getUsername(), request.getPassword());
         if (result) {
             return ResponseEntity.ok("success");
         } else {

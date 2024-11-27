@@ -8,13 +8,13 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String username;
     private String password;
 
     // Getter 메서드
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -27,7 +27,7 @@ public class User {
     }
 
     // Setter 메서드
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
