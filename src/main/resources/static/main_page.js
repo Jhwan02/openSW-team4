@@ -23,6 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // 햄버거 버튼과 드롭다운 메뉴
+  const hamburger = document.getElementById("hamburger");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  // 햄버거 버튼 클릭 이벤트
+  hamburger.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("show"); // 드롭다운 메뉴 표시/숨김
+  });
+
+
   // 슬라이드 표시 함수
   function showSlide(index) {
     slides.forEach((slide, i) => {
