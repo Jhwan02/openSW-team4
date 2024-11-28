@@ -1,26 +1,19 @@
 package com.mysite.sbb.login;
 
 public class LoginRequest {
-    private String username;
+    private String id;
     private String password;
 
     // 기본 생성자
     public LoginRequest() {}
 
     // 매개변수가 있는 생성자
-    public LoginRequest(String username, String password) {
-        this.username = username;
+    public LoginRequest(String id, String password) {
+        this.id = id;
         this.password = password;
     }
 
     // Getter와 Setter 메서드
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getPassword() {
         return password;
@@ -28,5 +21,11 @@ public class LoginRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getId() {
+        return id;
     }
 }

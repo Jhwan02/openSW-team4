@@ -17,7 +17,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("/", "/img/**","/**","/h2-console/**").permitAll() // 정적 리소스 허용   
+            .requestMatchers("/", "/img/**","/**","/h2-console/**","/auth/login","/auth/register").permitAll() // 정적 리소스 허용   
                 .anyRequest().authenticated() // 다른 모든 요청은 인증 필요
             )
             .formLogin(form -> form
@@ -28,7 +28,8 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/") // 로그아웃 후 리다이렉트 경로
             )
             .csrf(csrf -> csrf
-                .ignoringRequestMatchers("/h2-console/**") // H2 Console의 CSRF 비활성화
+                //.ignoringRequestMatchers("/h2-console/**") // H2 Console의 CSRF 비활성화
+                .disable() // CSRF 비활성화 (로그인 문제 임시 해결)
             )
             .headers(headers -> headers
                 .frameOptions(frame -> frame.sameOrigin()) // H2 Console의 iframe 사용 허용

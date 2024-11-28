@@ -1,7 +1,7 @@
 document.getElementById("loginButton").addEventListener("click", function(event) {
     event.preventDefault(); // 기본 동작 방지
 
-    const username = document.getElementById("username").value;
+    const id = document.getElementById("id").value;
     const password = document.getElementById("password").value;
 
     fetch('/auth/login', {
@@ -9,7 +9,7 @@ document.getElementById("loginButton").addEventListener("click", function(event)
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ id, password }),
     })
     .then(response => response.text())
     .then(data => {
@@ -29,15 +29,17 @@ document.getElementById("loginButton").addEventListener("click", function(event)
 document.getElementById("registerButton").addEventListener("click", function(event) {
     event.preventDefault(); // 기본 동작 방지
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    
+    const username = document.getElementById("registerUsername").value;
+    const id = document.getElementById("registerId").value;
+    const password = document.getElementById("registerPassword").value;
 
     fetch('/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, id , password }),
     })
     .then(response => response.text())
     .then(data => {
