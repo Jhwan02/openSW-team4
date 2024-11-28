@@ -33,7 +33,7 @@ public class UserService {
         return true;
     }
 
-    // 사용자 인증 메서드
+    //로그인 메서드
     public User authenticate(String id, String password) {
         logger.debug("사용자 인증 요청 - 아이디: {}", id);
         User user = userRepository.findById(id).orElse(null);
