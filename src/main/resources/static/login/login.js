@@ -11,11 +11,21 @@ document.getElementById("loginButton").addEventListener("click", function(event)
         },
         body: JSON.stringify({ id, password }),
     })
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
-        if (data === 'success') {
+        if (data.success) {
             alert("로그인 성공!");
-            window.location.href = "/"; // 메인 페이지로 이동
+            const loginButton = document.getElementById("mainLoginButton");
+            loginButton.textContent = "마이페이지";
+            loginButton.onclick = function() {
+                window.location.href = "/mypage"; // 마이페이지로 이동
+            };
+
+            // 환영 메시지 표시
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.textContent = `${data.username}님 환영합니다`;
+            welcomeMessage.style.display = "inline";
+
         } else {
             alert("로그인 실패! 아이디와 비밀번호를 확인하세요.");
         }
@@ -29,7 +39,6 @@ document.getElementById("loginButton").addEventListener("click", function(event)
 document.getElementById("registerButton").addEventListener("click", function(event) {
     event.preventDefault(); // 기본 동작 방지
 
-    
     const username = document.getElementById("registerUsername").value;
     const id = document.getElementById("registerId").value;
     const password = document.getElementById("registerPassword").value;
@@ -39,12 +48,11 @@ document.getElementById("registerButton").addEventListener("click", function(eve
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username , id , password }),
+        body: JSON.stringify({ username, id, password }),
     })
     .then(response => response.text())
     .then(data => {
         if (data === 'success') {
-            alert(`Username: ${username}\nID: ${id}\nPassword: ${password}`); //디버깅용 나중에 지워야함
             alert("회원가입 성공!");
             window.location.href = "/"; // 메인 페이지로 이동
         } else {
