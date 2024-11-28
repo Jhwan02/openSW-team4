@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "USER_TABLE")
 public class User {
 
-    @Id
     private String username;
+    @Id //이 어노테이션으로 id가 id로 지정됨
     private String id;
     private String password;
 
