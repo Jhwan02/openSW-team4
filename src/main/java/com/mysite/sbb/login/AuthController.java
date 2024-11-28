@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -19,16 +22,20 @@ public class AuthController {
 
     // 로그인 메서드
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request, HttpSession session) {
+    public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest request, HttpSession session) {
         logger.debug("로그인 요청 - 아이디: {}", request.getId());
         User user = userService.authenticate(request.getId(), request.getPassword());
+        Map<String, Object> response = new HashMap<>();
         if (user != null) {
             session.setAttribute("user", user); // 세션에 사용자 정보 저장
             logger.debug("로그인 성공 - 아이디: {}", request.getId());
-            return ResponseEntity.ok("success");
+            response.put("success", true);
+            response.put("username", user.getUsername());
+            return ResponseEntity.ok(response);
         } else {
             logger.debug("로그인 실패 - 아이디: {}", request.getId());
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("fail");
+            response.put("success", false);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
     }
 
