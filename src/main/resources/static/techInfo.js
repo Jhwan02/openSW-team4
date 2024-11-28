@@ -1,35 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let sortOrder = "desc"; // 기본 정렬은 최신순
+    const searchButton = document.querySelector(".search-button");
+    const searchModal = document.getElementById("searchModal");
+    const closeModal = document.getElementById("closeModal");
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
 
-    const toggleSortButton = document.getElementById("toggleSortButton");
-    const postContainer = document.getElementById("post-container");
-
-    // 초기 데이터 로드
-    loadPosts(sortOrder);
-
-    // 정렬 버튼 클릭 이벤트
-    toggleSortButton.addEventListener("click", () => {
-        sortOrder = sortOrder === "desc" ? "asc" : "desc";
-        toggleSortButton.textContent = `정렬: ${sortOrder === "desc" ? "최신순" : "오래된 순"}`;
-        loadPosts(sortOrder);
+    // 모달 열기
+    searchButton.addEventListener("click", () => {
+        searchModal.style.display = "block";
     });
 
-    // 서버에서 데이터 로드
-    function loadPosts(order) {
-        fetch(`/api/techInfo?sort=${order}`)
-            .then((response) => response.json())
-            .then((data) => {
-                postContainer.innerHTML = ""; // 기존 데이터 초기화
-                data.forEach((post) => {
-                    const listItem = document.createElement("li");
-                    listItem.className = "container-list";
-                    listItem.innerHTML = `
-                        <a href="${post.link}" target="_blank">${post.title}</a>
-                        <p>Date: ${post.date}</p>
-                    `;
-                    postContainer.appendChild(listItem);
-                });
-            })
-            .catch((error) => console.error("Error loading posts:", error));
-    }
+    // 모달 닫기
+    closeModal.addEventListener("click", () => {
+        searchModal.style.display = "none";
+    });
+
+    // 모달 외부 클릭 시 닫기
+    window.addEventListener("click", (event) => {
+        if (event.target === searchModal) {
+            searchModal.style.display = "none";
+        }
+    });
+
+    // 검색 기능
+    searchInput.addEventListener("input", () => {
+        const keyword = searchInput.value.trim();
+        if (keyword.length > 0) {
+            fetch(`/api/search?keyword=${encodeURIComponent(keyword)}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    searchResults.innerHTML = ""; // 기존 결과 초기화
+                    data.forEach((post) => {
+                        const listItem = document.createElement("li");
+                        listItem.textContent = post.title;
+                        listItem.addEventListener("click", () => {
+                            window.open(post.link, "_blank");
+                        });
+                        searchResults.appendChild(listItem);
+                    });
+                })
+                .catch((error) => console.error("Error fetching search results:", error));
+        } else {
+            searchResults.innerHTML = ""; // 검색어 없을 시 초기화
+        }
+    });
 });
