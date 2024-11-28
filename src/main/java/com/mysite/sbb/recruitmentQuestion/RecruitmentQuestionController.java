@@ -1,6 +1,7 @@
 package com.mysite.sbb.recruitmentQuestion;
 
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,19 +38,21 @@ private final RecruitmentQuestionService recruitQuestionService;
     }
 
 
-    
+    @PreAuthorize("isAuthenticated()") //추가
     @GetMapping("/create")
     public String questionCreate(RecruitmentQuestionForm recruitmentQuestionForm) {
         return "recruit_form"; // recruit_form.html 렌더링
     }
     
+    @PreAuthorize("isAuthenticated()") //추가
     @PostMapping("/create")
     public String questionCreate(@Valid RecruitmentQuestionForm recruitQuestionForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "recruit_form";
         }
-        this.recruitQuestionService.create(recruitQuestionForm.getSubject(), recruitQuestionForm.getContent());
+        this.recruitQuestionService.create(recruitQuestionForm.getSubject(), recruitQuestionForm.getContent(),recruitQuestionForm.getCategory());
         return "redirect:/recruit/list";
+        
     }
     
 }

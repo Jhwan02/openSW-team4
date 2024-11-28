@@ -35,4 +35,6 @@ public class RecruitmentQuestion {  // 클래스명 수정
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)  // 필드명 일치
     private List<RecruitmentAnswer> answerList;
+    
+    private String category; /*카테고리값 저장컬럼*/
 }

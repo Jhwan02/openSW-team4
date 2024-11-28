@@ -40,11 +40,12 @@ public class RecruitmentQuestionService {
     	Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
         return this.recruitmentQuestionRepository.findAll(pageable);
     }
-    public void create(String subject, String content) {
+    public void create(String subject, String content, String category) {
         RecruitmentQuestion q = new RecruitmentQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
+        q.setCategory(category);
         this.recruitmentQuestionRepository.save(q);
     }
 }

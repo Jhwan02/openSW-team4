@@ -134,4 +134,14 @@ body {
 	color:#000000;
 	border-color: #000000;
 }
+.category-badge {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 5px;
+	background-color:gainsboro; 
+	    color: black;
+}
+
+
 
