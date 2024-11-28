@@ -18,15 +18,15 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     // 회원가입 메서드
-    public boolean register(String id, String password, String username) {
+    public boolean register(String username, String id, String password) {
         logger.debug("회원가입 요청 - 아이디: {}, 사용자 이름: {}", id, username);
         if (userRepository.findById(id).isPresent()) {
             logger.debug("이미 존재하는 사용자 - 아이디: {}", id);
             return false; // 이미 존재하는 사용자
         }
         User user = new User();
-        user.setId(id);
         user.setUsername(username);
+        user.setId(id);
         user.setPassword(passwordEncoder.encode(password)); // 비밀번호 암호화
         userRepository.save(user);
         logger.debug("회원가입 성공 - 아이디: {}", id);

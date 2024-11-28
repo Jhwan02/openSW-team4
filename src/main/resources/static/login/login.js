@@ -39,11 +39,12 @@ document.getElementById("registerButton").addEventListener("click", function(eve
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, id , password }),
+        body: JSON.stringify({ username , id , password }),
     })
     .then(response => response.text())
     .then(data => {
         if (data === 'success') {
+            alert(`Username: ${username}\nID: ${id}\nPassword: ${password}`); //디버깅용 나중에 지워야함
             alert("회원가입 성공!");
             window.location.href = "/"; // 메인 페이지로 이동
         } else {

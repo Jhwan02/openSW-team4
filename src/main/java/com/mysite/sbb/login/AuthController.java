@@ -36,7 +36,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
         logger.debug("회원가입 요청 - 아이디: {}", request.getId());
-        boolean result = userService.register(request.getId(), request.getId(), request.getPassword());
+        boolean result = userService.register(request.getUsername(), request.getId(), request.getPassword());
         if (result) {
             logger.debug("회원가입 성공 - 아이디: {}", request.getId());
             return ResponseEntity.ok("success");
