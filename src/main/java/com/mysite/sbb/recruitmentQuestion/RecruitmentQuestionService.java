@@ -48,5 +48,6 @@ public class RecruitmentQuestionService {
         q.setCategory(category);
         this.recruitmentQuestionRepository.save(q);
     }
+    
 }
 
