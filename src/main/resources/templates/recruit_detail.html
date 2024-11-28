@@ -2,6 +2,12 @@
 <div layout:fragment="content" class="container my-3">
     <!-- 질문 -->
     <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
+	<!-- 카테고리 구분 -->
+	<div class="my-3">
+	    <span th:class="'badge category-badge ' + ${question.category}" 
+	          th:text="'[카테고리: ' + ${question.category} + ']'">
+	    </span>
+	</div>
     <div class="card my-3">
         <div class="card-body">
             <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>

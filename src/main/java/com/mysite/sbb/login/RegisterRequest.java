@@ -11,8 +11,8 @@ public class RegisterRequest {
     // 매개변수가 있는 생성자
     public RegisterRequest(String username, String id, String password) {
         this.username = username;
-        this.password = password;
         this.id = id;
+        this.password = password;
     }
 
     // Getter와 Setter 메서드
