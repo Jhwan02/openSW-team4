@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  
   // 초기화
   showSlide(currentSlide);
   startSlider();

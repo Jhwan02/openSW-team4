@@ -10,9 +10,10 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y:scroll;
 }
 
 /* Navbar */
@@ -125,7 +126,7 @@ body {
 .slider {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 50vh; /* 화면의 절반 높이 */
     overflow: hidden;
 }
 
@@ -289,3 +290,78 @@ footer {
 .modal-body button:hover {
     background-color: #0056b3;
 }
+
+/* 메인 콘텐츠 */
+.main-content {
+    margin-top: 20px; /* 슬라이더와 공지 섹션 간격 조정 */
+    padding-bottom: 20px; /* 푸터와 공지 섹션 간격 추가 */
+    flex-grow: 1;
+}
+
+/* 왼쪽 이미지 섹션 */
+.left-image {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* 공지사항 및 HOT 게시물 */
+.notice-section, .hot-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notice-section h3, .hot-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.notice-list, .hot-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notice-list li, .hot-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.notice-list li:last-child, .hot-list li:last-child {
+    border-bottom: none;
+}
+
+.notice-list li a, .hot-list li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.notice-list li a:hover, .hot-list li a:hover {
+    color: #0056b3;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .main-content .row {
+        flex-direction: column;
+    }
+
+    .left-image {
+        margin-bottom: 20px;
+    }
+}
+
