@@ -7,16 +7,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const currentPath = window.location.pathname; // 현재 페이지 경로
     let searchApiUrl = "/question/api/search"; // 기본값
-
-    // if (currentPath.startsWith("/blog")) {
-    //     searchApiUrl = "/blog/api/search";
-    // } else if (currentPath.startsWith("/news")) {
-    //     searchApiUrl = "/news/api/search";
-    // }
-
+    
+    if (currentPath.startsWith("/recruit/project")) {
+        searchApiUrl = "/recruit/project/api/search";
+    } else if (currentPath.startsWith("/recruit")) {
+        searchApiUrl = "/recruit/api/search";
+    }
+    //console.log(searchApiUrl);
     // 모달 열기
     searchButton.addEventListener("click", () => {
         searchModal.style.display = "block";
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            searchModal.style.display = "none";
+        }
     });
 
     // 모달 닫기
@@ -43,7 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         const listItem = document.createElement("li");
                         listItem.textContent = item.subject;
                         listItem.addEventListener("click", () => {
-                            window.location.href = `/question/detail/${item.id}`; // 해당 글로 이동
+                            if(currentPath.startsWith("/question")) {
+                                window.location.href = `/question/detail/${item.id}`;
+                            }else if(currentPath.startsWith("/recruit")) {
+                                window.location.href = `/recruit/detail/${item.id}`;
+                            }else if(currentPath.startsWith("/recruit/project")) {
+                                window.location.href = `/recruit/project/detail/${item.id}`;
+                            }
                         });
                         searchResults.appendChild(listItem);
                     });

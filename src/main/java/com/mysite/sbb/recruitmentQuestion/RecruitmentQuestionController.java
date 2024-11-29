@@ -1,5 +1,10 @@
 package com.mysite.sbb.recruitmentQuestion;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -10,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswerForm;
 import java.security.Principal;
@@ -61,5 +67,20 @@ private final UserService userService;
         
     }
     
+    @GetMapping("/api/search")
+    @ResponseBody
+    public List<Map<String, Object>> searchRecruitmentQuestions(@RequestParam("keyword") String keyword) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<RecruitmentQuestion> questions = recruitQuestionService.searchBySubject(keyword);
+        List<Map<String, Object>> results = new ArrayList<>();
+        for (RecruitmentQuestion question : questions) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", question.getId());
+            map.put("subject", question.getSubject());
+            results.add(map);
+        }
+    return results;
+    }
 }
-
