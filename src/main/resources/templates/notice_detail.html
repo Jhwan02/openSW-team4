@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${notice.title}"></title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 th:text="${notice.title}"></h1>
+        <p class="text-muted" th:text="${#dates.format(notice.createDate, 'yyyy-MM-dd HH:mm')}"></p>
+        <div th:text="${notice.content}"></div>
+        <a href="/notice" class="btn btn-secondary mt-3">목록으로</a>
+    </div>
+</body>
+</html>

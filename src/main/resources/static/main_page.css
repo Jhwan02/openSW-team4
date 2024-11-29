@@ -427,15 +427,6 @@ footer {
     border-radius: 8px;
 }
 
-/* 공지사항 및 HOT 게시물 */
-.hot-section {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 
 /* 공지사항 카드 스타일 */
 .notice-section {
