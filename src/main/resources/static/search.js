@@ -5,6 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
     const searchResults = document.getElementById("searchResults");
 
+    const currentPath = window.location.pathname; // 현재 페이지 경로
+    let searchApiUrl = "/question/api/search"; // 기본값
+
+    // if (currentPath.startsWith("/blog")) {
+    //     searchApiUrl = "/blog/api/search";
+    // } else if (currentPath.startsWith("/news")) {
+    //     searchApiUrl = "/news/api/search";
+    // }
+
     // 모달 열기
     searchButton.addEventListener("click", () => {
         searchModal.style.display = "block";
@@ -26,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.addEventListener("input", () => {
         const keyword = searchInput.value.trim();
         if (keyword.length > 0) {
-            fetch(`/question/api/search?keyword=${encodeURIComponent(keyword)}`)
+            fetch(`${searchApiUrl}?keyword=${encodeURIComponent(keyword)}`)
                 .then((response) => response.json())
                 .then((data) => {
                     searchResults.innerHTML = ""; // 기존 결과 초기화
