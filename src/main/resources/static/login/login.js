@@ -16,16 +16,20 @@ document.getElementById("loginButton").addEventListener("click", function(event)
         if (data.success) {
             alert("로그인 성공!");
             const loginButton = document.getElementById("mainLoginButton");
-            loginButton.textContent = "마이페이지";
-            loginButton.onclick = function() {
+            loginButton.style.display = "none"; // 로그인 버튼 숨기기
+
+            const myPageButtonContainer = document.getElementById("myPageButtonContainer");
+            myPageButtonContainer.style.display = "block"; // 마이페이지 버튼 보이기
+
+            const myPageButton = document.getElementById("myPageButton");
+            myPageButton.onclick = function() {
                 window.location.href = "/mypage"; // 마이페이지로 이동
-            };
 
             // 환영 메시지 표시
             const welcomeMessage = document.getElementById("welcomeMessage");
             welcomeMessage.textContent = `${data.username}님 환영합니다`;
             welcomeMessage.style.display = "inline";
-
+            }
         } else {
             alert("로그인 실패! 아이디와 비밀번호를 확인하세요.");
         }
