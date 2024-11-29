@@ -52,4 +52,20 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("fail");
         }
     }
+    @GetMapping("/session-info")
+    public ResponseEntity<Map<String, Object>> getSessionInfo(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        Map<String, Object> response = new HashMap<>();
+        if (user != null) {
+            response.put("loggedIn", true);
+            response.put("username", user.getUsername());
+            response.put("id", user.getId());
+            logger.debug("세션 확인 - 로그인 상태: true, 아이디: {}, 이름: {}", user.getId(), user.getUsername());
+            return ResponseEntity.ok(response);
+        } else {
+            response.put("loggedIn", false);
+            logger.debug("세션 확인 - 로그인 상태: false");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+        }
+    }
 }
