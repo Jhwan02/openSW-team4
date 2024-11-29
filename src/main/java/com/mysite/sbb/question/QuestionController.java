@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.mysite.sbb.answer.AnswerForm;
 
@@ -53,5 +59,22 @@ public class QuestionController {
         this.questionService.create(questionForm.getSubject(), questionForm.getContent());
         return "redirect:/question/list"; // 질문 목록으로 리다이렉트
     }
-}
 
+    @GetMapping("/api/search")
+    @ResponseBody
+    public List<Map<String, Object>> searchQuestions(@RequestParam("keyword") String keyword) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return new ArrayList<>(); // 빈 리스트 반환
+        }
+        List<Question> questions = questionService.searchBySubject(keyword);
+        List<Map<String, Object>> results = new ArrayList<>();
+        for (Question question : questions) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", question.getId());
+            map.put("subject", question.getSubject());
+            results.add(map);
+        }
+        return results;
+    }
+
+}

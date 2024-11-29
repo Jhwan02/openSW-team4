@@ -47,4 +47,7 @@ public class QuestionService {
         q.setCreateDate(LocalDateTime.now());
         this.questionRepository.save(q);
     }
+    public List<Question> searchBySubject(String keyword) {
+        return questionRepository.findBySubjectContaining(keyword);
+    }
 }
