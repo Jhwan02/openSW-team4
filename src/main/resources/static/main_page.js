@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdownMenu.classList.toggle("show"); // 드롭다운 메뉴 표시/숨김
   });
 
+// 드롭다운 외부 클릭 시 닫기
+document.addEventListener("click", (event) => {
+  if (!hamburger.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    dropdownMenu.classList.remove("show");
+  }
+});
 
   // 슬라이드 표시 함수
   function showSlide(index) {
