@@ -3,6 +3,7 @@ package com.mysite.sbb.recruitmentQuestion;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.mysite.sbb.login.User;
 import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswer; // Import 추가
 
 
@@ -12,6 +13,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 import lombok.Getter;
@@ -37,4 +39,8 @@ public class RecruitmentQuestion {  // 클래스명 수정
     private List<RecruitmentAnswer> answerList;
     
     private String category; /*카테고리값 저장컬럼*/
+    
+    @ManyToOne
+    private User author;
+    
 }

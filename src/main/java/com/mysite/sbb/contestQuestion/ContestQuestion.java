@@ -2,6 +2,8 @@ package com.mysite.sbb.contestQuestion;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import jakarta.persistence.ManyToOne;
+import com.mysite.sbb.login.User;
 
 import com.mysite.sbb.contestAnswer.ContestAnswer; // Import 추가
 
@@ -35,4 +37,6 @@ public class ContestQuestion {
 
     @OneToMany(mappedBy = "contestQuestion", cascade = CascadeType.REMOVE)  // 필드명 일치
     private List<ContestAnswer> answerList;
+    @ManyToOne
+    private User author;
 }

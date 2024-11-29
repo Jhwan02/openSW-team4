@@ -5,6 +5,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.Optional;
+import com.mysite.sbb.DataNotFoundException;
 
 @Service
 public class UserService {
@@ -43,5 +45,14 @@ public class UserService {
         }
         logger.debug("인증 실패 - 아이디: {}", id);
         return null; // 인증 실패
+    }
+    
+    public User getUser(String username) {
+        Optional<User> siteUser = this.userRepository.findByUsername(username);
+        if (siteUser.isPresent()) {
+            return siteUser.get();
+        } else {
+            throw new DataNotFoundException("siteuser not found");
+        }
     }
 }

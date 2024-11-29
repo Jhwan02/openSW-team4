@@ -2,6 +2,7 @@ package com.mysite.sbb.contestAnswer;
 import java.time.LocalDateTime;
 
 import com.mysite.sbb.contestQuestion.ContestQuestion; // Import 추가
+import com.mysite.sbb.login.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,4 +29,8 @@ public class ContestAnswer {
 
     @ManyToOne
     private ContestQuestion contestQuestion; 
+    
+    @ManyToOne
+    private User author;
+    
 }

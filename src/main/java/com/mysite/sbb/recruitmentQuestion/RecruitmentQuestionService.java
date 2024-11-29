@@ -1,4 +1,5 @@
 package com.mysite.sbb.recruitmentQuestion;
+import com.mysite.sbb.login.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.mysite.sbb.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
+
 
 @RequiredArgsConstructor
 @Service
@@ -40,12 +42,13 @@ public class RecruitmentQuestionService {
     	Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
         return this.recruitmentQuestionRepository.findAll(pageable);
     }
-    public void create(String subject, String content, String category) {
+    public void create(String subject, String content, String category, User user) {
         RecruitmentQuestion q = new RecruitmentQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
         q.setCategory(category);
+        q.setAuthor(user);
         this.recruitmentQuestionRepository.save(q);
     }
     

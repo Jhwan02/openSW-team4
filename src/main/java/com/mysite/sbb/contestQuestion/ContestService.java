@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.mysite.sbb.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
+import com.mysite.sbb.login.User;
 
 @RequiredArgsConstructor
 @Service
@@ -41,11 +42,12 @@ public class ContestService {
     	Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
         return this.questionRepository.findAll(pageable);
     }
-    public void create(String subject, String content) {
+    public void create(String subject, String content,User user) {
         ContestQuestion q = new ContestQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
+        q.setAuthor(user);
         this.questionRepository.save(q);
     }
 }

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswerForm;
+import java.security.Principal;
+import com.mysite.sbb.login.User;
+import com.mysite.sbb.login.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,8 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class RecruitmentQuestionController {
 private final RecruitmentQuestionService recruitQuestionService;
+private final UserService userService;
+
     
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value="page", defaultValue="0") int page) {
@@ -46,11 +51,12 @@ private final RecruitmentQuestionService recruitQuestionService;
     
     @PreAuthorize("isAuthenticated()") //추가
     @PostMapping("/create")
-    public String questionCreate(@Valid RecruitmentQuestionForm recruitQuestionForm, BindingResult bindingResult) {
+    public String questionCreate(@Valid RecruitmentQuestionForm recruitQuestionForm, BindingResult bindingResult, Principal principal) {
         if (bindingResult.hasErrors()) {
             return "recruit_form";
         }
-        this.recruitQuestionService.create(recruitQuestionForm.getSubject(), recruitQuestionForm.getContent(),recruitQuestionForm.getCategory());
+        User siteUser = this.userService.getUser(principal.getName());
+        this.recruitQuestionService.create(recruitQuestionForm.getSubject(), recruitQuestionForm.getContent(),recruitQuestionForm.getCategory(),siteUser);
         return "redirect:/recruit/list";
         
     }
