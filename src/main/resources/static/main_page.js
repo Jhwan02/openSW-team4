@@ -5,24 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dots = document.querySelectorAll('.dot');
   let currentSlide = 0;
   let sliderInterval;
-
-  // 로그인 버튼 이벤트
-  loginSubmit.addEventListener("click", () => {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    if (username && password) {
-      loginButton.innerHTML = `<i class="fa-regular fa-user fa-xl"></i>`;
-      loginButton.removeAttribute("data-bs-toggle");
-      loginButton.removeAttribute("data-bs-target");
-
-      const loginModal = bootstrap.Modal.getInstance(document.getElementById("loginModal"));
-      loginModal.hide();
-    } else {
-      alert("아이디와 비밀번호를 입력하세요.");
-    }
-  });
-
+  
   // 햄버거 버튼과 드롭다운 메뉴
   const hamburger = document.getElementById("hamburger");
   const dropdownMenu = document.getElementById("dropdownMenu");
