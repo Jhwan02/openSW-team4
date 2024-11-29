@@ -49,5 +49,8 @@ public class RecruitmentQuestionService {
         this.recruitmentQuestionRepository.save(q);
     }
     
+    public List<RecruitmentQuestion> searchBySubject(String keyword) {
+        return recruitmentQuestionRepository.findBySubjectLike("%" + keyword + "%");
+    }
 }
 
