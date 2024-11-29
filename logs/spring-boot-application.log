@@ -39,4 +39,302 @@
 2024-11-29T16:01:13.807+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-10] org.hibernate.orm.sql.exec               : Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
 2024-11-29T16:01:13.807+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-10] org.hibernate.orm.results                : Initializer list:
 	  com.mysite.sbb.question.Question.answerList.{element}.question -> EntitySelectFetchInitializer(com.mysite.sbb.question.Question.answerList.{element}.question)@192276706 (ToOneAttributeMapping(NavigableRole[com.mysite.sbb.answer.Answer.question])@2105972701)
-	  com.mysite.sbb.question.Question.answerList.{element} -> EntityJoinedFetchInitializer(com.mysite.sbb.question.Question.answerList.{element})@143110732 (Entity
+	  com.mysite.sbb.question.Question.answerList.{element} -> EntityJoinedFetchInitializer(com.mysite.sbb.question.Question.answerList.{element})@143110732 (EntityCollectionPart(com.mysite.sbb.question.Question.answerList#{element})@1208230929)
+	  com.mysite.sbb.question.Question.answerList -> BagInitializer(com.mysite.sbb.question.Question.answerList)@147551834 (PluralAttribute(com.mysite.sbb.question.Question.answerList))
+
+2024-11-29T16:01:13.807+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-10] org.hibernate.SQL                        : select al1_0.question_id,al1_0.id,al1_0.content,al1_0.create_date from answer al1_0 where al1_0.question_id=?
+2024-11-29T16:01:13.807+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-10] o.h.sql.results.internal.ResultsHelper   : Collection fully initialized: [com.mysite.sbb.question.Question.answerList#33]
+2024-11-29T16:01:13.812+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-10] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.812+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-29T16:01:13.812+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.839+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /style.css
+2024-11-29T16:01:13.839+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /bootstrap.min.css
+2024-11-29T16:01:13.839+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /style.css
+2024-11-29T16:01:13.839+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/style.css", parameters={}
+2024-11-29T16:01:13.839+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /bootstrap.min.css
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/bootstrap.min.css", parameters={}
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /img/1866_file01/211. 메인 캐릭터_우왕이.png
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /img/1866_file01/211. 메인 캐릭터_우왕이.png
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/img/1866_file01/211.%20%EB%A9%94%EC%9D%B8%20%EC%BA%90%EB%A6%AD%ED%84%B0_%EC%9A%B0%EC%99%95%EC%9D%B4.png", parameters={}
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /images/79bc31df-8117-44b6-9faf-fe8fbb02f2d9_스크린샷 2024-09-28 133128.png
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /images/79bc31df-8117-44b6-9faf-fe8fbb02f2d9_스크린샷 2024-09-28 133128.png
+2024-11-29T16:01:13.840+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/images/79bc31df-8117-44b6-9faf-fe8fbb02f2d9_%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-09-28%20133128.png", parameters={}
+2024-11-29T16:01:13.844+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:/C:/upload/]]
+2024-11-29T16:01:13.844+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.848+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.848+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-29T16:01:13.849+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /bootstrap.min.js
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /bootstrap.min.js
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/bootstrap.min.js", parameters={}
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-29T16:01:13.863+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.885+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /bootstrap.min.css.map
+2024-11-29T16:01:13.885+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /bootstrap.min.css.map
+2024-11-29T16:01:13.885+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/bootstrap.min.css.map", parameters={}
+2024-11-29T16:01:13.885+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-29T16:01:13.885+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.893+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /bootstrap.min.js.map
+2024-11-29T16:01:13.893+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /bootstrap.min.js.map
+2024-11-29T16:01:13.893+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/bootstrap.min.js.map", parameters={}
+2024-11-29T16:01:13.894+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-29T16:01:13.894+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.894+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-11-29T16:01:13.894+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource bootstrap.min.css.map.]
+2024-11-29T16:01:13.894+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.894+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-11-29T16:01:13.894+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.895+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /error
+2024-11-29T16:01:13.895+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /error
+2024-11-29T16:01:13.895+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-11-29T16:01:13.895+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-11-29T16:01:13.895+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.896+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-11-29T16:01:13.896+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-11-29T16:01:13.896+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Fri Nov 29 16:01:13 KST 2024, status=404, error=Not Found, trace=org.springframework.web. (truncated)...]
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource bootstrap.min.js.map.]
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /error
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /error
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Fri Nov 29 16:01:13 KST 2024, status=404, error=Not Found, trace=org.springframework.web. (truncated)...]
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1293) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1181) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:792) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:348) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:257) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-11-29T16:01:13.897+09:00 DEBUG 7988 --- [sbb] [http-nio-8080-exec-6] o.apache.coyote.http11.Http11Processor   : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1293) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1181) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:792) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:348) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:257) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-11-29T16:01:25.401+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:01:25.401+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:01:27.130+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(30)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(30)-127.0.0.1: (port 62119) connection closed
+2024-11-29T16:01:27.130+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(30)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(30)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62624,localport=62119]
+2024-11-29T16:01:27.130+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(30)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(30)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62624,localport=62119]
+2024-11-29T16:01:27.145+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(32)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(32)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:01:27.145+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(32)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(32)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62626,localport=62122]
+2024-11-29T16:01:27.145+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(32)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(32)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62626,localport=62122]
+2024-11-29T16:01:38.502+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(33)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(33)-127.0.0.1: accepted socket from [127.0.0.1:62643]
+2024-11-29T16:01:38.502+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(33)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(33)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:01:38.502+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(33)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:01:53.513+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(33)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(33)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:01:53.513+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(33)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(33)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62643,localport=62122]
+2024-11-29T16:01:53.514+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(33)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(33)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62643,localport=62122]
+2024-11-29T16:01:55.418+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:01:55.418+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:02:25.425+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:02:25.425+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:02:38.525+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(34)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(34)-127.0.0.1: accepted socket from [127.0.0.1:62666]
+2024-11-29T16:02:38.525+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(34)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(34)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:02:38.525+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(34)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:02:53.529+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(34)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(34)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:02:53.529+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(34)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(34)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62666,localport=62122]
+2024-11-29T16:02:53.529+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(34)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(34)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62666,localport=62122]
+2024-11-29T16:02:55.427+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:02:55.429+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:03:25.436+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:03:25.436+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:03:38.546+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(35)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(35)-127.0.0.1: accepted socket from [127.0.0.1:62669]
+2024-11-29T16:03:38.547+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(35)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(35)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:03:38.547+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(35)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:03:53.560+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(35)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(35)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:03:53.561+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(35)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(35)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62669,localport=62122]
+2024-11-29T16:03:53.561+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(35)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(35)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62669,localport=62122]
+2024-11-29T16:03:55.438+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:03:55.438+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:04:25.440+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:04:25.441+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:04:38.557+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(36)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(36)-127.0.0.1: accepted socket from [127.0.0.1:62684]
+2024-11-29T16:04:38.557+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(36)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(36)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:04:38.557+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(36)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:04:53.560+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(36)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(36)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:04:53.560+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(36)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(36)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62684,localport=62122]
+2024-11-29T16:04:53.561+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(36)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(36)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62684,localport=62122]
+2024-11-29T16:04:55.445+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:04:55.445+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:05:16.211+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(37)-127.0.0.1: accepted socket from [127.0.0.1:62696]
+2024-11-29T16:05:16.212+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(37)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:05:16.212+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(37)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:16.212+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(37)-127.0.0.1: name = "java.rmi.server.ObjID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:16.212+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(37)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:16.212+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(37)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:16.212+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(37)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:25.450+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:05:25.450+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:05:31.214+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(37)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:05:31.215+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(37)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62696,localport=62122]
+2024-11-29T16:05:31.215+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(37)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(37)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62696,localport=62122]
+2024-11-29T16:05:38.566+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(38)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(38)-127.0.0.1: accepted socket from [127.0.0.1:62698]
+2024-11-29T16:05:38.567+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(38)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(38)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:05:38.567+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(38)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:05:53.569+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(38)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(38)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:05:53.569+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(38)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(38)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62698,localport=62122]
+2024-11-29T16:05:53.570+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(38)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(38)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62698,localport=62122]
+2024-11-29T16:05:55.461+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:05:55.461+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:05:57.131+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(39)-127.0.0.1: accepted socket from [127.0.0.1:62702]
+2024-11-29T16:05:57.132+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(39)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:05:57.132+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(39)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:57.132+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(39)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:57.133+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(39)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:57.133+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(39)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:05:57.133+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(39)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:06:12.135+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(39)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:06:12.137+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(39)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62702,localport=62122]
+2024-11-29T16:06:12.138+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(39)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(39)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62702,localport=62122]
+2024-11-29T16:06:25.477+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:06:25.477+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:06:38.585+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(40)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(40)-127.0.0.1: accepted socket from [127.0.0.1:62732]
+2024-11-29T16:06:38.587+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(40)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(40)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:06:38.588+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(40)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:06:53.597+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(40)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(40)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:06:53.598+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(40)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(40)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62732,localport=62122]
+2024-11-29T16:06:53.598+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(40)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(40)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62732,localport=62122]
+2024-11-29T16:06:55.484+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:06:55.484+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:07:25.496+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:07:25.496+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:07:38.599+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(41)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(41)-127.0.0.1: accepted socket from [127.0.0.1:62738]
+2024-11-29T16:07:38.599+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(41)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(41)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:07:38.599+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(41)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:07:53.614+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(41)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(41)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:07:53.614+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(41)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(41)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62738,localport=62122]
+2024-11-29T16:07:53.614+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(41)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(41)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62738,localport=62122]
+2024-11-29T16:07:55.510+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:07:55.510+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:08:25.525+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:08:25.525+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:08:38.613+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(42)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(42)-127.0.0.1: accepted socket from [127.0.0.1:62745]
+2024-11-29T16:08:38.613+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(42)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(42)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:08:38.613+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(42)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:08:53.637+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(42)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(42)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:08:53.637+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(42)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(42)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62745,localport=62122]
+2024-11-29T16:08:53.638+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(42)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(42)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62745,localport=62122]
+2024-11-29T16:08:55.530+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:08:55.531+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:09:25.531+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:09:25.531+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:09:38.639+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(43)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(43)-127.0.0.1: accepted socket from [127.0.0.1:62763]
+2024-11-29T16:09:38.640+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(43)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(43)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:09:38.640+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(43)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  1
+2024-11-29T16:09:53.643+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(43)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(43)-127.0.0.1: (port 62122) connection closed
+2024-11-29T16:09:53.643+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(43)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(43)-127.0.0.1: close connection, socket: Socket[addr=/127.0.0.1,port=62763,localport=62122]
+2024-11-29T16:09:53.644+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(43)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(43)-127.0.0.1: socket close: Socket[addr=/127.0.0.1,port=62763,localport=62122]
+2024-11-29T16:09:55.546+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:09:55.546+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Fill pool skipped, pool has sufficient level or currently being filled.
+2024-11-29T16:10:06.179+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(44)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(44)-127.0.0.1: accepted socket from [127.0.0.1:62764]
+2024-11-29T16:10:06.179+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(44)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(44)-127.0.0.1: (port 62119) op = 80
+2024-11-29T16:10:06.186+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(45)-127.0.0.1: accepted socket from [127.0.0.1:62765]
+2024-11-29T16:10:06.187+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(45)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:10:06.187+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.187+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.server.ObjID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.188+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.189+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.190+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.190+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.191+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(44)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(44)-127.0.0.1: (port 62119) op = 82
+2024-11-29T16:10:06.191+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(44)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(44)-127.0.0.1: (port 62119) op = 84
+2024-11-29T16:10:06.191+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(45)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:10:06.193+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(45)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:10:06.194+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.194+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.server.ObjID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.194+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.194+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.194+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.194+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@49402f25
+2024-11-29T16:10:06.195+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(45)-127.0.0.1: (port 62122) op = 84
+2024-11-29T16:10:06.195+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(45)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:10:06.195+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.transport.tcp                    : RMI TCP Connection(45)-127.0.0.1: (port 62122) op = 80
+2024-11-29T16:10:06.195+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "javax.management.ObjectName", codebase = ""
+2024-11-29T16:10:06.196+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] sun.rmi.loader                           : RMI TCP Connection(45)-127.0.0.1: name = "java.rmi.MarshalledObject", codebase = ""
+2024-11-29T16:10:06.197+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  12 unwrapping params with MBean extended ClassLoader.
+2024-11-29T16:10:06.197+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] javax.management.remote.rmi              : connectionId=rmi://127.0.0.1  12, name=org.springframework.boot:type=Admin,name=SpringApplication, operationName=shutdown, signature=null
+2024-11-29T16:10:06.197+09:00  INFO 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-29T16:10:06.197+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2024-11-29T16:10:06.198+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6c3cba90, started on Fri Nov 29 16:00:54 KST 2024
+2024-11-29T16:10:06.199+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2024-11-29T16:10:06.199+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Bean 'applicationTaskExecutor' completed its stop procedure
+2024-11-29T16:10:06.199+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147482623
+2024-11-29T16:10:06.199+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
+2024-11-29T16:10:06.199+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147481599
+2024-11-29T16:10:06.557+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2024-11-29T16:10:06.557+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147483647
+2024-11-29T16:10:06.557+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.c.support.DefaultLifecycleProcessor  : Bean 'springBootLoggingLifecycle' completed its stop procedure
+2024-11-29T16:10:06.558+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2024-11-29T16:10:06.559+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2024-11-29T16:10:06.559+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2024-11-29T16:10:06.559+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2024-11-29T16:10:06.560+09:00  INFO 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-29T16:10:06.561+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.hibernate.internal.SessionFactoryImpl  : HHH000031: Closing
+2024-11-29T16:10:06.561+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@570591b9] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@4aca64cd]
+2024-11-29T16:10:06.561+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.h.s.i.AbstractServiceRegistryImpl      : Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2024-11-29T16:10:06.561+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] o.h.b.r.i.BootstrapServiceRegistryImpl   : Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2024-11-29T16:10:06.562+09:00  INFO 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2024-11-29T16:10:06.562+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn54: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn55: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn56: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn57: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn58: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn59: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn60: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn61: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn62: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.563+09:00 DEBUG 7988 --- [sbb] [HikariPool-7 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-7 - Closing connection conn63: url=jdbc:h2:~/local user=SA: (connection evicted)
+2024-11-29T16:10:06.767+09:00 DEBUG 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2024-11-29T16:10:06.768+09:00  INFO 7988 --- [sbb] [RMI TCP Connection(45)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
