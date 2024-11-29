@@ -1,19 +1,41 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container">
     <h5 class="my-3 border-bottom pb-2">질문등록</h5>
-    <form th:action="@{/recruit/create}" th:object="${recruitForm}" method="post">
-        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
-        <div class="mb-3">
-            <label for="subject" class="form-label">제목</label>
-            <input type="text" th:field="*{subject}" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">내용</label>
-            <textarea th:field="*{content}" class="form-control" rows="10"></textarea>
-        </div>
-        <input type="submit" value="저장하기" class="btn btn-primary my-2">
-    </form>
-</div>
-</html>
+    <form th:action="@{/recruit/create}" th:object="${recruitmentQuestionForm}" method="post">
+		<div th:replace="~{form_errors :: formErrorsFragment}"></div>
+		
+				<div class="mb-3">
+					<label for="category" class="form-label">카테고리</label>
+					<select th:field="*{category}" class="form-select">
+					<option value="">카테고리를 선택해주세요</option> <!-- 선택 안 한 비어있는 값 -->
+					<option value="Java">JAVA</option>
+					<option value="Python">Python</option>
+					<option value="C/C++">C/C++</option>
+					<option value="C#">C#</option>
+					<option value="Spring">Spring</option>
+					<option value="Scala">Scala</option>
+					<option value="JavaScript">JavaScript</option>
+					<option value="Swift">Swift</option>
+					<option value="SQL">SQL</option>
+					<option value="Kotlin">Kotlin</option>
+					<option value="기타">기타</option>
+					</select>
+				</div>
+		        <div class="mb-3">
+		            <label for="subject" class="form-label">제목</label>
+		            <input type="text" th:field="*{subject}" class="form-control">
+		        </div>
+				
+		        <div class="mb-3">
+		            <label for="content" class="form-label">내용</label>
+		            <textarea th:field="*{content}" class="form-control" rows="10"></textarea>
+		        </div>
+		        <input type="submit" value="저장하기" class="btn btn-primary my-2">
+				
+
+		    </form>
+		</div>
+		
+	</html>
 
 

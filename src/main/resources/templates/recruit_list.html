@@ -4,33 +4,33 @@
 <body>
 	<h2>인원모집게시판</h2>
 	<div layout:fragment="content" class="container my-3">
+		
 		<!-- 두 번째 네비게이션 바 -->
 		        <nav class="navbar navbar-expand-lg navbar-secondary">
 		            <div class="container-fluid">
 		                <a class="navbar-brand" href="#">인원모집게시판</a>
 		                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		                    <li class="nav-item">
-		                        <a class="nav-link" href="#">공모전</a>
+		                        <a class="nav-link" href="/recruit/list">스터디</a>
 		                    </li>
 		                    <li class="nav-item">
-		                        <a class="nav-link" href="#">스터디</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="#">프로젝트</a>
+		                        <a class="nav-link" href="/recruit/project/list">프로젝트</a>
 		                    </li>
 		                </ul>
 		            </div>
 		        </nav>
 	    <table class="table">
-	        <thead class="table-dark">
+	        <thead class="table-head">
 	            <tr>
 	                <th>번호</th>
 	                <th>제목</th>
+					<th>카테고리</th>
 	                <th>작성일시</th>
 	            </tr>
 	        </thead>
 	        <tbody>
 	            <tr th:each="question, loop : ${paging}">
+					
 	                <td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
 	                <td>
 	                    <a th:href="@{/recruit/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
@@ -38,6 +38,8 @@
 	                        th:if="${#lists.size(question.answerList) > 0}" 
 	                        th:text="${#lists.size(question.answerList)}">
 	                    </span>
+						<!--카테고리값 텍스트로출력-->
+					<td><span th:text="${question.category}"></span></td>
 	                </td>
 	                <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
 	            </tr>

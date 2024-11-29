@@ -3,6 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+	
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
@@ -10,11 +11,11 @@
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 	
 	
-    <title>Hello, sbb!</title>
+   <title>예비 개발자 커뮤니티</title>
 </head>
 <body>
 	<!-- 네비게이션바 -->
-	<nav th:replace="~{navbar :: navbarFragment}"></nav>
+	<nav th:replace="~{navbar}"></nav>
 	
 	<!-- 기본 템플릿 안에 삽입될 내용 Start -->
 	<th:block layout:fragment="content"></th:block>

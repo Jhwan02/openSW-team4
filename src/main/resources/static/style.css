@@ -1,55 +1,119 @@
-/* recruit.css */
-
 
 body {
     font-family: Arial, sans-serif; /* 비슷한 서체 */
     background-color: #f9f9f9;
-    color: white; /* 기본 텍스트 색상 */
+    color: black; /* 기본 텍스트 색상 */
+	
 }
 
-.navbar {
-    background-color: navy; /* 네비게이션 바 배경색 */
-    border-bottom: 1px solid #ddd; /* 하단 경계선 */
+.Header {
+    background-color: #ffffff;
 }
 
-.navbar .navbar-brand {
-    font-weight: bold;
-    color: white !important; /* 텍스트 색상: 화이트 */
+.nav{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 55px 0 55px;
 }
 
-.navbar .nav-link {
-    color: white !important; /* 텍스트 색상: 화이트 */
+.nav .logo{
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    color: black;
 }
 
-.navbar .nav-link:hover {
-    color: #ffcc00 !important; /* 강조 색상: 밝은 노란색 */
+.nav-bar{
+    max-width: 700px;
+    display: flex;
+    align-items: center;
 }
 
-
-.navbar-custom .nav-link:hover {
-    color: lightgray !important;      /* 호버 시 색상: 밝은 회색 */
+.nav-bar a:hover {
+    color: #000000; /* 호버 시 색상 변경 */
 }
 
-.navbar-custom .navbar-toggler-icon {
-    filter: invert(1);    
-	}            /* 햄버거 메뉴 색상 반전 */
+.nav-bar li{
+    margin: 20px 40px 0 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
 
-.table {
-    background-color: navy; /* 테이블 배경 */
+.nav-bar li a{
+    color: #666666;
+	text-decoration: none;
+}
+
+.nav-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right .search-button{
+    margin-right: 10px;
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
     border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.table th {
-    background-color: navy;
+.nav-right .search-button p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right .search-button i{
+    margin-left: 10px;
+    font-size: 14px;
+    color: black;
+}
+
+.nav-bar .login-button{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.table td {
-    color: navy;
+.nav-right .login-button p {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
+
+.nav-right .login-button p:hover{
+    color: #000000;
+}
+
+.nav-right .login-button i{
+    color: #000000;
+}
+
 /*recruit 두번째 navbar*/
 .navbar-secondary {
-    background-color: #6c85a1; /* 연한 네이비 색상 */
+    background-color: lightgray; 
     color: white;
     border-bottom: 1px solid #ddd; /* 하단 경계선 */
     width: 100%; /* 부모 요소 너비와 맞춤 */
@@ -58,9 +122,26 @@ body {
 
 .navbar-secondary .navbar-brand,
 .navbar-secondary .nav-link {
-    color: white !important; /* 텍스트 색상 */
+    color: black !important; /* 텍스트 색상 */
 }
 
 .navbar-secondary .nav-link:hover {
     color: #ffcc00 !important; /* 호버 강조 색상 */
 }
+
+.btn-primary{
+	background-color: white;
+	color:#000000;
+	border-color: #000000;
+}
+.category-badge {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 5px;
+	background-color:gainsboro; 
+	    color: black;
+}
+
+
+
