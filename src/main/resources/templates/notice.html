@@ -20,7 +20,7 @@
         </a>
         <!-- 네비게이션 메뉴 -->
         <ul class="nav-bar">
-          <li><a href="/contest/list">공모전</a></li>
+          <li><a href="/contest">공모전</a></li>
           <li><a href="/recruit/list">인원 모집</a></li>
           <li><a href="techInfo">IT 기술</a></li>
           <li><a href="/question/list">자유</a></li>
@@ -41,9 +41,9 @@
         <div class="col-12">
             <ul class="list-group">
                 <!-- 공지사항 데이터 반복 출력 -->
-                <li class="list-group-item" th:each="notice : ${notices}">
-                    <a th:href="@{/notice/{id}(id=${notice.id})}" th:text="${notice.title}"></a>
-                    <span class="text-muted" th:text="${#dates.format(notice.createDate, 'yyyy-MM-dd HH:mm')}"></span>
+                <li class="list-group-item" th:each="question : ${question}}">
+					<a th:href="@{/notice/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
+                    <span class="text-muted" th:text="${#dates.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></span>
                 </li>
             </ul>
         </div>
