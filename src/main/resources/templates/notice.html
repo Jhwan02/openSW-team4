@@ -41,8 +41,8 @@
         <div class="col-12">
             <ul class="list-group">
                 <!-- 공지사항 데이터 반복 출력 -->
-                <li class="list-group-item" th:each="question : ${question}}">
-					<a th:href="@{/notice/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
+                <li class="list-group-item" th:each="question : ${question}">
+					          <a th:href="@{/notice/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
                     <span class="text-muted" th:text="${#dates.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></span>
                 </li>
             </ul>
