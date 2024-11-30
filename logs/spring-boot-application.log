@@ -337,3 +337,212 @@
 2024-11-30T01:55:19.153+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
 2024-11-30T01:55:29.149+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
 2024-11-30T01:55:39.153+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:55:49.153+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:55:59.151+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:56:09.151+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:56:19.150+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:56:29.149+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:56:39.144+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:56:49.151+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:56:59.144+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:57:09.151+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:57:19.157+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:57:29.145+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:57:39.158+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:57:49.156+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:57:59.149+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:58:09.143+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:58:19.160+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:58:29.144+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:58:39.145+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:58:49.145+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:58:59.155+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:59:09.146+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:59:19.146+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:59:29.152+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:59:39.154+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T01:59:49.148+09:00 DEBUG 21532 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:34:16.663+09:00  INFO 23796 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Starting SbbApplication using Java 22.0.2 with PID 23796 (C:\Users\Arachne\Desktop\OPENSW_JAVA\bin\main started by Arachne in C:\Users\Arachne\Desktop\OPENSW_JAVA)
+2024-11-30T14:34:16.671+09:00  INFO 23796 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : No active profile set, falling back to 1 default profile: "default"
+2024-11-30T14:34:17.093+09:00  INFO 23796 --- [sbb] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-30T14:34:17.095+09:00  INFO 23796 --- [sbb] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-30T14:34:18.401+09:00  INFO 23796 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-30T14:34:18.568+09:00  INFO 23796 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 153 ms. Found 11 JPA repository interfaces.
+2024-11-30T14:34:19.482+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-30T14:34:19.502+09:00  INFO 23796 --- [sbb] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-30T14:34:19.503+09:00  INFO 23796 --- [sbb] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-30T14:34:19.575+09:00  INFO 23796 --- [sbb] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-30T14:34:19.576+09:00  INFO 23796 --- [sbb] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2479 ms
+2024-11-30T14:34:19.615+09:00  INFO 23796 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-30T14:34:19.909+09:00  INFO 23796 --- [sbb] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:~/local user=SA
+2024-11-30T14:34:19.911+09:00  INFO 23796 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-30T14:34:19.923+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/local'
+2024-11-30T14:34:20.119+09:00  INFO 23796 --- [sbb] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-30T14:34:20.219+09:00  INFO 23796 --- [sbb] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-30T14:34:20.277+09:00  INFO 23796 --- [sbb] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-30T14:34:20.697+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-30T14:34:20.786+09:00  WARN 23796 --- [sbb] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-30T14:34:22.097+09:00  INFO 23796 --- [sbb] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-30T14:34:22.183+09:00  INFO 23796 --- [sbb] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-30T14:34:22.735+09:00  WARN 23796 --- [sbb] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-30T14:34:22.779+09:00  WARN 23796 --- [sbb] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: dba6bbee-0adc-4f6c-8d60-a99616fffea5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-11-30T14:34:22.788+09:00  INFO 23796 --- [sbb] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-11-30T14:34:23.572+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-30T14:34:23.630+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-30T14:34:23.647+09:00  INFO 23796 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Started SbbApplication in 7.63 seconds (process running for 8.533)
+2024-11-30T14:34:48.602+09:00  INFO 23796 --- [sbb] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-30T14:34:48.603+09:00  INFO 23796 --- [sbb] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-30T14:34:48.605+09:00  INFO 23796 --- [sbb] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-30T14:34:49.505+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:34:59.483+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:35:09.490+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:35:19.492+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:35:29.479+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:35:39.478+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:35:49.486+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:35:59.478+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:36:09.477+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:36:19.475+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:36:29.480+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:36:39.484+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:36:49.471+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:36:59.472+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:01.991+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:07.207+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:17.216+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:27.207+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:37.214+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:39.871+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:49.874+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:37:59.878+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:38:09.871+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:38:19.879+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:38:29.869+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:38:39.871+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:38:49.868+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:38:59.867+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:39:09.865+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:39:19.866+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:39:29.873+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:39:39.866+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:39:49.866+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:39:59.861+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:40:09.861+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:40:19.870+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:40:29.859+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:40:39.860+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:40:49.856+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:40:59.853+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:41:09.854+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:41:19.853+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:41:29.854+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:41:39.853+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:41:49.849+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:41:59.850+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:42:09.857+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:42:19.857+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:42:29.850+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:42:39.849+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:42:49.845+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:42:59.840+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:43:09.845+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:43:19.841+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:43:29.842+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:43:39.838+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:43:49.841+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:43:59.839+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:44:09.835+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:44:19.830+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:44:29.831+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:44:39.835+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:44:49.839+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:44:59.830+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:45:09.826+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:45:19.834+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:45:29.827+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:45:39.828+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:45:49.823+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:45:59.833+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:46:09.820+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:46:19.824+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:46:29.819+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:46:39.818+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:46:49.821+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:46:59.824+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:47:09.823+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:47:19.828+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:47:29.823+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:47:39.821+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:47:49.813+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:47:59.820+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:48:09.815+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:48:19.810+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:48:29.812+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:48:39.811+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:48:49.819+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:48:57.822+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:49:07.817+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:49:17.821+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:49:27.823+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:49:37.827+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:49:47.830+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:49:57.823+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:50:07.814+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:50:17.824+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:50:27.820+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:50:37.826+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:50:47.815+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:50:57.812+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:51:07.821+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:51:17.811+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:51:27.806+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:51:37.810+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:51:47.808+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:51:57.809+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:52:07.817+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:52:17.810+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:52:27.811+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:52:37.806+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:52:47.800+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:52:57.801+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:53:07.812+09:00 DEBUG 23796 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-11-30T14:53:12.245+09:00  INFO 23796 --- [sbb] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-11-30T14:53:12.288+09:00  INFO 23796 --- [sbb] [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-30T14:53:12.299+09:00  INFO 23796 --- [sbb] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-30T14:53:12.508+09:00  INFO 23796 --- [sbb] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-30T14:53:12.663+09:00  INFO 23796 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Starting SbbApplication using Java 22.0.2 with PID 23796 (C:\Users\Arachne\Desktop\OPENSW_JAVA\bin\main started by Arachne in C:\Users\Arachne\Desktop\OPENSW_JAVA)
+2024-11-30T14:53:12.665+09:00  INFO 23796 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : No active profile set, falling back to 1 default profile: "default"
+2024-11-30T14:53:13.142+09:00  INFO 23796 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-30T14:53:13.204+09:00  INFO 23796 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 11 JPA repository interfaces.
+2024-11-30T14:53:13.378+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-30T14:53:13.379+09:00  INFO 23796 --- [sbb] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-30T14:53:13.380+09:00  INFO 23796 --- [sbb] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-30T14:53:13.412+09:00  INFO 23796 --- [sbb] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-30T14:53:13.412+09:00  INFO 23796 --- [sbb] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 742 ms
+2024-11-30T14:53:13.429+09:00  INFO 23796 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-11-30T14:53:13.450+09:00  INFO 23796 --- [sbb] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:~/local user=SA
+2024-11-30T14:53:13.451+09:00  INFO 23796 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-11-30T14:53:13.452+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/local'
+2024-11-30T14:53:13.492+09:00  INFO 23796 --- [sbb] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-30T14:53:13.498+09:00  INFO 23796 --- [sbb] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-30T14:53:13.512+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-30T14:53:13.515+09:00  WARN 23796 --- [sbb] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-30T14:53:13.727+09:00  INFO 23796 --- [sbb] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-30T14:53:13.738+09:00  INFO 23796 --- [sbb] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-30T14:53:13.947+09:00  WARN 23796 --- [sbb] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-30T14:53:13.958+09:00  WARN 23796 --- [sbb] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 337318e0-5abc-4421-9ac2-bcb3989a43cd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-11-30T14:53:13.960+09:00  INFO 23796 --- [sbb] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-11-30T14:53:14.119+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-30T14:53:14.135+09:00  INFO 23796 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-30T14:53:14.141+09:00  INFO 23796 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Started SbbApplication in 1.53 seconds (process running for 1139.139)
+2024-11-30T14:53:14.145+09:00  INFO 23796 --- [sbb] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

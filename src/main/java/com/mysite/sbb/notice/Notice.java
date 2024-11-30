@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Notice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(length = 200, nullable = false)
     private String title;

@@ -1,16 +1,135 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${notice.title}"></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예비 개발자 커뮤니티</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="main_page.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
+  <!-- Navbar -->
+  <header class="Header">  
+    <nav class="nav">
+        <!-- 로고 -->
+        <a href="/">
+            <img src="img/1866_file01/211. 메인 캐릭터_우왕이.png" alt="logo" class="logo">
+        </a>
+
+        <!-- 네비게이션 메뉴 -->
+        <ul class="nav-bar">
+          <li><i class="fa-solid fa-trophy"></i><a href="/contest/list">공모전</a></li>
+          <li><i class="fa-solid fa-users"></i><a href="/recruit/list">인원 모집</a></li>
+          <li><i class="fa-solid fa-laptop-code"></i><a href="techInfo">IT 기술</a></li>
+          <li><i class="fa-solid fa-comments"></i><a href="/question/list">자유</a></li>
+        </ul>
+      <div class="nav-right">
+        <div class="search-button"><p>검색</p><span><i class="fa-solid fa-magnifying-glass"></i></span></div>
+        <div class="login-button" id="mainLoginButton" data-bs-toggle="modal" data-bs-target="#loginModal" style="display : block;">
+          <p>로그인</p>
+        </div>
+        <span id="welcomeMessage" style="display: none;"></span>
+        <div id="myPageButtonContainer" style="display: none;">
+          <button class="btn btn-primary" id="myPageButton">마이페이지</button>
+      </div>
+            <!-- 햄버거 메뉴 버튼 -->
+            <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </button>
+  
+          <!-- 햄버거 메뉴 드롭다운 -->
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+                <li><a href="/contest/list"><i class="fa-solid fa-trophy"></i> 공모전</a></li>
+                <li><a href="/recruit/list"><i class="fa-solid fa-users"></i> 인원 모집</a></li>
+                <li><a href="techinfo"><i class="fa-solid fa-laptop-code"></i> IT 뉴스</a></li>
+                <li><a href="/question/list"><i class="fa-solid fa-comments"></i> 자유</a></li>
+            </ul>
+         </div>
+  </nav>
+</header>
+<body>
+    <div class="container notice-detail mt-5">
         <h1 th:text="${notice.title}"></h1>
         <p class="text-muted" th:text="${#dates.format(notice.createDate, 'yyyy-MM-dd HH:mm')}"></p>
         <div th:text="${notice.content}"></div>
         <a href="/notice" class="btn btn-secondary mt-3">목록으로</a>
     </div>
-</body>
-</html>
+
+
+    <footer>
+        <div class="container text-center">
+          <p>© 2024 예비 개발자 커뮤니티 | All Rights Reserved</p>
+        </div>
+      </footer>
+    
+    
+            <!-- 로그인 모달 -->
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="loginModalLabel">로그인</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <form id="loginForm">
+                              <div class="mb-3">
+                                  <label for="username" class="form-label">아이디</label>
+                                  <input type="text" class="form-control" id="id" placeholder="아이디를 입력하세요">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="password" class="form-label">비밀번호</label>
+                                  <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+                              </div>
+                              <button type="submit" class="btn btn-primary" id="loginButton">로그인</button>
+                              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">회원가입</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- 회원가입 모달 -->
+          <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerModalLabel">회원가입</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerForm">
+                            <div class="mb-3">
+                                <label for="registerUsername" class="form-label">이름</label>
+                                <input type="text" class="form-control" id="registerUsername" placeholder="이름을 입력하세요">
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerId" class="form-label">아이디</label>
+                                <input type="text" class="form-control" id="registerId" placeholder="아이디를 입력하세요">
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerPassword" class="form-label">비밀번호</label>
+                                <input type="password" class="form-control" id="registerPassword" placeholder="비밀번호를 입력하세요">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="registerButton">회원가입</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- fontawesome -->
+      <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
+      <!-- js -->
+      <script src="main_page.js"></script>
+      <script src="login/login.js"></script>
+      <script src="login/debug.js"></script>
+    </body>
+    </html>
