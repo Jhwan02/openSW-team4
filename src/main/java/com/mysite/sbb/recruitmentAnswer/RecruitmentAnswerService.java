@@ -1,11 +1,12 @@
 package com.mysite.sbb.recruitmentAnswer;
 
-import com.mysite.sbb.login.User;
-import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
-import lombok.RequiredArgsConstructor;
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
+
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
@@ -14,12 +15,11 @@ public class RecruitmentAnswerService {
     private final RecruitmentAnswerRepository recruitmentAnswerRepository;
 
 
-    public void create(RecruitmentQuestion question, String content, User author) {
+    public void create(RecruitmentQuestion question, String content) {
         RecruitmentAnswer answer = new RecruitmentAnswer();
         answer.setContent(content);
         answer.setCreateDate(LocalDateTime.now());
         answer.setQuestion(question);
-        answer.setAuthor(author);
         this.recruitmentAnswerRepository.save(answer);
     }
 }
