@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         listItem.addEventListener("click", () => {
                             if(currentPath.startsWith("/question")) {
                                 window.location.href = `/question/detail/${item.id}`;
-                            }else if(currentPath.startsWith("/recruit")) {
-                                window.location.href = `/recruit/detail/${item.id}`;
                             }else if(currentPath.startsWith("/recruit/project")) {
                                 window.location.href = `/recruit/project/detail/${item.id}`;
+                            }else if(currentPath.startsWith("/recruit")) {
+                                window.location.href = `/recruit/detail/${item.id}`;
                             }
                         });
                         searchResults.appendChild(listItem);
