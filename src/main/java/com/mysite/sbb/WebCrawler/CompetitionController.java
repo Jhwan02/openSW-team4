@@ -1,6 +1,5 @@
 package com.mysite.sbb.WebCrawler;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,17 +10,20 @@ import java.util.List;
 public class CompetitionController {
 
     private final CompetitionService competitionService;
+    private final WebCrawler webCrawler;
 
-    @Autowired
-    public CompetitionController(CompetitionService competitionService) {
+    public CompetitionController(CompetitionService competitionService, WebCrawler webCrawler) {
         this.competitionService = competitionService;
+        this.webCrawler = webCrawler;
     }
 
     @GetMapping("/competitions")
     public String getCompetitions(Model model) {
-        // WebCrawlerEntity로 타입 변경
-        List<WebCrawlerEntity> competitions = competitionService.getCompetitions();
+        // 크롤링 실행
+        webCrawler.crawlAndSaveCompetitions();
+        // DB에서 데이터 불러오기
+        List<WebCrawlerEntity> competitions = competitionService.getCompetitionsByReverseSavedOrder();
         model.addAttribute("competitions", competitions);
-        return "competitions"; // HTML 템플릿 파일 이름
+        return "competitions"; // competitions.html로 전달
     }
 }
