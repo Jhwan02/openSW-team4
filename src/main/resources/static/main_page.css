@@ -10,24 +10,23 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y:scroll;
 }
 
 /* Navbar */
 .Header {
     background-color: #ffffff;
 }
-
-.nav{
-    width: 100%;
-    height: 90px;
+/* 네비게이션 공통 스타일 */
+.nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* 로고와 메뉴 간격 조정 */
     align-items: center;
-    position: relative;
-    padding: 0 55px 0 55px;
+    padding: 0 55px;
+    background-color: #ffffff;
 }
 
 .nav .logo{
@@ -45,6 +44,8 @@ body {
 
 .nav-bar a:hover {
     color: #000000; /* 호버 시 색상 변경 */
+    transform: scale(1.05); /* 호버 시 확대 효과 */
+    transition: all 0.3s ease; /* 애니메이션 추가 */
 }
 
 .nav-bar li{
@@ -52,6 +53,7 @@ body {
     list-style: none;
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
 .nav-bar li a{
@@ -121,11 +123,125 @@ body {
     color: #000000;
 }
 
+
+/* 햄버거 버튼 */
+.hamburger {
+    display: none; /* 기본적으로 숨김 */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px; /* 버튼 크기 */
+    height: 25px;
+    background: none; /* 배경색 없음 */
+    border: none; /* 테두리 없음 */
+    cursor: pointer;
+    margin-left :30px;
+}
+
+/* 햄버거 바 스타일 */
+.hamburger .bar {
+    width: 100%; /* 바 길이 */
+    height: 4px; /* 바 두께 */
+    background-color: #6d6d6d; /* 바 색상 */
+    border-radius: 2px; /* 둥근 모서리 */
+    transition: all 0.3s ease-in-out;
+    opacity: 1; /* 기본 불투명 상태 */
+}
+
+/* hover 효과 */
+.hamburger:hover .bar {
+    background-color: #000000;
+    transform: scale(1.1);
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #ffffff; /* 흰색 배경 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* 부드러운 그림자 */
+    border-radius: 10px; /* 둥근 모서리 */
+    z-index: 1000;
+    width: 180px;
+    padding: 10px 0; /* 상하 여백 */
+    font-family: 'Arial', sans-serif;
+    opacity: 0;
+    transform: translateY(-10px); /* 초기 위치: 위로 약간 이동 */
+    transition: all 0.3s ease; /* 애니메이션 추가 */
+}
+
+/* 드롭다운 메뉴 활성화 상태 */
+.dropdown-menu.show {
+    display: block; /* 활성화 시 표시 */
+    opacity: 1;
+    transform: translateY(0); /* 원래 위치로 */
+}
+
+/* 드롭다운 메뉴 목록 */
+.dropdown-menu ul {
+    list-style-type: none; /* 목록 스타일 제거 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 드롭다운 메뉴 항목 */
+.dropdown-menu ul li {
+    padding: 12px 20px; /* 항목 내부 여백 */
+    transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 */
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 14px; /* 텍스트 크기 */
+    color: #333; /* 기본 텍스트 색상 */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 텍스트와 아이콘 간격 */
+    transition: color 0.3s ease; /* 색상 변경 애니메이션 */
+}
+
+/* 드롭다운 항목 hover 효과 */
+.dropdown-menu ul li:hover {
+    background-color: #f0f4f8; /* hover 배경색 */
+}
+
+.dropdown-menu ul li a:hover {
+    color: #007bff; /* hover 시 텍스트 색상 변경 */
+}
+
+/* 아이콘 추가 */
+.dropdown-menu ul li a i {
+    font-size: 16px; /* 아이콘 크기 */
+    color: #6c757d; /* 아이콘 기본 색상 */
+}
+
+/* 아이콘 hover 효과 */
+.dropdown-menu ul li:hover i {
+    color: #007bff; /* hover 시 아이콘 색상 변경 */
+}
+
+
+/* 반응형 설정 */
+@media (max-width: 1030px) { 
+    .nav-bar {
+        display: none; /* 작은 화면에서는 숨김 */
+    }
+
+    .hamburger {
+        display: flex; /* 작은 화면에서 햄버거 버튼 표시 */
+    }
+
+    .nav-right {
+        margin-left: auto;
+    }
+}
+
 /* Hero Section */
 .slider {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 50vh; /* 화면의 절반 높이 */
     overflow: hidden;
 }
 
@@ -289,3 +405,217 @@ footer {
 .modal-body button:hover {
     background-color: #0056b3;
 }
+
+/* 메인 콘텐츠 */
+.main-content {
+    margin-top: 20px; /* 슬라이더와 공지 섹션 간격 조정 */
+    padding-bottom: 20px; /* 푸터와 공지 섹션 간격 추가 */
+    flex-grow: 1;
+}
+
+/* 왼쪽 이미지 섹션 */
+.left-image {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+
+/* 공지사항 카드 스타일 */
+.notice-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notice-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.notice-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.notice-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notice-list li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.notice-list li:last-child {
+    border-bottom: none;
+}
+
+.notice-list li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #007bff;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.notice-list li a:hover {
+    color: #0056b3;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* 아이콘 추가 (선택 사항) */
+.notice-list li a::before {
+    content: '🔗';
+    margin-right: 8px;
+    font-size: 0.9rem;
+    color: #007bff;
+}
+
+/* HOT 게시물 카드 스타일 */
+.hot-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hot-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hot-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hot-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hot-list li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.hot-list li:last-child {
+    border-bottom: none;
+}
+
+.hot-list li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #e83e8c;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.hot-list li a:hover {
+    color: #c82362;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* 아이콘 추가 (선택 사항) */
+.hot-list li a::before {
+    content: '🔥';
+    margin-right: 8px;
+    font-size: 0.9rem;
+    color: #e83e8c;
+}
+
+
+/*공지사항 css*/
+/* 공지사항 페이지 스타일 */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.list-group-item a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .main-content .row {
+        flex-direction: column;
+    }
+
+    .left-image {
+        margin-bottom: 20px;
+    }
+}
+
+/* 공지사항 상세 페이지 스타일 */
+.notice-detail {
+    margin-top: 50px;
+}
+
+.notice-detail h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.notice-detail .content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.notice-detail .btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.notice-detail .btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
