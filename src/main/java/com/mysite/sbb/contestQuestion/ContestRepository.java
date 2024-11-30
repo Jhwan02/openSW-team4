@@ -11,5 +11,6 @@ public interface ContestRepository extends JpaRepository <ContestQuestion, Integ
 	ContestRepository findBySubjectAndContent(String subject, String content);
     List<ContestQuestion> findBySubjectLike(String subject);
     Page<ContestQuestion> findAll(Pageable pageable);
+	List<ContestQuestion> findBySubjectContaining(String keyword);
 }
 

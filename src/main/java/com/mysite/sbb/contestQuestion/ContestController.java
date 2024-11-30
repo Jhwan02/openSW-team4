@@ -1,5 +1,10 @@
 package com.mysite.sbb.contestQuestion;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,12 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mysite.sbb.contestAnswer.ContestAnswerForm;
-import java.security.Principal;
-import com.mysite.sbb.login.User;
-import com.mysite.sbb.login.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +27,7 @@ import lombok.RequiredArgsConstructor;
 public class ContestController {
 
     private final ContestService contestService;
-    private final UserService userService;
+    
 
     // 질문 목록 표시
     @GetMapping("/list")
@@ -44,21 +46,36 @@ public class ContestController {
         return "contest_detail";
     }
     // 질문 생성 폼
-    @PreAuthorize("isAuthenticated()")
     @GetMapping("/create")
     public String questionCreate(ContestForm contestForm) {
         return "contest_form"; 
     }
 
     // 질문 생성 처리
-    @PreAuthorize("isAuthenticated()")
     @PostMapping("/create")
-    public String questionCreate(@Valid ContestForm contestForm, BindingResult bindingResult, Principal principal) {
+    public String questionCreate(@Valid ContestForm contestForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "contest_form"; // 유효성 검사 실패 시 폼 재표시
         }
-        User siteUser = this.userService.getUser(principal.getName());
-        this.contestService.create(contestForm.getSubject(), contestForm.getContent(), siteUser);
+       
+        this.contestService.create(contestForm.getSubject(), contestForm.getContent());
         return "redirect:/contest/list"; // 질문 목록으로 리다이렉트
+    }
+    
+    @GetMapping("/api/search")
+    @ResponseBody
+    public List<Map<String, Object>> searchQuestions(@RequestParam("keyword") String keyword) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return new ArrayList<>(); // 빈 리스트 반환
+        }
+        List<ContestQuestion> questions = contestService.searchBySubject(keyword);
+        List<Map<String, Object>> results = new ArrayList<>();
+        for (ContestQuestion question : questions) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", question.getId());
+            map.put("subject", question.getSubject());
+            results.add(map);
+        }
+        return results;
     }
 }
