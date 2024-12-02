@@ -12,7 +12,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mysite.sbb.DataNotFoundException;
-import com.mysite.sbb.question.Question;
 
 import lombok.RequiredArgsConstructor;
 

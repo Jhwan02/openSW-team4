@@ -48,11 +48,14 @@ public class UserService {
     }
     
     public User getUser(String username) {
-        Optional<User> siteUser = this.userRepository.findByUsername(username);
-        if (siteUser.isPresent()) {
-            return siteUser.get();
+        Optional<User> user = this.userRepository.findByUsername(username);
+        if (user.isPresent()) {
+            return user.get();
         } else {
             throw new DataNotFoundException("siteuser not found");
         }
     }
-}
+
+    }
+
+

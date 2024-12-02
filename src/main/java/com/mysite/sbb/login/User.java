@@ -7,8 +7,10 @@ import jakarta.persistence.*;
 public class User {
 
     private String username;
-    @Id //이 어노테이션으로 id가 id로 지정됨
+    @Id
+    @Column(name = "id")
     private String id;
+
     private String password;
 
     // Getter 메서드
