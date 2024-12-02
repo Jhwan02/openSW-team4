@@ -46,3 +46,143 @@ This generated password is for development use only. Your security configuration
 2024-12-02T10:07:45.648+09:00 DEBUG 14832 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
 2024-12-02T10:07:50.763+09:00 DEBUG 14832 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
 2024-12-02T10:07:52.119+09:00 DEBUG 14832 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-02T10:12:46.823+09:00  INFO 14832 --- [sbb] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-02T10:12:47.013+09:00  INFO 14832 --- [sbb] [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:12:47.025+09:00  INFO 14832 --- [sbb] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-02T10:12:47.230+09:00  INFO 14832 --- [sbb] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-02T10:12:47.312+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Starting SbbApplication using Java 17.0.12 with PID 14832 (C:\Users\Beom\git\openSW-team4\bin\main started by Beom in C:\Users\Beom\git\openSW-team4)
+2024-12-02T10:12:47.312+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : No active profile set, falling back to 1 default profile: "default"
+2024-12-02T10:12:47.474+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02T10:12:47.504+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 11 JPA repository interfaces.
+2024-12-02T10:12:47.618+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-02T10:12:47.618+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-02T10:12:47.619+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-02T10:12:47.631+09:00  INFO 14832 --- [sbb] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-02T10:12:47.632+09:00  INFO 14832 --- [sbb] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 315 ms
+2024-12-02T10:12:47.644+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-12-02T10:12:47.660+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:~/local user=SA
+2024-12-02T10:12:47.660+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-12-02T10:12:47.660+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/local'
+2024-12-02T10:12:47.687+09:00  INFO 14832 --- [sbb] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02T10:12:47.689+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-02T10:12:47.697+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02T10:12:47.698+09:00  WARN 14832 --- [sbb] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-02T10:12:47.791+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-02T10:12:47.795+09:00  INFO 14832 --- [sbb] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:12:47.979+09:00  WARN 14832 --- [sbb] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-02T10:12:47.988+09:00  WARN 14832 --- [sbb] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 707e58d0-00ee-4db1-b925-9d54a958e5b5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-12-02T10:12:47.989+09:00  INFO 14832 --- [sbb] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-12-02T10:12:48.165+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-02T10:12:48.174+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-02T10:12:48.180+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Started SbbApplication in 0.889 seconds (process running for 418.695)
+2024-12-02T10:12:48.184+09:00  INFO 14832 --- [sbb] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-02T10:14:21.460+09:00  INFO 14832 --- [sbb] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-02T10:14:21.915+09:00  INFO 14832 --- [sbb] [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:14:21.915+09:00  INFO 14832 --- [sbb] [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-12-02T10:14:22.167+09:00  INFO 14832 --- [sbb] [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-12-02T10:14:22.387+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Starting SbbApplication using Java 17.0.12 with PID 14832 (C:\Users\Beom\git\openSW-team4\bin\main started by Beom in C:\Users\Beom\git\openSW-team4)
+2024-12-02T10:14:22.387+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : No active profile set, falling back to 1 default profile: "default"
+2024-12-02T10:14:22.843+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02T10:14:22.921+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 11 JPA repository interfaces.
+2024-12-02T10:14:23.188+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-02T10:14:23.188+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-02T10:14:23.188+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-02T10:14:23.241+09:00  INFO 14832 --- [sbb] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-02T10:14:23.241+09:00  INFO 14832 --- [sbb] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 854 ms
+2024-12-02T10:14:23.267+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-12-02T10:14:23.298+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:~/local user=SA
+2024-12-02T10:14:23.298+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-12-02T10:14:23.298+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/local'
+2024-12-02T10:14:23.362+09:00  INFO 14832 --- [sbb] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02T10:14:23.362+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-02T10:14:23.362+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02T10:14:23.362+09:00  WARN 14832 --- [sbb] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-02T10:14:23.628+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-02T10:14:23.645+09:00  INFO 14832 --- [sbb] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:14:24.148+09:00  WARN 14832 --- [sbb] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-02T10:14:24.179+09:00  WARN 14832 --- [sbb] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 779ed11a-7737-41bf-bc94-b4055b9541ed
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-12-02T10:14:24.179+09:00  INFO 14832 --- [sbb] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-12-02T10:14:24.666+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-02T10:14:24.682+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-02T10:14:24.682+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Started SbbApplication in 2.374 seconds (process running for 515.211)
+2024-12-02T10:14:24.697+09:00  INFO 14832 --- [sbb] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-02T10:15:18.034+09:00  INFO 14832 --- [sbb] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-02T10:15:18.521+09:00  INFO 14832 --- [sbb] [Thread-12] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:15:18.521+09:00  INFO 14832 --- [sbb] [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-12-02T10:15:18.725+09:00  INFO 14832 --- [sbb] [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-12-02T10:15:18.867+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Starting SbbApplication using Java 17.0.12 with PID 14832 (C:\Users\Beom\git\openSW-team4\bin\main started by Beom in C:\Users\Beom\git\openSW-team4)
+2024-12-02T10:15:18.867+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : No active profile set, falling back to 1 default profile: "default"
+2024-12-02T10:15:19.160+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02T10:15:19.198+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 11 JPA repository interfaces.
+2024-12-02T10:15:19.339+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-02T10:15:19.339+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-02T10:15:19.339+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-02T10:15:19.371+09:00  INFO 14832 --- [sbb] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-02T10:15:19.371+09:00  INFO 14832 --- [sbb] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 504 ms
+2024-12-02T10:15:19.403+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-12-02T10:15:19.427+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn30: url=jdbc:h2:~/local user=SA
+2024-12-02T10:15:19.427+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-12-02T10:15:19.427+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/local'
+2024-12-02T10:15:19.497+09:00  INFO 14832 --- [sbb] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02T10:15:19.513+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-02T10:15:19.513+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02T10:15:19.529+09:00  WARN 14832 --- [sbb] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-02T10:15:19.796+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-02T10:15:19.812+09:00  INFO 14832 --- [sbb] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:15:20.013+09:00  WARN 14832 --- [sbb] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-02T10:15:20.021+09:00  WARN 14832 --- [sbb] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: cf592413-f275-40bd-96d6-d62bee7983c6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-12-02T10:15:20.022+09:00  INFO 14832 --- [sbb] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-12-02T10:15:20.178+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-02T10:15:20.187+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-02T10:15:20.191+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Started SbbApplication in 1.356 seconds (process running for 570.706)
+2024-12-02T10:15:20.193+09:00  INFO 14832 --- [sbb] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-02T10:15:47.267+09:00  INFO 14832 --- [sbb] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-02T10:15:47.435+09:00  INFO 14832 --- [sbb] [Thread-16] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:15:47.436+09:00  INFO 14832 --- [sbb] [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-12-02T10:15:47.639+09:00  INFO 14832 --- [sbb] [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-12-02T10:15:47.699+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Starting SbbApplication using Java 17.0.12 with PID 14832 (C:\Users\Beom\git\openSW-team4\bin\main started by Beom in C:\Users\Beom\git\openSW-team4)
+2024-12-02T10:15:47.700+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : No active profile set, falling back to 1 default profile: "default"
+2024-12-02T10:15:47.846+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-02T10:15:47.863+09:00  INFO 14832 --- [sbb] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 11 JPA repository interfaces.
+2024-12-02T10:15:47.931+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-02T10:15:47.932+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-02T10:15:47.932+09:00  INFO 14832 --- [sbb] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-02T10:15:47.942+09:00  INFO 14832 --- [sbb] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-02T10:15:47.942+09:00  INFO 14832 --- [sbb] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 241 ms
+2024-12-02T10:15:47.952+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-12-02T10:15:47.961+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:~/local user=SA
+2024-12-02T10:15:47.961+09:00  INFO 14832 --- [sbb] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-12-02T10:15:47.961+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/local'
+2024-12-02T10:15:47.987+09:00  INFO 14832 --- [sbb] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-02T10:15:47.989+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-02T10:15:47.994+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-02T10:15:47.995+09:00  WARN 14832 --- [sbb] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-02T10:15:48.057+09:00  INFO 14832 --- [sbb] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-02T10:15:48.060+09:00  INFO 14832 --- [sbb] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-02T10:15:48.230+09:00  WARN 14832 --- [sbb] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-02T10:15:48.238+09:00  WARN 14832 --- [sbb] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9a9eb9bc-06ba-4a37-854c-1cfa6c310f3b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-12-02T10:15:48.239+09:00  INFO 14832 --- [sbb] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-12-02T10:15:48.389+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-02T10:15:48.399+09:00  INFO 14832 --- [sbb] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-02T10:15:48.404+09:00  INFO 14832 --- [sbb] [restartedMain] com.mysite.sbb.SbbApplication            : Started SbbApplication in 0.72 seconds (process running for 598.919)
+2024-12-02T10:15:48.405+09:00  INFO 14832 --- [sbb] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
