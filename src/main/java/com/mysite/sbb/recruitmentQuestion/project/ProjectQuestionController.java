@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mysite.sbb.recruitmentAnswer.projectAnswer.ProjectAnswerForm;
+import com.mysite.sbb.upload.UploadController;
+import com.mysite.sbb.upload.UploadResultDTO;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,38 +28,80 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Controller
 public class ProjectQuestionController {
-private final ProjectQuestionService projectQuestionService;
-    
+
+    private final ProjectQuestionService projectQuestionService;
+    private final UploadController uploadController; // 이미지 업로드 컨트롤러 추가
+
+    // 질문 목록
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value="page", defaultValue="0") int page) {
         Page<ProjectQuestion> paging = this.projectQuestionService.getList(page);
         model.addAttribute("paging", paging);
         return "project_list";
     }
-    
+
+    // 질문 상세 보기
     @GetMapping("/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id,ProjectAnswerForm recruitAnswerForm) {
-    	ProjectQuestion question = projectQuestionService.getQuestion(id);
+    public String detail(Model model, @PathVariable("id") Integer id, ProjectAnswerForm recruitAnswerForm) {
+        ProjectQuestion question = projectQuestionService.getQuestion(id);
         model.addAttribute("question", question);
         model.addAttribute("recruitAnswerForm", new ProjectAnswerForm()); // recruitAnswerForm 초기화
         return "project_detail";
     }
 
-
-    
+    // 질문 생성 폼
     @GetMapping("/create")
     public String questionCreate(ProjectQuestionForm projectQuestionForm) {
-        return "project_form"; // recruit_form.html 렌더링
+        return "project_form"; // project_form.html 렌더링
     }
-    
+
+    // 질문 생성 처리 (이미지 업로드 기능 추가)
     @PostMapping("/create")
-    public String questionCreate(@Valid ProjectQuestionForm projectQuestionForm, BindingResult bindingResult) {
+    public String questionCreate(
+            @Valid ProjectQuestionForm projectQuestionForm, 
+            BindingResult bindingResult,
+            @RequestParam(value = "file", required = false) MultipartFile file,
+            Model model) {
+
+        // 유효성 검사 오류가 있으면 폼 재표시
         if (bindingResult.hasErrors()) {
             return "project_form";
         }
-        this.projectQuestionService.create(projectQuestionForm.getSubject(), projectQuestionForm.getContent());
+
+        // 질문 객체 생성
+        ProjectQuestion question;
+        
+        // 파일 업로드 처리
+        if (file != null && !file.isEmpty()) {
+            try {
+                // 이미지 업로드 처리
+                UploadResultDTO uploadResult = uploadController.uploadFile(file);
+                // 업로드된 이미지 URL을 포함한 질문 생성
+                question = this.projectQuestionService.create(
+                        projectQuestionForm.getSubject(),
+                        projectQuestionForm.getContent(),
+                        uploadResult.getImageURL() // 업로드된 이미지 URL 추가
+                );
+            } catch (Exception e) {
+                model.addAttribute("uploadError", "이미지 업로드 중 문제가 발생했습니다.");
+                return "project_form"; // 업로드 실패 시 폼 재표시
+            }
+        } else {
+            // 파일이 없을 경우 기본 생성
+            question = this.projectQuestionService.create(
+                    projectQuestionForm.getSubject(),
+                    projectQuestionForm.getContent()
+            );
+        }
+
+        // 생성된 질문을 저장
+        this.projectQuestionService.save(question);
+
+        // 질문 목록 페이지로 리다이렉트
         return "redirect:/recruit/project/list";
     }
+
+    // 제목으로 질문 검색 API
     @GetMapping("/api/search")
     @ResponseBody
     public List<Map<String, Object>> searchProjectQuestions(@RequestParam("keyword") String keyword) {

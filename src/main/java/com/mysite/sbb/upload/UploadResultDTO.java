@@ -1,4 +1,4 @@
-package com.mysite.sbb.question;
+package com.mysite.sbb.upload;
 
 import lombok.Getter;
 import lombok.Setter;
