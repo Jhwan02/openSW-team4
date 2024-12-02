@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mysite.sbb.login.User;
-import com.mysite.sbb.login.UserService;
 import com.mysite.sbb.question.Question;
 import com.mysite.sbb.question.QuestionService;
 
@@ -24,7 +23,7 @@ public class AnswerController {
 
     private final QuestionService questionService;
     private final AnswerService answerService;
-    private final UserService userService;
+
     
     // GET 요청이 들어오는 경우에 대한 처리
     @GetMapping("/create/{id}")

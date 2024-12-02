@@ -18,7 +18,10 @@
                         th:if="${#lists.size(question.answerList) > 0}" 
                         th:text="${#lists.size(question.answerList)}">
                     </span>
-					<td><span th:if="${question.author != null}" th:text="${question.author.username}"></span></td>
+					<td>
+					    <span th:if="${question.author != null}" th:text="${question.author.username}"></span>
+					    <span th:if="${question.author == null}">작성자 없음</span>
+					</td>
                 <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
             </tr>
         </tbody>

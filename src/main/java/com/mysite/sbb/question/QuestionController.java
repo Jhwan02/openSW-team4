@@ -18,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.mysite.sbb.answer.AnswerForm;
 import com.mysite.sbb.login.User;
-import com.mysite.sbb.login.UserService;
 import com.mysite.sbb.upload.UploadController;
 import com.mysite.sbb.upload.UploadResultDTO;
 
@@ -33,7 +32,6 @@ public class QuestionController {
 
     private final QuestionService questionService;
     private final UploadController uploadController; // 이미지 업로드 컨트롤러 추가
-    private final UserService userService;
     // 질문 목록 표시
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
