@@ -5,6 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const dots = document.querySelectorAll('.dot');
   let currentSlide = 0;
   let sliderInterval;
+  
+  // 햄버거 버튼과 드롭다운 메뉴
+  const hamburger = document.getElementById("hamburger");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  // 햄버거 버튼 클릭 이벤트
+  hamburger.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("show"); // 드롭다운 메뉴 표시/숨김
+  });
+
+// 드롭다운 외부 클릭 시 닫기
+document.addEventListener("click", (event) => {
+  if (!hamburger.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    dropdownMenu.classList.remove("show");
+  }
+});
 
   // 슬라이드 표시 함수
   function showSlide(index) {
@@ -39,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  
   // 초기화
   showSlide(currentSlide);
   startSlider();

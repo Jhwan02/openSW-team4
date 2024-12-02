@@ -1,6 +1,5 @@
 package com.mysite.sbb.WebCrawler;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +9,6 @@ public class CompetitionService {
 
     private final CrawlerRepository crawlerRepository;
 
-    @Autowired
     public CompetitionService(CrawlerRepository crawlerRepository) {
         this.crawlerRepository = crawlerRepository;
     }
@@ -25,9 +23,8 @@ public class CompetitionService {
         return crawlerRepository.findByTitleContaining(keyword);
     }
 
-    // 날짜를 기준으로 내림차순 정렬된 Competition 데이터를 가져오는 메서드
-    public List<WebCrawlerEntity> getCompetitionsOrderByDate() {
-        return crawlerRepository.findAllByOrderByDateDesc();
+    public List<WebCrawlerEntity> getCompetitionsByReverseSavedOrder() {
+        return crawlerRepository.findAllByOrderByIdAsc();
     }
 
     // 새로운 Competition 데이터를 저장하는 메서드

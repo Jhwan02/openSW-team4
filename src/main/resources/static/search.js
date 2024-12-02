@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
         searchApiUrl = "/recruit/project/api/search";
     } else if (currentPath.startsWith("/recruit")) {
         searchApiUrl = "/recruit/api/search";
-    }
+    } else if (currentPath.startsWith("/contest")) {
+		searchApiUrl = "/contest/api/search";
+	}
     //console.log(searchApiUrl);
     // 모달 열기
     searchButton.addEventListener("click", () => {
@@ -51,11 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         listItem.addEventListener("click", () => {
                             if(currentPath.startsWith("/question")) {
                                 window.location.href = `/question/detail/${item.id}`;
-                            }else if(currentPath.startsWith("/recruit")) {
-                                window.location.href = `/recruit/detail/${item.id}`;
                             }else if(currentPath.startsWith("/recruit/project")) {
                                 window.location.href = `/recruit/project/detail/${item.id}`;
-                            }
+                            }else if(currentPath.startsWith("/recruit")) {
+                                window.location.href = `/recruit/detail/${item.id}`;
+                            }else if(currentPath.startsWith("/contest")) {
+								window.location.href = `/contest/detail/${item.id}`;
+							}
                         });
                         searchResults.appendChild(listItem);
                     });

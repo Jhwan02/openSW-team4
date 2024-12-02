@@ -2,11 +2,10 @@ package com.mysite.sbb.recruitmentQuestion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.domain.Page;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,9 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswerForm;
-import java.security.Principal;
-import com.mysite.sbb.login.User;
-import com.mysite.sbb.login.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class RecruitmentQuestionController {
 private final RecruitmentQuestionService recruitQuestionService;
-private final UserService userService;
+
 
     
     @GetMapping("/list")
@@ -49,20 +45,19 @@ private final UserService userService;
     }
 
 
-    @PreAuthorize("isAuthenticated()") //추가
+   
     @GetMapping("/create")
     public String questionCreate(RecruitmentQuestionForm recruitmentQuestionForm) {
         return "recruit_form"; // recruit_form.html 렌더링
     }
     
-    @PreAuthorize("isAuthenticated()") //추가
+   
     @PostMapping("/create")
-    public String questionCreate(@Valid RecruitmentQuestionForm recruitQuestionForm, BindingResult bindingResult, Principal principal) {
+    public String questionCreate(@Valid RecruitmentQuestionForm recruitQuestionForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "recruit_form";
         }
-        User siteUser = this.userService.getUser(principal.getName());
-        this.recruitQuestionService.create(recruitQuestionForm.getSubject(), recruitQuestionForm.getContent(),recruitQuestionForm.getCategory(),siteUser);
+        this.recruitQuestionService.create(recruitQuestionForm.getSubject(), recruitQuestionForm.getContent(),recruitQuestionForm.getCategory());
         return "redirect:/recruit/list";
         
     }
