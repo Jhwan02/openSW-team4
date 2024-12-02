@@ -35,4 +35,6 @@ public class ProjectQuestion {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)  // 필드명 일치
     private List<ProjectAnswer> answerList;
+    
+    private String imageUrl;
 }

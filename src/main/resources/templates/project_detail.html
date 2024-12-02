@@ -12,6 +12,10 @@
             </div>
         </div>
     </div>
+	<!-- 이미지 출력 -->
+    <div>
+        <img th:if="${question.imageUrl}" th:src="@{${question.imageUrl}}" alt="첨부 이미지" style="max-width: 100%; height: auto;" />
+	</div>
     <!-- 답변의 갯수 표시 -->
     <h5 class="border-bottom my-3 py-2" 
         th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
@@ -34,4 +38,5 @@
 	        <input type="submit" value="답변등록" class="btn btn-primary my-2">
 	</form>
 	</div>
-	</html>
+	<script src="upload.js"></script>
+</html>
