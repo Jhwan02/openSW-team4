@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ import lombok.RequiredArgsConstructor;
 public class QuestionController {
 
     private final QuestionService questionService;
+    private final UploadController uploadController; // 이미지 업로드 컨트롤러 추가
 
     // 질문 목록 표시
     @GetMapping("/list")
@@ -52,14 +54,39 @@ public class QuestionController {
 
     // 질문 생성 처리
     @PostMapping("/create")
-    public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+    public String questionCreate(
+            @Valid QuestionForm questionForm,
+            BindingResult bindingResult,
+            @RequestParam(value = "file", required = false) MultipartFile file,
+            Model model) {
+
         if (bindingResult.hasErrors()) {
             return "question_form"; // 유효성 검사 실패 시 폼 재표시
         }
-        this.questionService.create(questionForm.getSubject(), questionForm.getContent());
+
+        Question question;
+        if (file != null && !file.isEmpty()) {
+            try {
+                UploadResultDTO uploadResult = uploadController.uploadFile(file);
+                question = this.questionService.create(
+                        questionForm.getSubject(),
+                        questionForm.getContent(),
+                        uploadResult.getImageURL()
+                );
+            } catch (Exception e) {
+                model.addAttribute("uploadError", "이미지 업로드 중 문제가 발생했습니다.");
+                return "question_form"; // 에러 발생 시 폼 재표시
+            }
+        } else {
+            question = this.questionService.create(questionForm.getSubject(), questionForm.getContent());
+        }
+
+        this.questionService.save(question);
+
         return "redirect:/question/list"; // 질문 목록으로 리다이렉트
     }
 
+    // 제목으로 질문 검색 API
     @GetMapping("/api/search")
     @ResponseBody
     public List<Map<String, Object>> searchQuestions(@RequestParam("keyword") String keyword) {
@@ -76,5 +103,4 @@ public class QuestionController {
         }
         return results;
     }
-
 }

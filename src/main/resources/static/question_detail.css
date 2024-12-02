@@ -1,0 +1,112 @@
+/* 컨테이너 스타일 */
+.container {
+    max-width: 800px; /* 페이지 폭 제한 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px;
+}
+
+/* 제목 스타일 */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* 질문 카드 스타일 */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6; /* 가독성 향상 */
+    white-space: pre-line; /* 개행 유지 */
+}
+
+/* 작성일자 스타일 */
+.badge {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #555;
+    padding: 8px 12px;
+    text-align: right;
+}
+
+/* 답변 제목 스타일 */
+h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* 답변 카드 스타일 */
+.card.my-3 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.my-3:hover {
+    transform: translateY(-3px); /* 호버 시 약간 위로 올라가는 효과 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 강조 */
+}
+
+/* 답변 작성 폼 스타일 */
+form {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical; /* 세로 크기만 조정 가능 */
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff; /* 포커스 시 파란색 강조 */
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* 답변 등록 버튼 스타일 */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* 호버 시 색상 변경 */
+}
+
+input[type="submit"]:active {
+    background-color: #004085; /* 클릭 시 색상 변경 */
+}
