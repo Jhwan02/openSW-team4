@@ -122,4 +122,15 @@ public class QuestionController {
         }
         return results;
     }
+
+    @PostMapping("/like/{id}")
+    @ResponseBody
+    public Map<String, Object> likeQuestion(@PathVariable("id") Integer id) {
+        this.questionService.increaseLikes(id);
+        Question question = this.questionService.getQuestion(id);
+        Map<String, Object> response = new HashMap<>();
+        response.put("likes", question.getLikes());
+        return response;
+    }
+
 }
