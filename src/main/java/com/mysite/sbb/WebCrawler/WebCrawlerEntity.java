@@ -4,9 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 // WebCrawlerEntity 클래스는 웹 크롤링한 데이터를 저장하는 엔티티입니다.
 @Entity
+@Table(name = "web_crawler_data")
 public class WebCrawlerEntity {
 
     // id 필드는 기본 키로 사용되며, 자동 생성됩니다.
@@ -15,7 +17,7 @@ public class WebCrawlerEntity {
     private Long id;
 
     // imageUrl 필드는 이미지 URL을 저장합니다.
-    //private String imageUrl;
+    private String imageUrl;
 
     // title 필드는 제목을 저장합니다.
     private String title;
@@ -28,8 +30,8 @@ public class WebCrawlerEntity {
     }
 
     // 매개변수가 있는 생성자
-    public WebCrawlerEntity( String title, String date) {
-       // this.imageUrl = imageUrl;
+    public WebCrawlerEntity(String title, String date, String imageUrl) {
+        this.imageUrl = imageUrl;
         this.title = title;
         this.date = date;
     }
@@ -40,15 +42,15 @@ public class WebCrawlerEntity {
         return id;
     }
 
-    // // imageUrl의 Getter
-    // public String getImageUrl() {
-    //     return imageUrl;
-    // }
+    // imageUrl의 Getter
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
-    // // imageUrl의 Setter
-    // public void setImageUrl(String imageUrl) {
-    //     this.imageUrl = imageUrl;
-    // }
+    // imageUrl의 Setter
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     // title의 Getter
     public String getTitle() {

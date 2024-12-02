@@ -1,36 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공모전 게시판</title>
+    <link rel="stylesheet" href="contest.css">
 </head>
 <body>
-    <h1>공모전 게시판</h1>
-    <ul>
-        <th:block th:each="competition, iterStat : ${competitions}">
-            <li>
-                <h2 th:text="${competition.title}"></h2>
-                <p>남은 날짜: <span th:text="${competition.date}"></span></p>
-                <img th:src="${competition.imageUrl}" alt="Competition Image">
-                <h3>댓글</h3>
-                <ul>
-                    <th:block th:each="comment : ${competition.comments}">
-                        <li>
-                            <strong th:text="${comment.author}"></strong>: <span th:text="${comment.content}"></span>
-                        </li>
-                    </th:block>
-                </ul>
-                <form th:action="@{/competitions/comment}" method="post">
-                    <input type="hidden" name="competitionIndex" th:value="${iterStat.index}"/>
-                    <label for="author">작성자:</label>
-                    <input type="text" id="author" name="author" required/>
-                    <label for="content">내용:</label>
-                    <textarea id="content" name="content" required></textarea>
-                    <button type="submit">댓글 달기</button>
-                </form>
-            </li>
-        </th:block>
-    </ul>
+    <header class="Header">  
+        <nav class="nav">
+            <a href="/"><img src="img/1866_file01/211. 메인 캐릭터_우왕이.png" alt="logo" class="logo"></a>
+
+            <ul class="nav-bar">
+                <li><a href="/competitions">공모전</a></li>
+                <li><a href="/recruit/list">인원 모집</a></li>
+                <li><a href="techInfo">IT 기술</a></li>
+                <li><a href="/question/list">자유</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <div class="search-button"><p>검색</p><span><i class="fa-solid fa-magnifying-glass"></i></span></div>
+                <div class="login-button" id="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <p>로그인</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">공모전 게시판</h1>
+        <div class="card-container">
+            <th:block th:each="competition : ${competitions}">
+                <div class="card">
+                    <img th:src="${competition.imageUrl}" alt="공모전 이미지" class="card-image">
+                    <div class="card-content">
+                        <h2 class="card-title" th:text="${competition.title}"></h2>
+                        <p class="card-date">남은 날짜: <span th:text="${competition.date}"></span></p>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </main>
+
+    <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
+    <script src="contest.js"></script>
+
 </body>
 </html>
