@@ -37,5 +37,7 @@ public class Question {
     private List<Answer> answerList;
 
     private String imageUrl; // 이미지 URL 저장 필드
+
+    private Integer likes = 0; // 좋아요 수 필드 (초기값 0)
 }
 

@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mysite.sbb.DataNotFoundException;
 
@@ -73,4 +74,10 @@ public class QuestionService {
     public List<Question> searchBySubject(String keyword) {
         return questionRepository.findBySubjectContaining(keyword);
     }
+
+    @Transactional
+    public void increaseLikes(Integer id) {
+        this.questionRepository.incrementLikes(id);
+    }
+
 }
