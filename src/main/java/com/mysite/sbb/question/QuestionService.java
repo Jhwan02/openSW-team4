@@ -63,8 +63,13 @@ public class QuestionService {
         return this.save(q); // 질문 저장 후 반환
     }
 
-    // 질문 저장 (이 메서드가 추가되었습니다)
+    // 질문 저장
     public Question save(Question question) {
         return this.questionRepository.save(question);
+    }
+
+    // 제목으로 질문 검색
+    public List<Question> searchBySubject(String keyword) {
+        return questionRepository.findBySubjectContaining(keyword);
     }
 }

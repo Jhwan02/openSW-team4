@@ -1,5 +1,10 @@
 package com.mysite.sbb.recruitmentQuestion.project;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mysite.sbb.recruitmentAnswer.projectAnswer.ProjectAnswerForm;
 
@@ -51,5 +57,20 @@ private final ProjectQuestionService projectQuestionService;
         this.projectQuestionService.create(projectQuestionForm.getSubject(), projectQuestionForm.getContent());
         return "redirect:/recruit/project/list";
     }
-
+    @GetMapping("/api/search")
+    @ResponseBody
+    public List<Map<String, Object>> searchProjectQuestions(@RequestParam("keyword") String keyword) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<ProjectQuestion> questions = projectQuestionService.searchBySubject(keyword);
+        List<Map<String, Object>> results = new ArrayList<>();
+        for (ProjectQuestion question : questions) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", question.getId());
+            map.put("subject", question.getSubject());
+            results.add(map);
+        }
+        return results;
+    }
 }

@@ -10,4 +10,5 @@ public interface ProjectQuestionRepository extends JpaRepository <ProjectQuestio
 	ProjectQuestionRepository findBySubjectAndContent(String subject, String content);
     List<ProjectQuestion> findBySubjectLike(String subject);
     Page<ProjectQuestion> findAll(Pageable pageable);
+    List<ProjectQuestion> findBySubjectContaining(String keyword);
 }

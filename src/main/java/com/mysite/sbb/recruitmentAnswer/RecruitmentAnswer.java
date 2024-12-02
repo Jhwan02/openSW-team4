@@ -3,6 +3,7 @@ package com.mysite.sbb.recruitmentAnswer;
 import java.time.LocalDateTime;
 
 import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion; // Import 추가
+import com.mysite.sbb.login.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,4 +30,7 @@ public class RecruitmentAnswer {
 
     @ManyToOne
     private RecruitmentQuestion question; 
+    
+    @ManyToOne
+    private User author;
 }

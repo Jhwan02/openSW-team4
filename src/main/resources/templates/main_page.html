@@ -16,7 +16,7 @@
       <img src="img/1866_file01/211. 메인 캐릭터_우왕이.png" alt="logo" class="logo">
 
       <ul class="nav-bar">
-        <li><a href="/contest/list">공모전</a></li>
+        <li><a href="/competitions">공모전</a></li>
         <li><a href="/recruit/list">인원 모집</a></li>
         <li><a href="techInfo">IT 기술</a></li>
         <li><a href="/question/list">자유</a></li>
@@ -24,10 +24,12 @@
 
       <div class="nav-right">
         <div class="search-button"><p>검색</p><span><i class="fa-solid fa-magnifying-glass"></i></span></div>
-        <div class="login-button" id="mainLoginButton" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <div class="login-button" id="mainLoginButton" data-bs-toggle="modal" data-bs-target="#loginModal" style="display : block;">
           <p>로그인</p>
         </div>
         <span id="welcomeMessage" style="display: none;"></span>
+        <div id="myPageButtonContainer" style="display: none;">
+          <button class="btn btn-primary" id="myPageButton">마이페이지</button>
       </div>
     </nav>
    </header>
@@ -159,5 +161,6 @@
   <!-- js -->
   <script src="main_page.js"></script>
   <script src="login/login.js"></script>
+  <script src="login/debug.js"></script>
 </body>
 </html>

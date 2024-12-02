@@ -9,7 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.mysite.sbb.answer.AnswerForm;
 
@@ -58,25 +64,43 @@ public class QuestionController {
             return "question_form"; // 유효성 검사 실패 시 폼 재표시
         }
 
-        // 질문 생성 (이미지 없이 생성)
         Question question;
         if (file != null && !file.isEmpty()) {
-            // 파일이 있으면 이미지 업로드 처리 후 질문 생성
             try {
                 UploadResultDTO uploadResult = uploadController.uploadFile(file);
-                question = this.questionService.create(questionForm.getSubject(), questionForm.getContent(), uploadResult.getImageURL());
+                question = this.questionService.create(
+                        questionForm.getSubject(),
+                        questionForm.getContent(),
+                        uploadResult.getImageURL()
+                );
             } catch (Exception e) {
                 model.addAttribute("uploadError", "이미지 업로드 중 문제가 발생했습니다.");
                 return "question_form"; // 에러 발생 시 폼 재표시
             }
         } else {
-            // 파일이 없으면 그냥 질문 생성
             question = this.questionService.create(questionForm.getSubject(), questionForm.getContent());
         }
 
-        // 질문 저장
         this.questionService.save(question);
 
         return "redirect:/question/list"; // 질문 목록으로 리다이렉트
+    }
+
+    // 제목으로 질문 검색 API
+    @GetMapping("/api/search")
+    @ResponseBody
+    public List<Map<String, Object>> searchQuestions(@RequestParam("keyword") String keyword) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return new ArrayList<>(); // 빈 리스트 반환
+        }
+        List<Question> questions = questionService.searchBySubject(keyword);
+        List<Map<String, Object>> results = new ArrayList<>();
+        for (Question question : questions) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", question.getId());
+            map.put("subject", question.getSubject());
+            results.add(map);
+        }
+        return results;
     }
 }
