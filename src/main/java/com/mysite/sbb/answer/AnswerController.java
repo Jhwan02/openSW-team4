@@ -23,7 +23,6 @@ public class AnswerController {
 
     private final QuestionService questionService;
     private final AnswerService answerService;
-
     
     // GET 요청이 들어오는 경우에 대한 처리
     @GetMapping("/create/{id}")

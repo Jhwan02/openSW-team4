@@ -48,5 +48,6 @@ public class Question {
 
 
     private Integer likes = 0; // 좋아요 수 필드 (초기값 0)
+    
 }
 

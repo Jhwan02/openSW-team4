@@ -32,6 +32,7 @@ public class QuestionController {
 
     private final QuestionService questionService;
     private final UploadController uploadController; // 이미지 업로드 컨트롤러 추가
+   
     // 질문 목록 표시
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
