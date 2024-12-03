@@ -1,7 +1,8 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container">
     <h5 class="my-3 border-bottom pb-2">질문등록</h5>
-    <form th:action="@{/contest/create}" th:object="${contestForm}" method="post">
+	<!-- 파일 업로드를 위해 enctype="multipart/form-data" 추가 -->
+    <form th:action="@{/contest/create}" th:object="${contestForm}" method="post" enctype="multipart/form-data">	
         <div th:replace="~{form_errors :: formErrorsFragment}"></div>
         <div class="mb-3">
             <label for="subject" class="form-label">제목</label>
@@ -11,7 +12,17 @@
             <label for="content" class="form-label">내용</label>
             <textarea th:field="*{content}" class="form-control" rows="10"></textarea>
         </div>
-        <input type="submit" value="저장하기" class="btn btn-primary my-2">
-    </form>
-</div>
+		<!-- 이미지 업로드 기능 -->
+		            <div class="mb-3">
+		                <label for="file" class="form-label">이미지 업로드</label>
+		                <input type="file" id="file" name="file" class="form-control">
+		            </div>
+		            <input type="submit" value="저장하기" class="btn btn-primary my-2">
+		    </div>
+			</form>
+		  
+</div>		
+<!-- 추가적인 스크립트 필요 시 포함 -->
+<script src="upload.js"></script>
+
 </html>

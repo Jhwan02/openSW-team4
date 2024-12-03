@@ -48,6 +48,7 @@ public class QuestionController {
         model.addAttribute("question", question);
         return "question_detail"; // question_detail.html 렌더링
     }
+    
     @GetMapping("/create")
     public String questionCreate(HttpSession session, QuestionForm questionForm) {
         // 세션에서 사용자 정보 확인
