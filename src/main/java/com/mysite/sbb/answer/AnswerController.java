@@ -29,7 +29,7 @@ public class AnswerController {
     public String createAnswerForm(@PathVariable("id") Integer id, Model model) {
         Question question = this.questionService.getQuestion(id);
         model.addAttribute("question", question);
-        return "answer_form"; // 적절한 뷰를 반환
+        return "question_detail"; // 적절한 뷰를 반환
     }
     
     @PostMapping("/create/{id}")

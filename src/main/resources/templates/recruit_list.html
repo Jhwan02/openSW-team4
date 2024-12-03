@@ -26,8 +26,9 @@
 	        <thead class="table-head">
 				<tr class="text-center">
 	                <th>번호</th>
-					<th>제목</th>
+					<th style="width:30%">제목</th>
 					<th>카테고리</th>
+					<th>글쓴이</th>
 	                <th>작성일시</th>
 	            </tr>
 	        </thead>
@@ -44,6 +45,10 @@
 						<!--카테고리값 텍스트로출력-->
 					<td><span th:text="${question.category}"></span></td>
 	                </td>
+					<td>
+						<span th:if="${question.author != null}" th:text="${question.author.username}"></span>
+						<span th:if="${question.author == null}">작성자 없음</span>
+					</td>
 	                <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
 	            </tr>
 	        </tbody>

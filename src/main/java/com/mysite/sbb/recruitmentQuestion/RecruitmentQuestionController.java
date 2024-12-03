@@ -1,8 +1,13 @@
 package com.mysite.sbb.recruitmentQuestion;
 
+import com.mysite.sbb.login.User;
+import com.mysite.sbb.question.Question;
+import com.mysite.sbb.question.QuestionForm;
 import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswerForm;
 import com.mysite.sbb.upload.UploadController;
 import com.mysite.sbb.upload.UploadResultDTO;
+
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -42,19 +47,33 @@ public class RecruitmentQuestionController {
         return "recruit_detail";
     }
 
-    // 질문 생성 폼
     @GetMapping("/create")
-    public String questionCreate(RecruitmentQuestionForm recruitmentQuestionForm) {
-        return "recruit_form"; // recruit_form.html 렌더링
+    public String questionCreate(HttpSession session,RecruitmentQuestionForm RecruitmentquestionForm) {
+        // 세션에서 사용자 정보 확인
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+            return "redirect:/auth/login";
+        }
+        // 로그인된 상태라면 질문 작성 폼으로 이동
+        return "recruit_form";
     }
 
-    // 질문 생성 처리
+  
     @PostMapping("/create")
     public String questionCreate(
-            @Valid RecruitmentQuestionForm recruitQuestionForm,
+            @Valid RecruitmentQuestionForm RecruitmentquestionForm,
             BindingResult bindingResult,
             @RequestParam(value = "file", required = false) MultipartFile file,
-            Model model) {
+            Model model,
+            HttpSession session) {
+
+        // 세션에서 사용자 정보 확인
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+            return "redirect:/auth/login";
+        }
 
         if (bindingResult.hasErrors()) {
             return "recruit_form"; // 유효성 검사 실패 시 폼 재표시
@@ -63,31 +82,30 @@ public class RecruitmentQuestionController {
         RecruitmentQuestion question;
         if (file != null && !file.isEmpty()) {
             try {
-                // 이미지 업로드 처리
                 UploadResultDTO uploadResult = uploadController.uploadFile(file);
                 question = this.recruitQuestionService.create(
-                        recruitQuestionForm.getSubject(),
-                        recruitQuestionForm.getContent(),
-                        recruitQuestionForm.getCategory(),
-                        uploadResult.getImageURL() // 업로드된 이미지 URL 추가
+                        RecruitmentquestionForm.getSubject(),
+                        RecruitmentquestionForm.getContent(),
+                        RecruitmentquestionForm.getCategory(),
+                        uploadResult.getImageURL(),
+                        user
                 );
             } catch (Exception e) {
                 model.addAttribute("uploadError", "이미지 업로드 중 문제가 발생했습니다.");
-                return "recruit_form"; // 업로드 실패 시 폼 재표시
+                return "recruit_form"; // 에러 발생 시 폼 재표시
             }
         } else {
-            // 파일이 없을 경우 기본 생성
-            question = this.recruitQuestionService.create(
-                    recruitQuestionForm.getSubject(),
-                    recruitQuestionForm.getContent(),
-                    recruitQuestionForm.getCategory()
-            );
+            question = this.recruitQuestionService.create(RecruitmentquestionForm.getSubject(), 
+            											  RecruitmentquestionForm.getContent(), 
+            											  RecruitmentquestionForm.getCategory(),user);
         }
 
         this.recruitQuestionService.save(question);
 
         return "redirect:/recruit/list"; // 질문 목록으로 리다이렉트
     }
+
+   
 
     // 제목으로 질문 검색 API
     @GetMapping("/api/search")

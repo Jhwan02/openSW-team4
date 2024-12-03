@@ -102,10 +102,15 @@
                     return response.json();
                 })
                 .then(data => {
-                    // 좋아요 문구는 유지하고 숫자만 업데이트
-                    const updatedCount = `좋아요 ${data.likes}`;
-                    likeCountSpan.textContent = updatedCount;
-                })
+					// 좋아요 문구는 유지하고 숫자만 업데이트
+					const currentText = likeCountSpan.textContent;
+					const updatedCount = `좋아요 ${data.likes}`;
+					if (!currentText.startsWith("좋아요")) {
+					    likeCountSpan.textContent = updatedCount;
+					} else {
+					    likeCountSpan.textContent = updatedCount;
+					}
+					})
                 .catch(error => console.error("Error:", error));
             });
         }

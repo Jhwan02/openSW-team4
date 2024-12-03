@@ -1,6 +1,8 @@
 package com.mysite.sbb.recruitmentQuestion;
 
 import com.mysite.sbb.DataNotFoundException;
+import com.mysite.sbb.login.User;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,17 +45,18 @@ public class RecruitmentQuestionService {
     }
 
     // 질문 생성 (이미지 없이)
-    public RecruitmentQuestion create(String subject, String content, String category) {
-        return create(subject, content, category, null); // 이미지 없이 생성
+    public RecruitmentQuestion create(String subject, String content, String category, User author) {
+        return create(subject, content, category, null, author); // 이미지 없이 생성
     }
 
     // 질문 생성 (이미지 포함)
-    public RecruitmentQuestion create(String subject, String content, String category, String imageUrl) {
+    public RecruitmentQuestion create(String subject, String content, String category, String imageUrl, User author) {
         RecruitmentQuestion q = new RecruitmentQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
         q.setCategory(category);
+        q.setAuthor(author);
 
         if (imageUrl != null) {
             q.setImageUrl(imageUrl); // 이미지 URL 설정

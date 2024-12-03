@@ -22,7 +22,7 @@ public class AuthController {
     
     @GetMapping("/login")
     public String showLoginPage() {
-        return "main_page"; // 질문 목록으로 리다이렉트 수정 필
+        return "main_page"; // 질문 목록으로 리다이렉트 로그인 창으로 수정 필요 
     }
 
     // 로그인 메서드
