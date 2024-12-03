@@ -38,6 +38,10 @@
             <!-- 댓글 내용 -->
             <div>
                 <p class="mb-1" th:utext="${@commonUtil.markdown(answer.content)}"></p>
+				<div class="text-muted mt-2">
+			        작성자: <span th:text="${answer.author != null ? answer.author.username : '알 수 없음'}"></span>, 
+			        작성시간: <span th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></span>
+			    </div>
             </div>
         </div>
         <hr class="my-3"> <!-- 댓글 구분선 -->

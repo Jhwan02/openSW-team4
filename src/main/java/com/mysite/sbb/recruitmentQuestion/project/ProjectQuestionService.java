@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mysite.sbb.DataNotFoundException;
+import com.mysite.sbb.login.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -43,23 +44,23 @@ public class ProjectQuestionService {
         return this.projectQuestionRepository.findAll(pageable);
     }
 
-    // 질문 생성 (이미지 URL 포함)
-    public ProjectQuestion create(String subject, String content, String imageURL) {
-        ProjectQuestion q = new ProjectQuestion();
-        q.setSubject(subject);
-        q.setContent(content);
-        q.setCreateDate(LocalDateTime.now());
-        q.setImageUrl(imageURL);  // 이미지 URL 설정
-        return this.projectQuestionRepository.save(q);
+ // 질문 생성 (이미지 없이)
+    public ProjectQuestion create(String subject, String content, User author) {
+        return create(subject, content, null, author); // 이미지 없이 생성
     }
 
-    // 질문 생성 (이미지 없이)
-    public ProjectQuestion create(String subject, String content) {
+    // 질문 생성 (이미지 포함)
+    public ProjectQuestion create(String subject, String content, String imageUrl, User author) {
         ProjectQuestion q = new ProjectQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
-        return this.projectQuestionRepository.save(q);
+        q.setAuthor(author);
+        if (imageUrl != null) {
+            q.setImageUrl(imageUrl); // 이미지 URL 설정
+        }
+
+        return this.save(q); // 질문 저장 후 반환
     }
     
     public ProjectQuestion save(ProjectQuestion question) {
