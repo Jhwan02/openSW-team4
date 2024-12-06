@@ -81,44 +81,55 @@
     </div>
 
     <!-- 좋아요 버튼 스크립트 -->
-    <script>
-        const likeButton = document.getElementById("like-button");
-        const likeCountSpan = document.getElementById("like-count");
+    <!-- <script>
+        //onsole.log("Script loaded");
+    //     console.log(document.getElementById("like-button"));
+    //     document.addEventListener("DOMContentLoaded", function () {
+    //     const likeButton = document.getElementById("like-button");
+    //     const likeCountSpan = document.getElementById("like-count");
 
-        // 버튼의 data-question-id 속성에서 질문 ID를 동적으로 가져오기
-        const questionId = likeButton.getAttribute("data-question-id");
+    //     // 버튼의 data-question-id 속성에서 질문 ID를 가져오기
+    //     const questionId = likeButton.getAttribute("data-question-id");
 
-        if (!questionId) {
-            console.error("Invalid question ID");
-        } else {
-            likeButton.addEventListener("click", function () {
-                fetch(`/question/like/${questionId}`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-					// 좋아요 문구는 유지하고 숫자만 업데이트
-					const currentText = likeCountSpan.textContent;
-					const updatedCount = `좋아요 ${data.likes}`;
-					if (!currentText.startsWith("좋아요")) {
-					    likeCountSpan.textContent = updatedCount;
-					} else {
-					    likeCountSpan.textContent = updatedCount;
-					}
-					})
-                .catch(error => console.error("Error:", error));
-            });
-        }
-    </script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script th:src="@{/upload.js}"></script>
+    //     if (!questionId) {
+    //         console.error("Invalid question ID");
+    //         return;
+    //     }
+
+    //     // 좋아요 버튼 클릭 이벤트
+    //     likeButton.addEventListener("click", function () {
+    //         console.log("Like button clicked");
+    //         fetch(`/question/like/${questionId}`, {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             }
+    //         })
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     // 서버 응답이 오류인 경우
+    //                     return response.json().then(err => {
+    //                         throw new Error(err.message || "좋아요 요청 중 문제가 발생했습니다.");
+    //                     });
+    //                 }
+    //                 return response.json();
+    //             })
+    //             .then(data => {
+    //                 if (data.success) {
+    //                     // 좋아요 수 업데이트
+    //                     likeCountSpan.textContent = `좋아요 ${data.likes}`;
+    //                 } else {
+    //                     // 서버에서 실패 메시지가 전달된 경우
+    //                     alert(data.message || "좋아요 처리 실패");
+    //                 }
+    //             })
+    //             .catch(error => {
+    //                 // 오류 메시지를 사용자에게 알림
+    //                 console.error("Error:", error);
+    //                 alert("좋아요 처리 중 오류가 발생했습니다.");
+    //             });
+    //     });
+    // });
+    </script> -->
 </html>
 

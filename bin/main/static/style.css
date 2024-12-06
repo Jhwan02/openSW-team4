@@ -143,5 +143,7 @@ body {
 	    color: black;
 }
 
-
-
+.no-focus:focus {
+    outline: none; /* 포커스 아웃라인 제거 */
+    box-shadow: none; /* Bootstrap 기본 포커스 효과 제거 */
+}

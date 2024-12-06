@@ -126,11 +126,22 @@ public class QuestionController {
     @PostMapping("/like/{id}")
     @ResponseBody
     public Map<String, Object> likeQuestion(@PathVariable("id") Integer id) {
-        this.questionService.increaseLikes(id);
-        Question question = this.questionService.getQuestion(id);
         Map<String, Object> response = new HashMap<>();
-        response.put("likes", question.getLikes());
+
+        try {
+            // 좋아요 증가
+            this.questionService.increaseLikes(id);
+            Question question = this.questionService.getQuestion(id);
+
+            // 성공적인 응답
+            response.put("success", true);
+            response.put("likes", question.getLikes());
+        } catch (Exception e) {
+            // 오류 처리
+            response.put("success", false);
+            response.put("message", "좋아요 처리 중 문제가 발생했습니다.");
+        }
+
         return response;
     }
-
 }
