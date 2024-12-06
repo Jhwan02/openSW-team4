@@ -1,8 +1,23 @@
 package com.mysite.sbb.recruitmentQuestion;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.mysite.sbb.login.User;
-import com.mysite.sbb.question.Question;
-import com.mysite.sbb.question.QuestionForm;
 import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswerForm;
 import com.mysite.sbb.upload.UploadController;
 import com.mysite.sbb.upload.UploadResultDTO;
@@ -10,17 +25,6 @@ import com.mysite.sbb.upload.UploadResultDTO;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RequestMapping("/recruit")
 @RequiredArgsConstructor
