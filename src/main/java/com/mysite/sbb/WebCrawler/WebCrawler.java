@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -13,32 +14,25 @@ import java.io.IOException;
 public class WebCrawler {
 
     @Autowired
-    private CrawlerRepository crawlerRepository;
+    private CrawlerRepository crawlerRepository; // 타입을 명시적으로 선언
 
+    // @Scheduled(fixedRate = 3600000) // 1시간마다 실행
     public void crawlAndSaveCompetitions() {
-        String url = "https://www.wevity.com/?c=find&s=1&gub=1&cidx=21"; // 크롤링할 URL
+        String url = "https://www.campuspick.com/contest?category=108";
 
         try {
-            // HTML 문서 가져오기
             Document doc = Jsoup.connect(url).get();
-
-            // 각 카드 항목 선택
-            Elements items = doc.select("li.bg");
+            Elements items = doc.select("list .item");
 
             for (Element item : items) {
-                // 제목 추출 (a 태그 안의 텍스트)
-                String title = item.select("div.tit a").text();
+                String imageUrl = item.select("figure").attr("data-image");
+                String title = item.select(".top h2").text();
+                String date = item.select(".info").text();
 
-                // 날짜 추출 (class="day")
-                String date = item.select("div.day").text();
+                // Save directly to database
+                WebCrawlerEntity entity = new WebCrawlerEntity(imageUrl, title, date);
 
-                // 출력 (디버깅용)
-                System.out.println("Title: " + title);
-                System.out.println("Date: " + date);
-                System.out.println("-----------------------------");
-
-                // 데이터베이스 저장용 엔티티 생성
-                WebCrawlerEntity entity = new WebCrawlerEntity(title, date);
+                // Save using CrawlerRepository
                 crawlerRepository.save(entity);
             }
         } catch (IOException e) {

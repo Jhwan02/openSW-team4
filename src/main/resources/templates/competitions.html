@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공모전 게시판</title>
-    <link rel="stylesheet" href="contest.css">
+    <link rel="stylesheet" href="../contest.css">
 </head>
 <body>
     <header class="Header">  
@@ -32,8 +32,11 @@
         <div class="card-container">
             <th:block th:each="competition : ${competitions}">
                 <div class="card">
-                    <img th:src="${competition.imageUrl}" alt="공모전 이미지" class="card-image">
-                    <div class="card-content">
+                    <div class="card-image" onclick="openModal(this)">
+                        <img th:src="${competition.imageUrl}" alt="Competition Image">
+                       
+                    </div>
+                    <div class="card-content" onclick = "navigateToDetail('${competition.id}')">
                         <h2 class="card-title" th:text="${competition.title}"></h2>
                         <p class="card-date">남은 날짜: <span th:text="${competition.date}"></span></p>
                     </div>
@@ -41,6 +44,11 @@
             </th:block>
         </div>
     </main>
+     <!-- Modal -->
+     <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
     <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
     <script src="contest.js"></script>
