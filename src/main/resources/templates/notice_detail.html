@@ -4,8 +4,8 @@
     <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
     <div class="card my-3">
         <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>
-            <div class="d-flex justify-content-end">
+			<div class="card-text" th:utext="${@commonUtil.markdown(question.content)}"></div>
+			 <div class="d-flex justify-content-end">
                 <div class="badge bg-light text-dark p-2 text-start">
                     <div th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
                 </div>
@@ -13,25 +13,77 @@
         </div>
     </div>
     <!-- 답변의 갯수 표시 -->
-    <h5 class="border-bottom my-3 py-2" 
-        th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
+    <div class="count-heart d-flex justify-content-start align-items-center">
+        <!-- 좋아요 -->
+        <h5 class="my-3 py-2 me-3 d-flex align-items-center">
+            <button id="like-button" class="btn d-flex align-items-center no-focus">
+                <span class="me-2">❤️</span> <!-- 하트 이모티콘 -->
+                <span id="like-count"></span> <!-- 좋아요 갯수 표시 -->
+            </button>
+        </h5>
+    
+        <!-- 댓글 -->
+        <h5 class="my-3 py-2 d-flex align-items-center">
+            <span class="me-2">💬</span> <!-- 댓글 이모티콘 -->
+            <span th:text="|댓글 ${#lists.size(question.answerList)}|"></span>
+        </h5>
+    </div>
     <!-- 답변 반복 시작 -->
-    <div class="card my-3" th:each="answer : ${question.answerList}">
-        <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
-            <div class="d-flex justify-content-end">
-                <div class="badge bg-light text-dark p-2 text-start">
-                    <div th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
-                </div>
+    <div th:each="answer : ${question.answerList}">
+        <div class="d-flex align-items-start py-3">
+            <!-- 댓글 내용 -->
+            <div>
+                <p class="mb-1" th:utext="${@commonUtil.markdown(answer.content)}"></p>
             </div>
         </div>
-    </div>	
+        <hr class="my-3"> <!-- 댓글 구분선 -->
+    </div>
+
     <!-- 답변 반복 끝  -->
 	<!-- 답변 작성 -->
-	<form th:action="@{|/notice/answer/create/${question.id}|}" th:object="${noticeAnswerForm}" method="post" class="my-3">
+	<!-- <form th:action="@{|/notice/answer/create/${question.id}|}" th:object="${noticeAnswerForm}" method="post" class="my-3">
 	        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
 	        <textarea th:field="*{content}" rows="10" class="form-control"></textarea>
 	        <input type="submit" value="답변등록" class="btn btn-primary my-2">
-	</form>
-	</div>
+	</form> -->
+    <form th:action="@{|/notice/answer/create/${question.id}|}" th:object="${noticeAnswerForm}" method="post" class="my-5">
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+        <!-- 댓글 입력 박스 -->
+        <div class="card">
+            <div class="card-body">
+                <textarea 
+                    th:field="*{content}" 
+                    rows="3" 
+                    class="form-control border-0"
+                    placeholder="댓글을 작성해주세요." 
+                    style="resize: none; background-color: #ffffff;"></textarea>
+                <div class="text-end mt-2">
+                    <input 
+                        type="submit" 
+                        value="댓글달기" 
+                        class="btn btn-outline-secondary px-4 py-1" 
+                        style="border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <script>
+        // 초기 좋아요 수 가져오기
+        const likeButton = document.getElementById("like-button");
+        const likeCountSpan = document.getElementById("like-count");
+    
+        // 로컬 저장소에서 좋아요 값 가져오기 (없으면 0으로 초기화)
+        let likeCount = localStorage.getItem("likeCount") ? parseInt(localStorage.getItem("likeCount")) : 0;
+        likeCountSpan.textContent = `좋아요 ${likeCount}`;
+    
+        // 버튼 클릭 시 좋아요 수 증가 및 로컬 저장소에 저장
+        likeButton.addEventListener("click", function () {
+            likeCount += 1; // 좋아요 수 증가
+            localStorage.setItem("likeCount", likeCount); // 로컬 저장소에 저장
+            likeCountSpan.textContent = `좋아요 ${likeCount}`; // 좋아요 갯수 업데이트
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script th:src="@{/upload.js}"></script>
 	</html>

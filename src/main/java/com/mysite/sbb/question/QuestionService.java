@@ -1,5 +1,5 @@
 package com.mysite.sbb.question;
-
+import com.mysite.sbb.login.User;
 import java.time.LocalDateTime;
 
 import java.util.ArrayList;
@@ -11,8 +11,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mysite.sbb.DataNotFoundException;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -46,17 +48,17 @@ public class QuestionService {
     }
 
     // 질문 생성 (이미지 없이)
-    public Question create(String subject, String content) {
-        return create(subject, content, null); // 이미지 없이 생성
+    public Question create(String subject, String content, User author) {
+        return create(subject, content, null, author); // 이미지 없이 생성
     }
 
     // 질문 생성 (이미지 포함)
-    public Question create(String subject, String content, String imageUrl) {
+    public Question create(String subject, String content, String imageUrl, User author) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
-
+        q.setAuthor(author);
         if (imageUrl != null) {
             q.setImageUrl(imageUrl); // 이미지 URL 설정
         }
@@ -73,4 +75,10 @@ public class QuestionService {
     public List<Question> searchBySubject(String keyword) {
         return questionRepository.findBySubjectContaining(keyword);
     }
+
+    @Transactional
+    public void increaseLikes(Integer id) {
+        this.questionRepository.incrementLikes(id);
+    }
+
 }

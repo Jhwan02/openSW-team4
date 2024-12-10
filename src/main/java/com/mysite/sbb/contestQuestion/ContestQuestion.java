@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.mysite.sbb.contestAnswer.ContestAnswer; // Import 추가
+import com.mysite.sbb.login.User;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,6 +12,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,5 +36,14 @@ public class ContestQuestion {
 
     @OneToMany(mappedBy = "contestQuestion", cascade = CascadeType.REMOVE)  // 필드명 일치
     private List<ContestAnswer> answerList;
+    
+    private String imageUrl; // 이미지 URL 저장 필드
+    
+    @ManyToOne
+    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "ID", nullable = false)
+    private User author;
+    
+    
+    
     
 }

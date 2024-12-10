@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mysite.sbb.login.User;
 import com.mysite.sbb.recruitmentAnswer.projectAnswer.ProjectAnswerForm;
 import com.mysite.sbb.upload.UploadController;
 import com.mysite.sbb.upload.UploadResultDTO;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -49,56 +51,59 @@ public class ProjectQuestionController {
         return "project_detail";
     }
 
-    // 질문 생성 폼
     @GetMapping("/create")
-    public String questionCreate(ProjectQuestionForm projectQuestionForm) {
-        return "project_form"; // project_form.html 렌더링
+    public String questionCreate(HttpSession session, ProjectQuestionForm questionForm) {
+        // 세션에서 사용자 정보 확인
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+            return "redirect:/auth/login";
+        }
+        // 로그인된 상태라면 질문 작성 폼으로 이동
+        return "project_form";
     }
 
-    // 질문 생성 처리 (이미지 업로드 기능 추가)
+  
     @PostMapping("/create")
     public String questionCreate(
-            @Valid ProjectQuestionForm projectQuestionForm, 
+            @Valid ProjectQuestionForm questionForm,
             BindingResult bindingResult,
             @RequestParam(value = "file", required = false) MultipartFile file,
-            Model model) {
+            Model model,
+            HttpSession session) {
 
-        // 유효성 검사 오류가 있으면 폼 재표시
-        if (bindingResult.hasErrors()) {
-            return "project_form";
+        // 세션에서 사용자 정보 확인
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+            return "redirect:/auth/login";
         }
 
-        // 질문 객체 생성
+        if (bindingResult.hasErrors()) {
+            return "project_form"; // 유효성 검사 실패 시 폼 재표시
+        }
+
         ProjectQuestion question;
-        
-        // 파일 업로드 처리
         if (file != null && !file.isEmpty()) {
             try {
-                // 이미지 업로드 처리
                 UploadResultDTO uploadResult = uploadController.uploadFile(file);
-                // 업로드된 이미지 URL을 포함한 질문 생성
                 question = this.projectQuestionService.create(
-                        projectQuestionForm.getSubject(),
-                        projectQuestionForm.getContent(),
-                        uploadResult.getImageURL() // 업로드된 이미지 URL 추가
+                        questionForm.getSubject(),
+                        questionForm.getContent(),
+                        uploadResult.getImageURL(),
+                        user
                 );
             } catch (Exception e) {
                 model.addAttribute("uploadError", "이미지 업로드 중 문제가 발생했습니다.");
-                return "project_form"; // 업로드 실패 시 폼 재표시
+                return "question_form"; // 에러 발생 시 폼 재표시
             }
         } else {
-            // 파일이 없을 경우 기본 생성
-            question = this.projectQuestionService.create(
-                    projectQuestionForm.getSubject(),
-                    projectQuestionForm.getContent()
-            );
+            question = this.projectQuestionService.create(questionForm.getSubject(), questionForm.getContent(), user);
         }
 
-        // 생성된 질문을 저장
         this.projectQuestionService.save(question);
 
-        // 질문 목록 페이지로 리다이렉트
-        return "redirect:/recruit/project/list";
+        return "redirect:/recruit/project/list"; // 질문 목록으로 리다이렉트
     }
 
     // 제목으로 질문 검색 API

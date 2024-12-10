@@ -4,9 +4,12 @@
         <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
         <div class="card my-3">
             <div class="card-body">
-                <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>
+                <div class="card-text" th:utext="${@commonUtil.markdown(question.content)}"></div>
                 <div class="d-flex justify-content-end">
                     <div class="badge bg-light text-dark p-2 text-start">
+						<div>
+							작성자: <span th:text="${question.author != null ? question.author.username : '알 수 없음'}"></span>
+						</div>
                         <div th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
                     </div>
                 </div>
@@ -19,28 +22,114 @@
         </div>
 
         <!-- 답변의 갯수 표시 -->
-        <h5 class="border-bottom my-3 py-2" 
-            th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
+        <div class="count-heart d-flex justify-content-start align-items-center">
+            <!-- 좋아요 -->
+            <h5 class="my-3 py-2 me-3 d-flex align-items-center">
+                <button 
+                    id="like-button" 
+                    class="btn d-flex align-items-center no-focus" 
+                    th:data-question-id="${question.id}">
+                    <span class="me-2">❤️</span>
+                    <span id="like-count" th:text="|좋아요 ${question.likes}|"></span>
+                </button>
+            </h5>        
+            <!-- 댓글 -->
+            <h5 class="my-3 py-2 d-flex align-items-center">
+                <span class="me-2">💬</span> <!-- 댓글 이모티콘 -->
+                <span th:text="|댓글 ${#lists.size(question.answerList)}|"></span>
+            </h5>
+        </div>
 
         <!-- 답변 반복 시작 -->
-        <div class="card my-3" th:each="answer : ${question.answerList}">
-            <div class="card-body">
-                <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
-                <div class="d-flex justify-content-end">
-                    <div class="badge bg-light text-dark p-2 text-start">
-                        <div th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
-                    </div>
-                </div>
-            </div>
+        <div th:each="answer : ${question.answerList}">
+            <div class="d-flex align-items-start py-3">
+                <!-- 댓글 내용 -->
+				<div>
+				    <p class="mb-1" th:utext="${@commonUtil.markdown(answer.content)}"></p>
+				    <div class="text-muted mt-2">
+				        작성자: <span th:text="${answer.author != null ? answer.author.username : '알 수 없음'}"></span>, 
+				        작성시간: <span th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></span>
+				    </div>
+				</div>
+     	    </div>
+            <hr class="my-3"> <!-- 댓글 구분선 -->
         </div>
         <!-- 답변 반복 끝 -->
 
         <!-- 답변 작성 -->
-        <form th:action="@{|/question/answer/create/${question.id}|}" th:object="${answerForm}" method="post" class="my-3">
+        <form th:action="@{|/question/answer/create/${question.id}|}" th:object="${answerForm}" method="post" class="my-5">
             <div th:replace="~{form_errors :: formErrorsFragment}"></div>
-            <textarea th:field="*{content}" rows="10" class="form-control"></textarea>
-            <input type="submit" value="답변등록" class="btn btn-primary my-2">
+            <!-- 댓글 입력 박스 -->
+            <div class="card">
+                <div class="card-body">
+                    <textarea 
+                        th:field="*{content}" 
+                        rows="3" 
+                        class="form-control border-0"
+                        placeholder="댓글을 작성해주세요." 
+                        style="resize: none; background-color: #ffffff;"></textarea>
+                    <div class="text-end mt-2">
+                        <input 
+                            type="submit" 
+                            value="댓글달기" 
+                            class="btn btn-outline-secondary px-4 py-1" 
+                            style="border-radius: 20px;">
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
-	<script src="upload.js"></script>
+
+    <!-- 좋아요 버튼 스크립트 -->
+    <!-- <script>
+        //onsole.log("Script loaded");
+    //     console.log(document.getElementById("like-button"));
+    //     document.addEventListener("DOMContentLoaded", function () {
+    //     const likeButton = document.getElementById("like-button");
+    //     const likeCountSpan = document.getElementById("like-count");
+
+    //     // 버튼의 data-question-id 속성에서 질문 ID를 가져오기
+    //     const questionId = likeButton.getAttribute("data-question-id");
+
+    //     if (!questionId) {
+    //         console.error("Invalid question ID");
+    //         return;
+    //     }
+
+    //     // 좋아요 버튼 클릭 이벤트
+    //     likeButton.addEventListener("click", function () {
+    //         console.log("Like button clicked");
+    //         fetch(`/question/like/${questionId}`, {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             }
+    //         })
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     // 서버 응답이 오류인 경우
+    //                     return response.json().then(err => {
+    //                         throw new Error(err.message || "좋아요 요청 중 문제가 발생했습니다.");
+    //                     });
+    //                 }
+    //                 return response.json();
+    //             })
+    //             .then(data => {
+    //                 if (data.success) {
+    //                     // 좋아요 수 업데이트
+    //                     likeCountSpan.textContent = `좋아요 ${data.likes}`;
+    //                 } else {
+    //                     // 서버에서 실패 메시지가 전달된 경우
+    //                     alert(data.message || "좋아요 처리 실패");
+    //                 }
+    //             })
+    //             .catch(error => {
+    //                 // 오류 메시지를 사용자에게 알림
+    //                 console.error("Error:", error);
+    //                 alert("좋아요 처리 중 오류가 발생했습니다.");
+    //             });
+    //     });
+    // });
+    </script> -->
 </html>
+

@@ -12,7 +12,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany; 
+import jakarta.persistence.ManyToOne;
+import com.mysite.sbb.login.User;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -37,5 +40,14 @@ public class Question {
     private List<Answer> answerList;
 
     private String imageUrl; // 이미지 URL 저장 필드
+    
+    @ManyToOne
+    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "ID", nullable = false)
+    private User author;
+
+
+
+    private Integer likes = 0; // 좋아요 수 필드 (초기값 0)
+    
 }
 

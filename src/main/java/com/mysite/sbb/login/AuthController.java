@@ -19,6 +19,11 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+    
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "main_page"; // 질문 목록으로 리다이렉트 로그인 창으로 수정 필요 
+    }
 
     // 로그인 메서드
     @PostMapping("/login")
@@ -67,5 +72,11 @@ public class AuthController {
             logger.debug("세션 확인 - 로그인 상태: false");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
+        
+    }
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpSession session) {
+        session.invalidate(); // 세션 무효화
+        return ResponseEntity.ok("로그아웃 성공");
     }
 }
