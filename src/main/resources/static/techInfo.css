@@ -44,7 +44,7 @@ body {
 }
 
 .nav-bar a:hover {
-    color: #000000; /* 호버 시 색상 변경 */
+    color: #000000;
 }
 
 .nav-bar li{
@@ -186,4 +186,45 @@ p {
 .notice-detail .btn:hover {
     background-color: #0056b3;
     color: #fff;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.page-button {
+    padding: 10px 20px;
+    border: 2px solid #ddd;
+    background-color: #ffffff;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.page-button.active {
+    /* background-color: #0000ff; */
+    color: #333;
+    /* border-color: #0000ff; */
+    box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3), 0 3px 6px rgba(76, 175, 80, 0.2);
+    transform: scale(1.1);
+}
+
+.page-button:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.pagination::before,
+.pagination::after {
+    content: "";
+    flex: 1;
 }
