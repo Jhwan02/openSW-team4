@@ -8540,3 +8540,7 @@ org.attoparser.ParseException: (Line = 3, Column = 32) Could not parse as a well
 2024-12-13T23:38:49.760+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
 2024-12-13T23:38:51.876+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
 2024-12-13T23:38:55.452+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:39:29.835+09:00  INFO 22868 --- [sbb] [RMI TCP Connection(245)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-12-13T23:39:30.223+09:00  INFO 22868 --- [sbb] [RMI TCP Connection(245)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-13T23:39:30.225+09:00  INFO 22868 --- [sbb] [RMI TCP Connection(245)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2024-12-13T23:39:30.432+09:00  INFO 22868 --- [sbb] [RMI TCP Connection(245)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
