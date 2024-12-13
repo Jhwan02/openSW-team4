@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface CrawlerRepository extends JpaRepository<WebCrawlerEntity, Long> {
 
-    // ����(title) ���� ���η� Competition �˻�
     List<WebCrawlerEntity> findByTitleContaining(String keyword);
 
     List<WebCrawlerEntity> findAllByOrderByIdAsc();
