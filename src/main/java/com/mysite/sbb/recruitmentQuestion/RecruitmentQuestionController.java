@@ -34,13 +34,41 @@ public class RecruitmentQuestionController {
     private final RecruitmentQuestionService recruitQuestionService;
     private final UploadController uploadController; // 이미지 업로드 컨트롤러 추가
 
-    // 질문 목록
+ // 질문 목록
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
+        // 페이징된 모집 질문 목록 가져오기
         Page<RecruitmentQuestion> paging = this.recruitQuestionService.getList(page);
+
+        // 작성시간 포맷팅 처리
+        List<Map<String, Object>> formattedQuestions = new ArrayList<>();
+        for (RecruitmentQuestion question : paging.getContent()) {
+            Map<String, Object> formattedQuestion = new HashMap<>();
+            formattedQuestion.put("id", question.getId());
+            formattedQuestion.put("subject", question.getSubject());
+            formattedQuestion.put("category", question.getCategory() != null ? question.getCategory() : "카테고리 없음");
+            formattedQuestion.put("author", question.getAuthor() != null ? question.getAuthor().getUsername() : "작성자 없음");
+
+            // 작성 시간 포맷팅 처리
+            String formattedDate;
+            if (question.getCreateDate() != null) {
+                formattedDate = recruitQuestionService.formatDateTime(question.getCreateDate());
+            } else {
+                formattedDate = "알 수 없음";
+            }
+            formattedQuestion.put("formattedDate", formattedDate);
+
+            formattedQuestions.add(formattedQuestion);
+        }
+
+        // 모델에 데이터 추가
         model.addAttribute("paging", paging);
-        return "recruit_list";
+        model.addAttribute("formattedQuestions", formattedQuestions);
+
+        return "recruit_list"; // recruit_list.html 렌더링
     }
+
+
 
     // 질문 상세 보기
     @GetMapping("/detail/{id}")

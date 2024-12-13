@@ -1,6 +1,7 @@
 package com.mysite.sbb.contestQuestion;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +39,32 @@ public class ContestController {
     // 질문 목록 표시
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
+        // 페이징된 질문 목록 가져오기
         Page<ContestQuestion> paging = this.contestService.getList(page);
+
+        // 작성시간 포맷팅 처리
+        List<Map<String, Object>> formattedQuestions = new ArrayList<>();
+        for (ContestQuestion question : paging.getContent()) {
+            Map<String, Object> formattedQuestion = new HashMap<>();
+            formattedQuestion.put("id", question.getId());
+            formattedQuestion.put("subject", question.getSubject());
+            formattedQuestion.put("author", question.getAuthor() != null ? question.getAuthor().getUsername() : "작성자 없음");
+
+            // 작성시간 포맷팅
+            if (question.getCreateDate() != null) {
+                formattedQuestion.put("formattedDate", contestService.formatDateTime(question.getCreateDate()));
+            } else {
+                formattedQuestion.put("formattedDate", "알 수 없음");
+            }
+
+            formattedQuestions.add(formattedQuestion);
+        }
+
+        // 모델에 데이터 추가
         model.addAttribute("paging", paging);
-        return "contest_list"; // question_list.html 렌더링
+        model.addAttribute("formattedQuestions", formattedQuestions);
+
+        return "contest_list"; // contest_list.html 렌더링
     }
 
     // 질문 상세 보기

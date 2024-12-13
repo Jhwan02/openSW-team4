@@ -1,6 +1,7 @@
 package com.mysite.sbb.recruitmentQuestion.project;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,12 +37,33 @@ public class ProjectQuestionController {
 
     // 질문 목록
     @GetMapping("/list")
-    public String list(Model model, @RequestParam(value="page", defaultValue="0") int page) {
+    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
+        // 페이징된 질문 가져오기
         Page<ProjectQuestion> paging = this.projectQuestionService.getList(page);
-        model.addAttribute("paging", paging);
-        return "project_list";
-    }
 
+        // 작성시간 포맷팅 처리
+        List<Map<String, Object>> formattedQuestions = new ArrayList<>();
+        for (ProjectQuestion question : paging.getContent()) {
+            Map<String, Object> formattedQuestion = new HashMap<>();
+            formattedQuestion.put("id", question.getId());
+            formattedQuestion.put("subject", question.getSubject());
+            formattedQuestion.put("author", question.getAuthor() != null ? question.getAuthor().getUsername() : "작성자 없음");
+
+            // 작성 시간 포맷팅
+            String formattedDate = question.getCreateDate() != null
+                    ? projectQuestionService.formatDateTime(question.getCreateDate())
+                    : "알 수 없음";
+            formattedQuestion.put("formattedDate", formattedDate);
+
+            formattedQuestions.add(formattedQuestion);
+        }
+
+        // 모델에 추가
+        model.addAttribute("paging", paging);
+        model.addAttribute("formattedQuestions", formattedQuestions);
+
+        return "project_list"; // project_list.html 렌더링
+    }
     // 질문 상세 보기
     @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, ProjectAnswerForm recruitAnswerForm) {

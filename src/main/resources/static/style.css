@@ -155,6 +155,7 @@ body {
     border-collapse: collapse;
     background-color: #ffffff; /* 테이블 배경 흰색 */
     table-layout: fixed;
+	margin-bottom: 20px;
 }
 
 .board-table thead {
@@ -165,32 +166,26 @@ body {
     border: none; /* 기존 테두리 제거 */
     text-align: left;
     padding: 12px 8px; /* 셀 여백 */
-    word-wrap: break-word; /* 긴 텍스트 자동 줄바꿈 */
 }
 
 .board-table th:nth-child(1), /* No */
 .board-table td:nth-child(1) {
-    width: 5%; /* No 열 */
+    width: 8%; /* No 열 */
 }
 
 .board-table th:nth-child(2), /* 제목 */
 .board-table td:nth-child(2) {
-    width: 50%; /* 제목 열 */
+    width: 65%; /* 제목 열 */
 }
 
 .board-table th:nth-child(3), /* 글쓴이 */
 .board-table td:nth-child(3) {
-    width: 15%; /* 글쓴이 열 */
+    width: 17%; /* 글쓴이 열 */
 }
 
 .board-table th:nth-child(4), /* 작성시간 */
 .board-table td:nth-child(4) {
-    width: 20%; /* 작성시간 열 */
-}
-
-.board-table th:nth-child(5), /* 좋아요 */
-.board-table td:nth-child(5) {
-    width: 10%; /* 좋아요 열 */
+    width: 10%; /* 작성시간 열 */
 }
 
 .board-table th {
@@ -214,7 +209,7 @@ body {
 }
 
 .board-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -261,6 +256,128 @@ body {
     color: #ccc; /* 비활성화된 링크 색상 */
     pointer-events: none; /* 클릭 불가능 */
     background-color: #f9f9f9;
+}
+
+/* 게시글 박스 스타일 */
+.post-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* 작성자 및 날짜 스타일 */
+.post-box .author {
+    font-weight: bold;
+    color: #333333;
+}
+
+.post-box .date {
+    font-size: 0.9rem;
+    color: #666666;
+}
+
+/* 제목 스타일 */
+.post-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* 본문 내용 스타일 */
+.post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333333;
+}
+
+.comment-container {
+    margin-bottom: 15px; /* 댓글 간 간격 */
+    padding: 15px; /* 내부 여백 */
+    border: 1px solid #ddd; /* 테두리 */
+    border-radius: 5px; /* 모서리를 둥글게 */
+    background-color: #ffffff; /* 배경색 */
+}
+/* 댓글 박스 스타일 */
+.comment-box {
+    padding: 15px;
+    background-color: white;
+}
+
+/* 댓글 내용 스타일 */
+.comment-content {
+    font-size: 1rem;
+    color: #333333;
+}
+
+.comment-item {
+    margin: 0; /* 댓글 요소 사이의 여백 제거 */
+    padding: 10px 0; /* 위아래 약간의 패딩 추가 (선택 사항) */
+    border-bottom: 1px solid #eaeaea; /* 구분선 추가 (선택 사항) */
+}
+
+/* 댓글 작성 폼 스타일 */
+textarea.form-control {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* 좋아요 및 댓글 영역 스타일 */
+.count-heart h5 {
+    font-size: 1rem;
+    margin-right: 20px;
+    color: #000000;
+}
+
+.count-heart h5 span {
+    margin-left: 5px;
+    font-weight: normal;
+    color: #555555;
+}
+
+.post-image {
+    max-width: 100%; /* 부모 요소의 너비를 넘지 않음 */
+    height: 400px;    /* 비율을 유지 */
+    border-radius: 8px; /* 이미지 모서리를 약간 둥글게 */
+    margin: 10px 0;  /* 이미지와 텍스트 사이 간격 */
+}
+
+/* 댓글 박스 스타일 */
+.comment-container {
+    padding: 15px; /* 내부 여백 */
+    border: 1px solid #ddd; /* 테두리 */
+    background-color: #ffffff; /* 배경색 */
+}
+
+/* 작성자 */
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* 댓글 내용 */
+.comment-content p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* 작성 시간 */
+.comment-timestamp {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* 댓글 간 구분선 */
+.comment-divider {
+    border: 0;
+    height: 1px;
+    background-color: #e5e5e5;
+    margin: 10px 0;
 }
 
 .container {

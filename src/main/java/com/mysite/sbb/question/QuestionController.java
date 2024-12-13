@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -36,11 +39,33 @@ public class QuestionController {
     // 질문 목록 표시
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
+        // 페이징된 질문 목록 가져오기
         Page<Question> paging = this.questionService.getList(page);
+
+        // 작성시간 포맷팅 처리
+        List<Map<String, Object>> formattedQuestions = new ArrayList<>();
+        for (Question question : paging.getContent()) {
+            Map<String, Object> formattedQuestion = new HashMap<>();
+            formattedQuestion.put("id", question.getId());
+            formattedQuestion.put("subject", question.getSubject());
+            formattedQuestion.put("author", question.getAuthor() != null ? question.getAuthor().getUsername() : "작성자 없음");
+
+            // createDate가 null일 경우 기본값 설정
+            if (question.getCreateDate() != null) {
+                formattedQuestion.put("formattedDate", questionService.formatDateTime(question.getCreateDate()));
+            } else {
+                formattedQuestion.put("formattedDate", "알 수 없음");
+            }
+            formattedQuestions.add(formattedQuestion);
+        }
+
+        // Model에 데이터 추가
         model.addAttribute("paging", paging);
+        model.addAttribute("formattedQuestions", formattedQuestions);
+
         return "question_list"; // question_list.html 렌더링
     }
-
+    
     // 질문 상세 보기
     @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {

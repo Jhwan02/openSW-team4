@@ -1,6 +1,8 @@
 package com.mysite.sbb.recruitmentQuestion;
 
 import com.mysite.sbb.DataNotFoundException;
+import java.time.Duration;
+import java.time.format.DateTimeFormatter;
 import com.mysite.sbb.login.User;
 
 import lombok.RequiredArgsConstructor;
@@ -73,5 +75,24 @@ public class RecruitmentQuestionService {
     // 제목으로 질문 검색
     public List<RecruitmentQuestion> searchBySubject(String keyword) {
         return recruitmentQuestionRepository.findBySubjectLike("%" + keyword + "%");
+    }
+    
+    public String formatDateTime(LocalDateTime createDate) {
+        LocalDateTime now = LocalDateTime.now();
+        Duration duration = Duration.between(createDate, now);
+
+        if (duration.toMinutes() == 0) {
+            // 작성시간이 현재 시각과 동일한 분 -> "방금"
+            return "방금";
+        } else if (duration.toMinutes() < 60) {
+            // 1시간 이내 -> "X분 전"
+            return duration.toMinutes() + "분 전";
+        } else if (createDate.toLocalDate().equals(now.toLocalDate())) {
+            // 오늘 작성된 글 -> "HH:mm"
+            return createDate.format(DateTimeFormatter.ofPattern("HH:mm"));
+        } else {
+            // 오늘 이전 작성된 글 -> "MM.dd"
+            return createDate.format(DateTimeFormatter.ofPattern("MM/dd"));
+        }
     }
 }
