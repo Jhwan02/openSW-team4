@@ -1,5 +1,6 @@
 package com.mysite.sbb.techInfo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class blogPost {
     private Long id;
 
     private String title;
+    @Column(length = 500) // 500자로 변경
     private String link;
     private String date;
 
@@ -33,7 +35,8 @@ public class blogPost {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    
+  
     public String getLink() {
         return link;
     }

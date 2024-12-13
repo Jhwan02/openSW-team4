@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공모전 게시판</title>
+
     <link rel="stylesheet" href="../contest.css">
 </head>
 <body>
@@ -27,7 +28,7 @@
         </nav>
     </header>
 
-    <main>
+   <!-- <main>
         <h1 class="page-title">공모전 게시판</h1>
         <div class="card-container">
             <th:block th:each="competition : ${competitions}">
@@ -43,7 +44,7 @@
                 </div>
             </th:block>
         </div>
-    </main>
+    </main>-->
      <!-- Modal -->
      <div id="imageModal" class="modal">
         <span class="close">&times;</span>
@@ -53,5 +54,28 @@
     <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
     <script src="contest.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="competition.css">
+</head>
+<body>
+	
+    <h1>공모전 게시판</h1>
+    <div class="competition-list">
+        <th:block th:each="competition : ${competitions}" class="container">
+            <div class="competition-item">
+                <img th:src="${competition.imageUrl}" alt="Competition Image" class="competition-image">
+                <div class="competition-info">
+                    <h2 th:text="${competition.title}"></h2>
+                    <p class="competition-date" th:text="${competition.date}"></p>
+                </div>
+            </div>
+            <div class="bottom">
+                <button class="look_poster">포스터 보기</button>
+                <button class="go_find_team">인원 모집</button>
+            </div> 
+       </th:block>
+    </div>
+
+
+<script src="competition.js"></script>
 </body>
 </html>

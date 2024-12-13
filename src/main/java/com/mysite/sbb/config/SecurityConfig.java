@@ -4,9 +4,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 @Configuration
+@EnableWebSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
     @Bean
@@ -22,10 +26,13 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                 .loginPage("/login") // 커스텀 로그인 페이지 설정 (선택 사항)
+                .failureUrl("/") // 로그인 실패 시 리다이렉트할 URL
                 .permitAll()
             )
             .logout(logout -> logout
-                .logoutSuccessUrl("/") // 로그아웃 후 리다이렉트 경로
+                .logoutSuccessUrl("/logout") // 로그아웃 후 리다이렉트 경로
+                .invalidateHttpSession(true) // 세션 무효화
+                .deleteCookies("JSESSIONID") // 쿠키 삭제
             )
             .csrf(csrf -> csrf
                 //.ignoringRequestMatchers("/h2-console/**") // H2 Console의 CSRF 비활성화
