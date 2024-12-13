@@ -8444,3 +8444,99 @@ org.attoparser.ParseException: (Line = 3, Column = 32) Could not parse as a well
 
 2024-12-13T22:23:53.881+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
 2024-12-13T22:23:54.631+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:31:39.024+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:31:58.245+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:00.678+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:02.485+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:03.825+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:06.458+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:09.273+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:11.220+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 로그인 요청 - 아이디: 
+2024-12-13T22:32:11.220+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.UserService         : 사용자 인증 요청 - 아이디: 
+2024-12-13T22:32:11.224+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.UserService         : 인증 실패 - 아이디: 
+2024-12-13T22:32:11.228+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 로그인 실패 - 아이디: 
+2024-12-13T22:32:18.575+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:23.516+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:24.918+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:24.929+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T22:32:29.856+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 로그인 요청 - 아이디: psb0926
+2024-12-13T22:32:29.856+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.UserService         : 사용자 인증 요청 - 아이디: psb0926
+2024-12-13T22:32:30.055+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.UserService         : 인증 성공 - 아이디: psb0926
+2024-12-13T22:32:30.055+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 로그인 성공 - 아이디: psb0926
+2024-12-13T22:32:34.127+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:32:35.598+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:32:45.545+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:32:47.441+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:32:49.203+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:34:15.311+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:34:16.032+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:37:14.384+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:37:14.726+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:37:15.428+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:38:13.618+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T22:38:14.171+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:13:47.830+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T23:13:48.057+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T23:13:51.599+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T23:13:51.605+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: false
+2024-12-13T23:14:00.504+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 로그인 요청 - 아이디: psb0926
+2024-12-13T23:14:00.505+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.UserService         : 사용자 인증 요청 - 아이디: psb0926
+2024-12-13T23:14:00.592+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 로그인 요청 - 아이디: psb0926
+2024-12-13T23:14:00.592+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.UserService         : 사용자 인증 요청 - 아이디: psb0926
+2024-12-13T23:14:00.708+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.UserService         : 인증 성공 - 아이디: psb0926
+2024-12-13T23:14:00.708+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 로그인 성공 - 아이디: psb0926
+2024-12-13T23:14:00.793+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.UserService         : 인증 성공 - 아이디: psb0926
+2024-12-13T23:14:00.793+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 로그인 성공 - 아이디: psb0926
+2024-12-13T23:14:02.363+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:14:05.192+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:14:06.999+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:14:11.793+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:14:16.859+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:18:52.289+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:19:45.969+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:20:19.864+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:20:20.411+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:20:31.304+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:20:49.601+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:20:52.862+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:21:05.458+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:21:06.117+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:21:09.844+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:21:44.827+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:23:45.322+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:23:50.306+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:26:06.899+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:26:13.962+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:26:58.041+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:30:07.889+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:33:28.797+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:33:55.908+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:33:56.580+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:03.886+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:03.936+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:04.116+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:04.310+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:04.464+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:04.647+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-3] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:04.837+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:04.979+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:05.161+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:34:05.322+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:35:25.442+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:35:29.512+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:36:07.071+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:36:08.317+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:53.585+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:54.011+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:54.227+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-5] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:54.420+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:54.583+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-10] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:54.764+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-9] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:54.927+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:55.097+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:37:59.691+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-6] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:38:39.160+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-4] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:38:46.144+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-2] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:38:49.760+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-7] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:38:51.876+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-8] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
+2024-12-13T23:38:55.452+09:00 DEBUG 22868 --- [sbb] [http-nio-8080-exec-1] com.mysite.sbb.login.AuthController      : 세션 확인 - 로그인 상태: true, 아이디: psb0926, 이름: 성범
