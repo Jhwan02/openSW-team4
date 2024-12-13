@@ -16,7 +16,7 @@ public class WebCrawler {
     @Autowired
     private CrawlerRepository crawlerRepository; // 타입을 명시적으로 선언
 
-    //@Scheduled(fixedRate = 3600000) // 1시간마다 실행
+    // @Scheduled(fixedRate = 3600000) // 1시간마다 실행
     public void crawlAndSaveCompetitions() {
         String url = "https://www.campuspick.com/contest?category=108";
 
@@ -31,7 +31,7 @@ public class WebCrawler {
 
                 // Save directly to database
                 WebCrawlerEntity entity = new WebCrawlerEntity(imageUrl, title, date);
-                
+
                 // Save using CrawlerRepository
                 crawlerRepository.save(entity);
             }
