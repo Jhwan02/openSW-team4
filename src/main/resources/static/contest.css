@@ -1,0 +1,264 @@
+/* ???? ????? ???? */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: black;
+}
+
+.Header {
+    background-color: #ffffff;
+}
+
+.nav {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 55px 0 55px;
+}
+
+.nav .logo {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    color: black;
+}
+
+.nav-bar {
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar a:hover {
+    color: #000000;
+}
+
+.nav-bar li {
+    margin: 20px 40px 0 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+}
+
+.nav-bar li a {
+    color: #666666;
+    text-decoration: none;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right .search-button {
+    margin-right: 10px;
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-right .search-button p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right .search-button i {
+    margin-left: 10px;
+    font-size: 14px;
+    color: black;
+}
+
+.nav-bar .login-button {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-right .login-button p {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-right .login-button p:hover {
+    color: #000000;
+}
+
+.nav-right .login-button i {
+    color: #000000;
+}
+
+.navbar-secondary {
+    background-color: lightgray;
+    color: white;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.navbar-secondary .navbar-brand,
+.navbar-secondary .nav-link {
+    color: black !important;
+}
+
+.navbar-secondary .nav-link:hover {
+    color: #ffcc00 !important;
+}
+
+.btn-primary {
+    background-color: white;
+    color: #000000;
+    border-color: #000000;
+}
+
+.category-badge {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: gainsboro;
+    color: black;
+}
+
+/* ????? ??????? ????? */
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+.card-container {
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* ?????? ????? */
+    gap: 20px; /* ??? ???? ???? */
+}
+
+.card { /* ??? ??? ????? */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column; /* ???? ???? */
+    margin: 10px;
+}
+
+/* .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
+
+.card-image img:hover{
+    transform: scale(1.3);
+    transform-origin : center;
+    /* opacity: 0.8; */
+}
+
+/* ????? ???? */
+.card-image {
+    width: 100%;
+    height: auto;
+    overflow: hidden; /* ??????? ???????? ????? ??? */
+    border-bottom: 1px solid #ddd; /* ????? ??? ???¬Þ? */
+    margin-bottom: 10px; /* ?????? ?¬Ú? */
+    overflow: visible;
+}
+
+.card-image img {
+    width: 100%; /* ????? ??? ??? ???? */
+    height: 200px; /* ???? ????? ???? */
+    object-fit: cover; /* ??????? ?????? ?¡Æ? ??? */
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* ???? ???? */
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center; /* ??? ???? */
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0; /* ???? ?? ???? */
+    color: #333;
+}
+
+.card-date {
+    font-size: 14px;
+    color: #777;
+    margin-top: auto; /* ???? ???? ???? */
+}
+
+
+/* ??? ??? */
+.modal {
+    display: none; /* ???????? ???? */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* ??¥ï? ??? */
+}
+
+/* ??? ?????? */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+/* ??? ??? */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+}

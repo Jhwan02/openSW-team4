@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface CrawlerRepository extends JpaRepository<WebCrawlerEntity, Long> {
 
-    // 제목(title) 포함 여부로 Competition 검색
+    // ????(title) ???? ???��? Competition ???
     List<WebCrawlerEntity> findByTitleContaining(String keyword);
 
     List<WebCrawlerEntity> findAllByOrderByIdAsc();
+
 }
