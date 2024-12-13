@@ -127,27 +127,93 @@
     </div>
     
     <!-- 공지사항 및 HOT 게시물 섹션 -->
-	<div class="col-md-8">
-	    <div class="notice-section">
-	        <a href="/notice/list"><h3>공지사항</h3></a>
-	        <ul class="notice-list">
-	            <li th:each="question : ${question}">
-	                <a th:href="@{/notice/detail/{id}(id=${question.id})}" 
-	                   th:text="|공지: ${question.subject}|"></a>
-	            </li>
-	        </ul>
-	    </div>
-	</div>
+   <div class="col-md-8">
+       <div class="notice-section">
+           <a href="/notice/list"><h3>공지사항</h3></a>
+           <ul class="notice-list">
+               <li th:each="question : ${question}">
+                   <a th:href="@{/notice/detail/{id}(id=${question.id})}" 
+                      th:text="|공지: ${question.subject}|"></a>
+               </li>
+           </ul>
+       </div>
+   </div>
 
-      <div class="hot-section">
-        <h3>HOT 게시물</h3>
-        <ul class="hot-list">
-          <li><a href="#">핫게1</a></li>
-          <li><a href="#">핫게2</a></li>
-          <li><a href="#">핫게3</a></li>
-        </ul>
-      </div>
+  <div class="hot-section">
+    <h3 class="text-center">최근 공모전</h3>
+    <div class="row text-center">
+        <!-- HOT 게시물 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="hot-post card">
+                <img src="img/hot_post1.png" class="card-img-top" alt="HOT 게시물 1">
+                <div class="card-body">
+                    <h5 class="card-title">공모전 소식 1</h5>
+                    <p class="card-text">공모전 설명 및 링크 추가</p>
+                    <a href="https://product.kyobobook.co.kr/detail/S000214304606" target="_blank" class="btn btn-primary">더 보기</a>
+                </div>
+            </div>
+        </div>
+        <!-- HOT 게시물 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="hot-post card">
+                <img src="img/hot_post2.png" class="card-img-top" alt="HOT 게시물 2">
+                <div class="card-body">
+                    <h5 class="card-title">공모전 소식2</h5>
+                    <p class="card-text">개발자를 위한 최신 공모전 정보를 확인하세요.</p>
+                    <a href="https://www.campuspick.com/contest/view?id=27005" target="_blank" class="btn btn-primary">더 보기</a>
+                </div>
+            </div>
+        </div>
+        <!-- HOT 게시물 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="hot-post card">
+                <img src="img/hot_post3.png" class="card-img-top" alt="HOT 게시물 3">
+                <div class="card-body">
+                    <h5 class="card-title">공모전 소식3</h5>
+                    <p class="card-text">공모전 설명 및 링크 추가</p>
+                    <a href="https://www.mk.co.kr/news/stock/11192635" target="_blank" class="btn btn-primary">더 보기</a>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="hot-section">
+  <h3 class="text-center">최신 기술 뉴스</h3>
+  <div class="row text-center">
+      <!-- HOT 게시물 1 -->
+      <div class="col-md-4 mb-4">
+          <div class="hot-post card">
+              <img src="img/hot_post1.png" class="card-img-top" alt="HOT 게시물 1">
+              <div class="card-body">
+                  <h5 class="card-title">공모전 소식 1</h5>
+                  <p class="card-text">공모전 설명 및 링크 추가</p>
+                  <a href="https://product.kyobobook.co.kr/detail/S000214304606" target="_blank" class="btn btn-primary">더 보기</a>
+              </div>
+          </div>
+      </div>
+      <!-- HOT 게시물 2 -->
+      <div class="col-md-4 mb-4">
+          <div class="hot-post card">
+              <img src="img/hot_post2.png" class="card-img-top" alt="HOT 게시물 2">
+              <div class="card-body">
+                  <h5 class="card-title">공모전 소식2</h5>
+                  <p class="card-text">개발자를 위한 최신 공모전 정보를 확인하세요.</p>
+                  <a href="https://www.campuspick.com/contest/view?id=27005" target="_blank" class="btn btn-primary">더 보기</a>
+              </div>
+          </div>
+      </div>
+      <!-- HOT 게시물 3 -->
+      <div class="col-md-4 mb-4">
+          <div class="hot-post card">
+              <img src="img/hot_post3.png" class="card-img-top" alt="HOT 게시물 3">
+              <div class="card-body">
+                  <h5 class="card-title">공모전 소식3</h5>
+                  <p class="card-text">공모전 설명 및 링크 추가</p>
+                  <a href="https://www.mk.co.kr/news/stock/11192635" target="_blank" class="btn btn-primary">더 보기</a>
+              </div>
+          </div>
+      </div>
   </div>
 </div>
 
@@ -225,3 +291,4 @@
   <script src="login/debug.js"></script>
 </body>
 </html>
+
