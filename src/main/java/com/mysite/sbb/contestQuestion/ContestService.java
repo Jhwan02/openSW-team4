@@ -2,9 +2,12 @@ package com.mysite.sbb.contestQuestion;
 
 
 import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.time.Duration;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -67,5 +70,24 @@ public class ContestService {
     }
     public List<ContestQuestion> searchBySubject(String keyword) {
         return questionRepository.findBySubjectContaining(keyword);
+    }
+    
+    public String formatDateTime(LocalDateTime createDate) {
+        LocalDateTime now = LocalDateTime.now();
+        Duration duration = Duration.between(createDate, now);
+
+        if (duration.toMinutes() == 0) {
+            // 작성시간이 현재 시각과 동일한 분 -> "방금"
+            return "방금";
+        } else if (duration.toMinutes() < 60) {
+            // 1시간 이내 -> "X분 전"
+            return duration.toMinutes() + "분 전";
+        } else if (createDate.toLocalDate().equals(now.toLocalDate())) {
+            // 오늘 작성된 글 -> "HH:mm"
+            return createDate.format(DateTimeFormatter.ofPattern("HH:mm"));
+        } else {
+            // 오늘 이전 작성된 글 -> "MM.dd"
+            return createDate.format(DateTimeFormatter.ofPattern("MM/dd"));
+        }
     }
 }

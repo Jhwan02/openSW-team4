@@ -106,7 +106,7 @@
     //     // 좋아요 버튼 클릭 이벤트
     //     likeButton.addEventListener("click", function () {
     //         console.log("Like button clicked");
-    //         fetch(`/question/like/${questionId}`, {
+    //         fetch(/question/like/${questionId}, {
     //             method: "POST",
     //             headers: {
     //                 "Content-Type": "application/json"
@@ -124,7 +124,7 @@
     //             .then(data => {
     //                 if (data.success) {
     //                     // 좋아요 수 업데이트
-    //                     likeCountSpan.textContent = `좋아요 ${data.likes}`;
+    //                     likeCountSpan.textContent = 좋아요 ${data.likes};
     //                 } else {
     //                     // 서버에서 실패 메시지가 전달된 경우
     //                     alert(data.message || "좋아요 처리 실패");
@@ -139,4 +139,3 @@
     // });
     </script> -->
 </html>
-

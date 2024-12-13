@@ -65,6 +65,7 @@ public class QuestionController {
 
         return "question_list"; // question_list.html 렌더링
     }
+    
     // 질문 상세 보기
     @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
