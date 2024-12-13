@@ -379,3 +379,32 @@ textarea.form-control {
     background-color: #e5e5e5;
     margin: 10px 0;
 }
+
+.container {
+    list-style: none;
+    margin: 10px 200px 0 200px;
+    padding: 0 108px 0 108px;
+}
+
+.container-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 15px 0 17px 0; 
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.date-info{
+    margin-top: 13px;
+}
+
+.container-list a {
+    font-size: 21px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.container-list a:hover {
+    text-decoration: underline;
+}

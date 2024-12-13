@@ -1,52 +1,32 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>IT Blog Posts</title>
-    <link rel="stylesheet" href="techInfo.css">
-</head>
-<body>
-    <header class="Header">  
-        <nav class="nav">
-          <a href="/"><img src="img/1866_file01/211. 메인 캐릭터_우왕이.png" alt="logo" class="logo"></a>
-    
-          <ul class="nav-bar">
-            <li><a href="/competitions"><i class="fa-solid fa-trophy"></i>공모전</a></li>
-            <li><a href="/recruit/list"><i class="fa-solid fa-users"></i>인원 모집</a></li>
-            <li><a href="/techInfo"><i class="fa-solid fa-laptop-code"></i>IT 뉴스</a></li>
-            <li><a href="/question/list"><i class="fa-solid fa-comments"></i>자유</a></li>
-          </ul>
-    
-          <div class="nav-right">
-            <div class="search-button"><p>검색</p><span><i class="fa-solid fa-magnifying-glass"></i></span></div>
-            <div class="login-button" id="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal">
-              <p>로그인</p>
-            </div>
-            <div id="myPageButtonContainer" style="display: none;">
-              <button class=".btn btn-primary" id="myPageButton">마이페이지</button>
-          </div>
-          </div>
-        </nav>
-    </header>
-
-    <ul class="container">
+<html lang="ko" layout:decorate="~{layout}">
+  <head>
+      <meta charset="UTF-8">
+      <title>IT Blog Posts</title>
+      <!-- <link rel="stylesheet" href="techInfo.css"> -->
+      <!-- <script src="techInfo.js" defer></script> -->
+  </head>
+  <body>
+    <div layout:fragment="content" class="container my-3">
+      <ul class="container">
         <li th:each="post : ${blogPosts}" class="container-list">
             <a th:href="${post.link}" th:text="${post.title}" target="_blank"></a>
             <p th:text="'Date: ' + ${post.date}" class="date-info"></p>
         </li>
-    </ul>
-
-    <div id="searchModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 1000;">
-      <div style="position: relative; margin: 10% auto; padding: 20px; background: white; width: 50%; border-radius: 10px;">
-          <button id="closeModal" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
-          <h2>검색</h2>
-          <input type="text" id="searchInput" placeholder="검색어를 입력하세요" style="width: 100%; padding: 10px; margin-bottom: 10px;">
-          <ul id="searchResults" style="list-style: none; padding: 0;"></ul>
+      </ul>
+  
+      <div id="searchModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 1000;">
+        <div style="position: relative; margin: 10% auto; padding: 20px; background: white; width: 50%; border-radius: 10px;">
+            <button id="closeModal" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+            <h2>검색</h2>
+            <input type="text" id="searchInput" placeholder="검색어를 입력하세요" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            <ul id="searchResults" style="list-style: none; padding: 0;"></ul>
+        </div>
       </div>
     </div>
-
-    <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
-    <script src="login/logincheck.js"></script>
-    <script src="techInfo.js"></script>
-</body>
+     
+    <script>
+      
+    </script>
+  </body>
 </html>
