@@ -14,7 +14,20 @@ document.getElementById("loginButton").addEventListener("click", function(event)
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            const loginModal = document.getElementById("loginModal"); // 모달의 ID
             alert("로그인 성공!");
+            if (loginModal) {
+                // Bootstrap을 사용하는 경우
+                const bootstrapModal = bootstrap.Modal.getInstance(loginModal);
+                loginModal.classList.remove("show"); // 페이드 아웃
+                setTimeout(() => {
+                    loginModal.style.display = "none"; // 애니메이션 후 숨김 처리
+                }, 300); // 0.3초 후 실행 (CSS의 transition 시간과 동일하게 설정)
+                if (bootstrapModal) bootstrapModal.hide();
+
+                // 수동으로 모달 숨기기 (CSS로 직접 제어)
+                loginModal.style.display = "none"; 
+            }
             const loginButton = document.getElementById("mainLoginButton");
             loginButton.style.display = "none"; // 로그인 버튼 숨기기
 

@@ -177,3 +177,13 @@ p {
 #searchModal ul li:hover {
     background-color: #e4e4e4;
 }
+
+.notice-detail .btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.notice-detail .btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}

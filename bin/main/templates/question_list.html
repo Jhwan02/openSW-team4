@@ -1,5 +1,6 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
+	<h1 class="board-title">자유게시판</h1>
     <table class="board-table">
         <thead>
             <tr>
@@ -10,16 +11,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="question, loop : ${paging}">
-                <td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
+			<tr th:each="question : ${formattedQuestions}">
+                <td th:text="${question.id}"></td>
                 <td>
-                    <a th:href="@{/question/detail/{id}(id=${question.id})}" th:text="${question.subject}"></a>
-                </td>
-                <td>
-                    <span th:if="${question.author != null}" th:text="${question.author.username}"></span>
-                    <span th:if="${question.author == null}">작성자 없음</span>
-                </td>
-                <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+                    <a th:href="@{/question/detail/{id}(id=${question.id})}" 
+                       th:text="${question.subject}"></a>
+	                </td>
+	                <td th:text="${question.author}"></td>
+	                <td th:text="${question.formattedDate}"></td>
             </tr>
         </tbody>
     </table>
