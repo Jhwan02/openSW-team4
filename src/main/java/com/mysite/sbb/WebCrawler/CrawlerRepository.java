@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CrawlerRepository extends JpaRepository<WebCrawlerEntity, Long> {
 
-    // ????(title) ???? ???¥ç? Competition ???
+    // ï¿½ï¿½ï¿½ï¿½(title) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î·ï¿½ Competition ï¿½Ë»ï¿½
     List<WebCrawlerEntity> findByTitleContaining(String keyword);
 
     List<WebCrawlerEntity> findAllByOrderByIdAsc();
