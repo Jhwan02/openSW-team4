@@ -1,0 +1,167 @@
+/* 전체 레이아웃 설정 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* 공모전 리스트 레이아웃 */
+.competition-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 한 줄에 두 개씩 배치 */
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 개별 공모전 카드 */
+.competition-item {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center; /* 이미지와 텍스트를 가운데 정렬 */
+    margin: 0px 20px 20px 40px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    height: 150px; /* 카드 전체 높이 고정 */
+}
+
+.competition-item:hover {
+    transform: translateY(-10px); /* 호버 시 약간 위로 이동 */
+}
+
+/* 이미지 스타일 */
+.competition-image {
+    max-height: 100%; /* 카드 높이에 맞춤 */
+    object-fit: cover; /* 이미지를 비율에 맞게 자름 */
+    border-right: 2px solid #ddd; /* 이미지와 텍스트 사이 구분선 */
+}
+
+/* 정보 섹션 */
+.competition-info {
+    flex-basis: 70%; /* 텍스트 영역 비율 */
+    padding: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* 텍스트를 세로로 정렬 */
+    justify-content: center; /* 텍스트를 세로 가운데 정렬 */
+}
+
+.competition-info h2 {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.competition-date {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+/* 모달 전체 화면 덮기 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 모달 콘텐츠 스타일 */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-poster {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.modal-close {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-close:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 하단 버튼 섹션 */
+.bottom {
+    display: flex;
+    justify-content: space-around; /* 버튼 간격 조정 */
+    align-items: center; /* 버튼 정렬 */
+    margin-top: 10px; /* 이미지와의 간격 */
+    padding: 10px 0;
+    background-color: #f9f9f9; /* 버튼 영역 배경색 */
+    border-top: 1px solid #ddd; /* 상단 구분선 */
+    border-radius: 0 0 8px 8px; /* 카드 하단 모서리 둥글게 */
+}
+
+/* 버튼 공통 스타일 */
+.bottom button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #007bff; /* 버튼 기본 색상 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* 버튼 hover 효과 */
+.bottom button:hover {
+    background-color: #0056b3; /* 버튼 hover 색상 */
+}
+
+/* 포스터 보기 버튼 */
+.look_poster {
+    background-color: #28a745; /* 초록색 버튼 */
+}
+
+.look_poster:hover {
+    background-color: #1e7e34; /* hover 시 더 진한 초록색 */
+}
+
+/* 인원 모집 버튼 */
+.go_find_team {
+    background-color: #ffc107; /* 노란색 버튼 */
+    color: #333; /* 텍스트 색상 */
+}
+
+.go_find_team:hover {
+    background-color: #e0a800; /* hover 시 더 진한 노란색 */
+}

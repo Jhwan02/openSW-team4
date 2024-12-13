@@ -13,6 +13,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mysite.sbb.DataNotFoundException;
+import com.mysite.sbb.login.User;
+import com.mysite.sbb.question.Question;
 
 import lombok.RequiredArgsConstructor;
 
@@ -41,11 +43,29 @@ public class ContestService {
     	Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
         return this.questionRepository.findAll(pageable);
     }
-    public void create(String subject, String content) {
+    // 질문 생성 (이미지 없이)
+    public ContestQuestion create(String subject, String content, User author) {
+        return create(subject, content, null, author); // 이미지 없이 생성
+    }
+
+    // 질문 생성 (이미지 포함)
+    public ContestQuestion create(String subject, String content, String imageUrl, User author) {
         ContestQuestion q = new ContestQuestion();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
-        this.questionRepository.save(q);
+        q.setAuthor(author);
+        if (imageUrl != null) {
+            q.setImageUrl(imageUrl); // 이미지 URL 설정
+        }
+
+        return this.save(q); // 질문 저장 후 반환
+    }
+ // 질문 저장
+    public ContestQuestion save(ContestQuestion question) {
+        return this.questionRepository.save(question);
+    }
+    public List<ContestQuestion> searchBySubject(String keyword) {
+        return questionRepository.findBySubjectContaining(keyword);
     }
 }

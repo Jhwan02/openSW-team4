@@ -2,6 +2,7 @@ package com.mysite.sbb.recruitmentAnswer.projectAnswer;
 
 import java.time.LocalDateTime;
 
+import com.mysite.sbb.login.User;
 import com.mysite.sbb.recruitmentQuestion.project.ProjectQuestion; // Import 추가
 
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import lombok.Getter;
@@ -18,7 +20,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class ProjectAnswer {
-	 @Id
+	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Integer id;
 
@@ -29,4 +31,9 @@ public class ProjectAnswer {
 
 	    @ManyToOne
 	    private ProjectQuestion question; 
+	    
+	    @ManyToOne
+	    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "id") // USER_TABLE 참조 확인
+	    private User author;
+	    
 }
