@@ -1,16 +1,14 @@
-
 body {
-    font-family: Arial, sans-serif; /* 비슷한 서체 */
-    background-color: #f9f9f9;
+    font-family: Arial, sans-serif; /* 기존과 동일 */
+    background-color: #ffffff; /* 전체 배경 흰색 설정 */
     color: black; /* 기본 텍스트 색상 */
-	
 }
 
 .Header {
     background-color: #ffffff;
 }
 
-.nav{
+.nav {
     width: 100%;
     height: 90px;
     display: flex;
@@ -18,16 +16,17 @@ body {
     align-items: center;
     position: relative;
     padding: 0 55px 0 55px;
+    border-bottom: 2px solid #ddd; /* 아래 구분선 추가 */
 }
 
-.nav .logo{
+.nav .logo {
     width: 65px;
     height: 65px;
     cursor: pointer;
     color: black;
 }
 
-.nav-bar{
+.nav-bar {
     max-width: 700px;
     display: flex;
     align-items: center;
@@ -37,26 +36,26 @@ body {
     color: #000000; /* 호버 시 색상 변경 */
 }
 
-.nav-bar li{
+.nav-bar li {
     margin: 20px 40px 0 40px;
     list-style: none;
     display: flex;
     align-items: center;
 }
 
-.nav-bar li a{
+.nav-bar li a {
     color: #666666;
-	text-decoration: none;
+    text-decoration: none;
 }
 
-.nav-right{
+.nav-right {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
 }
 
-.nav-right .search-button{
+.nav-right .search-button {
     margin-right: 10px;
     width: 110px;
     height: 40px;
@@ -77,13 +76,13 @@ body {
     align-items: center;
 }
 
-.nav-right .search-button i{
+.nav-right .search-button i {
     margin-left: 10px;
     font-size: 14px;
     color: black;
 }
 
-.nav-bar .login-button{
+.nav-bar .login-button {
     width: 100px;
     height: 40px;
     display: flex;
@@ -103,17 +102,17 @@ body {
     cursor: pointer;
 }
 
-.nav-right .login-button p:hover{
+.nav-right .login-button p:hover {
     color: #000000;
 }
 
-.nav-right .login-button i{
+.nav-right .login-button i {
     color: #000000;
 }
 
-/*recruit 두번째 navbar*/
+/* recruit 두번째 navbar */
 .navbar-secondary {
-    background-color: lightgray; 
+    background-color: lightgray;
     color: white;
     border-bottom: 1px solid #ddd; /* 하단 경계선 */
     width: 100%; /* 부모 요소 너비와 맞춤 */
@@ -129,21 +128,137 @@ body {
     color: #ffcc00 !important; /* 호버 강조 색상 */
 }
 
-.btn-primary{
-	background-color: white;
-	color:#000000;
-	border-color: #000000;
+.btn-primary {
+    background-color: white;
+    color: #000000;
+    border-color: #000000;
 }
+
 .category-badge {
     font-size: 1rem;
     font-weight: bold;
     padding: 0.5rem;
     border-radius: 5px;
-	background-color:gainsboro; 
-	    color: black;
+    background-color: gainsboro;
+    color: black;
 }
 
-.no-focus:focus {
-    outline: none; /* 포커스 아웃라인 제거 */
-    box-shadow: none; /* Bootstrap 기본 포커스 효과 제거 */
+.container {
+    background-color: #ffffff; /* 콘텐츠 배경 흰색 */
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px; /* 최대 폭 제한 */
+}
+
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff; /* 테이블 배경 흰색 */
+    table-layout: fixed;
+}
+
+.board-table thead {
+    border-top: 1.5px solid black; /* 헤더 상단 검은색 구분선 추가 */
+}
+
+.board-table th, .board-table td {
+    border: none; /* 기존 테두리 제거 */
+    text-align: left;
+    padding: 12px 8px; /* 셀 여백 */
+    word-wrap: break-word; /* 긴 텍스트 자동 줄바꿈 */
+}
+
+.board-table th:nth-child(1), /* No */
+.board-table td:nth-child(1) {
+    width: 5%; /* No 열 */
+}
+
+.board-table th:nth-child(2), /* 제목 */
+.board-table td:nth-child(2) {
+    width: 50%; /* 제목 열 */
+}
+
+.board-table th:nth-child(3), /* 글쓴이 */
+.board-table td:nth-child(3) {
+    width: 15%; /* 글쓴이 열 */
+}
+
+.board-table th:nth-child(4), /* 작성시간 */
+.board-table td:nth-child(4) {
+    width: 20%; /* 작성시간 열 */
+}
+
+.board-table th:nth-child(5), /* 좋아요 */
+.board-table td:nth-child(5) {
+    width: 10%; /* 좋아요 열 */
+}
+
+.board-table th {
+    background-color: #ffffff; /* 헤더 배경색 */
+    font-weight: bold;
+    border-bottom: 2px solid #ddd; /* 헤더 하단 테두리 */
+}
+
+.board-table tr {
+    border-bottom: 1px solid #eaeaea; /* 각 행 구분선 */
+}
+
+.board-table td a {
+    color: black; /* 글씨 색상을 검은색으로 변경 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.board-table tr:hover {
+    text-decoration: underline; /* 호버 시 밑줄 표시 */
+    color: #555;
+}
+
+.board-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.pagination-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination {
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 가운데 정렬 */
+    list-style: none; /* 기본 목록 스타일 제거 */
+    padding: 0;
+    margin: 0;
+}
+
+.pagination .page-item {
+    margin: 0; /* 버튼 사이 여백 제거 */
+    border: none; /* 기본 테두리 제거 */
+}
+
+.pagination .page-link {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none; /* 밑줄 제거 */
+    border: 1px solid #ddd; /* 테두리 추가 */
+    border-radius: 0; /* 둥근 모서리 제거 */
+    color: black; /* 기본 글자색 */
+    position: relative;
+}
+
+.pagination .page-link:not(:last-child) {
+    border-right: none; /* 버튼 간 테두리 제거 */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: blue; /* 활성화된 페이지 배경 */
+    color: white; /* 활성화된 글자색 */
+    border: none;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #ccc; /* 비활성화된 링크 색상 */
+    pointer-events: none; /* 클릭 불가능 */
+    background-color: #f9f9f9;
 }
