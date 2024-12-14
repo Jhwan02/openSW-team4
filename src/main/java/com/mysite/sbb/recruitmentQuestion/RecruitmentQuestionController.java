@@ -137,8 +137,6 @@ public class RecruitmentQuestionController {
         return "redirect:/recruit/list"; // 질문 목록으로 리다이렉트
     }
 
-   
-
     // 제목으로 질문 검색 API
     @GetMapping("/api/search")
     @ResponseBody
@@ -156,4 +154,16 @@ public class RecruitmentQuestionController {
         }
         return results;
     }
+
+
+    //마이페이지 필요 api
+    @GetMapping("/posts")
+    @ResponseBody
+    public Page<RecruitmentQuestion> listAsJson(@RequestParam(value = "page", defaultValue = "0") int page) {
+        
+        // 페이징된 모집 질문 목록 가져오기
+        return this.recruitQuestionService.getList(page);
+    }
 }
+
+

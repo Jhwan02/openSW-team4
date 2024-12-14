@@ -17,6 +17,7 @@ public class GetUserData {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
     @GetMapping("/getuserdata")
     public ResponseEntity<Map<String, Object>> getSessionInfo(HttpSession session) {
+        logger.debug("getuserdata 실행됨.");
         User user = (User) session.getAttribute("user");
         Map<String, Object> response = new HashMap<>();
         if (user != null) {
