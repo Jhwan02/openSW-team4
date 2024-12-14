@@ -110,3 +110,14 @@ h1 {
         margin-bottom: 20px;
     }
 }
+
+/* 마우스 올렸을 때 밑줄 표시 */
+#recruit-table tbody tr:hover {
+    text-decoration: underline;
+    cursor: pointer; /* 포인터 커서로 변경 */
+}
+
+#recruit-table tbody tr td {
+    padding: 8px;
+}
+
