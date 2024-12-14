@@ -262,3 +262,18 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.recruit-button {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffae00;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.recruit-button:hover {
+    background-color: #ffa000;
+}
