@@ -38,17 +38,12 @@ public class techBlogCrawler {
                     String fullDateTime = dateElement.attr("datetime");
                     String date = fullDateTime.substring(0, 10);
 
-                    // 이미지 URL 추출
-                    Element imageElement = post.selectFirst("img"); // 이미지 태그
-                    String imageUrl = imageElement != null ? imageElement.attr("src") : null;
-
                     // 데이터 저장
                     if (blogPostRepository.findByTitle(title).isEmpty()) {
                         blogPost blogPost = new blogPost();
                         blogPost.setTitle(title);
                         blogPost.setLink(link);
                         blogPost.setDate(date);
-                        blogPost.setImageUrl(imageUrl); // 이미지 URL 저장
 
                         // DB에 저장
                         blogPostRepository.save(blogPost);

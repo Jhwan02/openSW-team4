@@ -19,9 +19,6 @@ public class blogPost {
     private String link;
     private String date;
 
-    // 새로운 필드 추가
-    private String imageUrl; // 뉴스 이미지 URL
-
     // Getters and Setters
     public Long getId() {
         return id;
@@ -54,12 +51,5 @@ public class blogPost {
     public void setDate(String date) {
         this.date = date;
     }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+    
 }

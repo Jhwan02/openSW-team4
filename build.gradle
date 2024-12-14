@@ -35,7 +35,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.jsoup:jsoup:1.18.1'
 	implementation 'org.commonmark:commonmark:0.21.0'
-
 }
 
 tasks.named('test') {
