@@ -15,7 +15,7 @@ public class blogPost {
     private Long id;
 
     private String title;
-    @Column(length = 500) // 500자로 변경
+    @Column(length = 500)
     private String link;
     private String date;
 
@@ -35,8 +35,7 @@ public class blogPost {
     public void setTitle(String title) {
         this.title = title;
     }
-    
-  
+
     public String getLink() {
         return link;
     }
@@ -52,4 +51,5 @@ public class blogPost {
     public void setDate(String date) {
         this.date = date;
     }
+    
 }

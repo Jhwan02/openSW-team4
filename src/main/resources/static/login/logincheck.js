@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.location.href = "/mypage"; // 마이페이지로 이동
                 }
                 if (window.location.pathname === '/'){
-                    document.getElementById("mainLoginButton").style.display = "block"; // 메인 로그인 버튼 보이기
+                    document.getElementById("mainLoginButton").style.display = "none"; // 메인 로그인 버튼 보이기
                 }
                 
  
