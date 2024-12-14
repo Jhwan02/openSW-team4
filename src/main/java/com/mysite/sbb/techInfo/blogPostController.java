@@ -27,4 +27,5 @@ public class blogPostController {
     public List<blogPost> searchBlogPosts(@RequestParam("keyword") String keyword) {
         return blogPostRepository.findByTitleContainingIgnoreCase(keyword);
     }
+
 }
