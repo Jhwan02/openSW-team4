@@ -15,9 +15,12 @@ public class blogPost {
     private Long id;
 
     private String title;
-    @Column(length = 500) // 500자로 변경
+    @Column(length = 500)
     private String link;
     private String date;
+
+    // 새로운 필드 추가
+    private String imageUrl; // 뉴스 이미지 URL
 
     // Getters and Setters
     public Long getId() {
@@ -35,8 +38,7 @@ public class blogPost {
     public void setTitle(String title) {
         this.title = title;
     }
-    
-  
+
     public String getLink() {
         return link;
     }
@@ -51,5 +53,13 @@ public class blogPost {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
