@@ -85,9 +85,16 @@ modal?.addEventListener("click", (event) => {
     }
 });
 
-// ??? ?????? ??? ?? ??? URL?? ???
-document.querySelectorAll('.card-content').forEach((content) => {
-    content.addEventListener('click', () => {
-        window.location.href = "http://localhost:8080/recruit/list"; // ????? URL ????
+// // ??? ?????? ??? ?? ??? URL?? ???
+// document.querySelectorAll('.card-content').forEach((content) => {
+//     content.addEventListener('click', () => {
+//         window.location.href = "http://localhost:8080/recruit/list"; // ????? URL ????
+//     });
+// });
+
+document.querySelectorAll('.recruit-button').forEach((button) => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation(); // 부모 클릭 이벤트 무시
+        window.location.href = "http://localhost:8080/contest/create.html";
     });
 });
