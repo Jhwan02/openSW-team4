@@ -95,4 +95,11 @@ public class RecruitmentQuestionService {
             return createDate.format(DateTimeFormatter.ofPattern("MM/dd"));
         }
     }
+
+    //마이페이지 필요
+    // 작성자의 글만 가져오기
+    public Page<RecruitmentQuestion> getListByAuthor(int page, String author) {
+        Pageable pageable = PageRequest.of(page, 10);
+        return this.recruitmentQuestionRepository.findByAuthorUsername(author, pageable);
+    }
 }
