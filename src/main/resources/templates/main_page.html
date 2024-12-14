@@ -117,17 +117,15 @@
 <div class="main-content container mt-5">
   <div class="row">
     <!-- 왼쪽 그림 섹션 -->
-    <div class="col-md-4">
-      <div class="left-image">
-        <img src="https://i.namu.wiki/i/kpmRWXWJXErMJthHAilKFw15egeTMIU3NKNKu526EmQ_9-AGV8zcIT8Q5843hxfTAWGB2fL4o3-wcweJqkwl10ob_EUsx8rup0AO8gJ5nElVDoWSgAUTJxUa38m_0H5deub25ugkph-F6TUg3wR5MA.webp" 
-             alt="공지 이미지" 
-             class="img-fluid">
-    </div>
+    <div class="col-md-5">
+        <iframe width="465px" height="260px" src="https://www.youtube.com/embed/INnwSjT24VU?si=Ipbnhbw015DR80fG" title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" class="left-image">
+    </iframe>
+  </div>
     
-    </div>
-    
-    <!-- 공지사항 및 HOT 게시물 섹션 -->
-   <div class="col-md-8">
+    <!-- 공지사항 및 공모전전 게시물 섹션 -->
+   <div class="col-md-7">
        <div class="notice-section">
            <a href="/notice/list"><h3>공지사항</h3></a>
            <ul class="notice-list">
@@ -142,7 +140,7 @@
   <div class="hot-section">
     <h3 class="text-center">최근 공모전</h3>
     <div class="row text-center">
-        <!-- HOT 게시물 1 -->
+        <!-- 공모전 게시물 1 -->
         <div class="col-md-4 mb-4">
             <div class="hot-post card">
                 <img src="img/hot_post1.png" class="card-img-top" alt="HOT 게시물 1">
@@ -153,7 +151,7 @@
                 </div>
             </div>
         </div>
-        <!-- HOT 게시물 2 -->
+        <!-- 공모전 게시물 2 -->
         <div class="col-md-4 mb-4">
             <div class="hot-post card">
                 <img src="img/hot_post2.png" class="card-img-top" alt="HOT 게시물 2">
@@ -164,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <!-- HOT 게시물 3 -->
+        <!-- 공모전 게시물 3 -->
         <div class="col-md-4 mb-4">
             <div class="hot-post card">
                 <img src="img/hot_post3.png" class="card-img-top" alt="HOT 게시물 3">
@@ -178,45 +176,60 @@
     </div>
 </div>
 
-<div class="hot-section">
+<!--IT 기술뉴스 섹션션-->
+<div class="news-section">
   <h3 class="text-center">최신 기술 뉴스</h3>
   <div class="row text-center">
-      <!-- HOT 게시물 1 -->
-      <div class="col-md-4 mb-4">
-          <div class="hot-post card">
-              <img src="img/hot_post1.png" class="card-img-top" alt="HOT 게시물 1">
-              <div class="card-body">
-                  <h5 class="card-title">공모전 소식 1</h5>
-                  <p class="card-text">공모전 설명 및 링크 추가</p>
-                  <a href="https://product.kyobobook.co.kr/detail/S000214304606" target="_blank" class="btn btn-primary">더 보기</a>
+      <div th:each="news : ${latestNews}" class="col-md-4 mb-4">
+          <a th:href="${news.link}" target="_blank" class="card-link">
+              <div class="news-post card">
+                  <div class="card-body">
+                      <h5 class="card-title" th:text="${news.title}"></h5>
+                      <p class="card-date" th:text="${news.date}"></p>
+                  </div>
               </div>
-          </div>
-      </div>
-      <!-- HOT 게시물 2 -->
-      <div class="col-md-4 mb-4">
-          <div class="hot-post card">
-              <img src="img/hot_post2.png" class="card-img-top" alt="HOT 게시물 2">
-              <div class="card-body">
-                  <h5 class="card-title">공모전 소식2</h5>
-                  <p class="card-text">개발자를 위한 최신 공모전 정보를 확인하세요.</p>
-                  <a href="https://www.campuspick.com/contest/view?id=27005" target="_blank" class="btn btn-primary">더 보기</a>
-              </div>
-          </div>
-      </div>
-      <!-- HOT 게시물 3 -->
-      <div class="col-md-4 mb-4">
-          <div class="hot-post card">
-              <img src="img/hot_post3.png" class="card-img-top" alt="HOT 게시물 3">
-              <div class="card-body">
-                  <h5 class="card-title">공모전 소식3</h5>
-                  <p class="card-text">공모전 설명 및 링크 추가</p>
-                  <a href="https://www.mk.co.kr/news/stock/11192635" target="_blank" class="btn btn-primary">더 보기</a>
-              </div>
-          </div>
+          </a>
       </div>
   </div>
 </div>
 
+<!-- Footer 메뉴 -->
+<div class="footer-menu container text-center mb-3">
+  <ul class="footer-links list-inline">
+    <!-- 충북대학교 -->
+    <li class="list-inline-item">
+      <a href="https://www.chungbuk.ac.kr/" target="_blank" class="footer-link">
+        <img src="https://upload.wikimedia.org/wikipedia/ko/4/41/%EC%B6%A9%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_%EB%A1%9C%EA%B3%A0.png" 
+             alt="충북대학교" style="width: 40px; border-radius: 50%;" class="footer-icon">
+        충북대학교
+      </a>
+    </li>
+    <!-- SW소중사업단 -->
+    <li class="list-inline-item">
+      <a href="https://sw7up.cbnu.ac.kr/" target="_blank" class="footer-link">
+        <img src="https://cdn.imweb.me/upload/S20190612938494ce8e81a/22a4654dbd4fe.png" 
+             alt="SW소중사업단" style="width: 120px; height: 40px;" class="footer-icon">
+        SW소중사업단
+      </a>
+    </li>
+    <!-- 소프트웨어학과 -->
+    <li class="list-inline-item">
+      <a href="https://software.cbnu.ac.kr/" target="_blank" class="footer-link">
+        <img src="https://upload.wikimedia.org/wikipedia/ko/4/41/%EC%B6%A9%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_%EB%A1%9C%EA%B3%A0.png" 
+             alt="소프트웨어학부" style="width: 40px; border-radius: 50%;" class="footer-icon">
+        소프트웨어학부
+      </a>
+    </li>
+    <!-- 에브리타임 -->
+    <li class="list-inline-item">
+      <a href="https://everytime.kr/" target="_blank" class="footer-link">
+        <img src="https://i.namu.wiki/i/SyWJQjLjMBxpYruexm_Zvb75g-NmIoMF7T7SyqEM_vKvMvITC5XOYjwySpszOAMjZSgd-trhc0chw-3zZXaDQg.webp" 
+             alt="에브리타임" style="width: 40px; border-radius: 50%;" class="footer-icon">
+        에브리타임
+      </a>
+    </li>
+  </ul>
+</div>
 
   <!-- Footer -->
   <footer>
