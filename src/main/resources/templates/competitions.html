@@ -1,66 +1,40 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공모전 게시판</title>
-    <link rel="stylesheet" href="../contest.css">
-</head>
-<body>
-    <header class="Header">  
-        <nav class="nav">
-            <a href="/"><img src="img/1866_file01/211. 메인 캐릭터_우왕이.png" alt="logo" class="logo"></a>
-
-            <ul class="nav-bar">
-                <li><a href="/techInfo"><i class="fa-solid fa-laptop-code"></i>기술 아카이브</a></li>
-                <li><a href="/competitions"><i class="fa-solid fa-trophy"></i>공모전</a></li>
-                <li><a href="/question/list"><i class="fa-solid fa-comments"></i>자유</a></li>
-                <li><a href="/recruit/list"><i class="fa-solid fa-users"></i>인원 모집</a></li>
-            </ul>
-
-            <div class="nav-right">
-                <div class="search-button"><p>검색</p><span><i class="fa-solid fa-magnifying-glass"></i></span></div>
-                <div class="login-button" id="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    <p>로그인</p>
-                </div>
+<html layout:decorate="~{layout}"> <!-- layout 파일을 적용 -->
+    <th:block layout:fragment="content"> <!-- content fragment 지정 -->
+        <!-- Styles -->
+        <link rel="stylesheet" href="contest.css">
+        <main>
+            <h1 class="page-title">공모전 게시판</h1>
+            <div class="card-container">
+                <th:block th:each="competition : ${competitions}">
+                    <div class="card">
+                        <div class="card-image" onclick="openModal(this)">
+                            <img th:src="${competition.imageUrl}" alt="Competition Image">
+                        </div>
+                        <div class="card-content" onclick="navigateToDetail('${competition.id}')">
+                            <h2 class="card-title" th:text="${competition.title}"></h2>
+                            <p class="card-date">
+                                <span th:text="${competition.date}"></span>
+                            </p>
+                            <!-- 인원모집하러가기 버튼 -->
+                            <button class="recruit-button"
+                                    onclick="event.stopPropagation(); window.location.href='/recruit/list';">
+                                인원모집하러가기
+                            </button>
+                        </div>
+                    </div>
+                </th:block>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <h1 class="page-title">공모전 게시판</h1>
-        <div class="card-container">
-            <th:block th:each="competition : ${competitions}">
-                <div class="card">
-                    <div class="card-image" onclick="openModal(this)">
-                        <img th:src="${competition.imageUrl}" alt="Competition Image">
-                       
-                    </div>
-                    <div class="card-content" onclick="navigateToDetail('${competition.id}')">
-                        <h2 class="card-title" th:text="${competition.title}"></h2>
-                        <p class="card-date">
-                            <span th:text="${competition.date}"></span>
-                        </p>
-                    
-                        <!-- 인원모집하러가기 버튼 추가 -->
-                        <button class="recruit-button"
-                                onclick="event.stopPropagation(); window.location.href='/recruit/list';">
-                            인원모집하러가기
-                        </button>
-                    </div>
-                    
-                </div>
-            </th:block>
+        </main>
+        
+        <!-- Modal -->
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImage">
         </div>
-    </main>
-     <!-- Modal -->
-     <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
 
-    <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
-    <script src="contest.js"></script>
-
-</body>
+        <!-- Scripts -->
+        <script src="https://kit.fontawesome.com/b7507b22be.js" crossorigin="anonymous"></script>
+        <script src="contest.js"></script>
+    </th:block>
 </html>

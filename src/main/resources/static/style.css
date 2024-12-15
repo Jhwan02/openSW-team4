@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif; /* 기존과 동일 */
+    font-family: 'SUIT-Regular';
     background-color: #ffffff; /* 전체 배경 흰색 설정 */
     color: black; /* 기본 텍스트 색상 */
 }
