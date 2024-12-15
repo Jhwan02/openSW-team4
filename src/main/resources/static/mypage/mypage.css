@@ -7,6 +7,10 @@ body {
     line-height: 1.6;
 }
 
+.mypage-logo{
+    margin-left: 55px;
+}
+
 /* Container Styling */
 .container {
     max-width: 900px;
