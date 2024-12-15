@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+import com.mysite.sbb.NewWebCrawler.HtmlCrawler;
+import org.springframework.http.ResponseEntity;
+
 @Controller
 public class CompetitionController {
 

@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 인원 모집 버튼 클릭 시
     goFindTeamButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            window.location.href = "http://localhost:8080/contest/create.html"; // contest.html로 이동
+            window.location.href = "http://localhost:8080/contest/create"; // contest.html로 이동
         });
     });
 });
