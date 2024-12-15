@@ -3,46 +3,37 @@
   <head>
       <meta charset="UTF-8">
       <title>IT Blog Posts</title>
-      <!-- <link rel="stylesheet" href="techInfo.css"> -->
-      <!-- <script src="techInfo.js" defer></script> -->
   </head>
-  <body>
-    <div layout:fragment="content" class="container my-3">
-      <ul class="container">
-        <li th:each="post : ${blogPosts}" class="container-list">
-            <a th:href="${post.link}" th:text="${post.title}" target="_blank"></a>
-            <p th:text="'Date: ' + ${post.date}" class="date-info"></p>
-        </li>
-      </ul>
-  
-      <div id="searchModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 1000;">
-        <div style="position: relative; margin: 10% auto; padding: 20px; background: white; width: 50%; border-radius: 10px;">
-            <button id="closeModal" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
-            <h2>검색</h2>
-            <input type="text" id="searchInput" placeholder="검색어를 입력하세요" style="width: 100%; padding: 10px; margin-bottom: 10px;">
-            <ul id="searchResults" style="list-style: none; padding: 0;"></ul>
-        </div>
+  <div layout:fragment="content">
+      <!-- 블로그 게시글 리스트 -->
+      <div class="d-flex justify-content-center">
+          <ul class="container">
+              <li th:each="post : ${blogPosts}" class="container-list">
+                  <a th:href="${post.link}" th:text="${post.title}" target="_blank"></a>
+                  <p th:text="'Date: ' + ${post.date}" class="date-info"></p>
+              </li>
+          </ul>
       </div>
 
-      <div class="pagination-container tech-pagination-container">
-        <ul class="pagination">
-            <!-- 이전 페이지 -->
-            <li class="page-item" th:classappend="${!blogPostsPage.hasPrevious()} ? 'disabled' : ''">
-              <a th:href="@{/techInfo(page=${blogPostsPage.number})}" class="page-link">Previous</a>
-            </li>
-  
-            <!-- 페이지 번호 -->
-            <li th:each="i : ${#numbers.sequence(1, blogPostsPage.totalPages)}"
-                th:classappend="${i == blogPostsPage.number + 1} ? 'active' : ''" class="page-item">
-                <a th:href="@{/techInfo(page=${i})}" th:text="${i}" class="page-link"></a>
-            </li>
-  
-            <!-- Next 버튼 -->
-            <li class="page-item" th:classappend="${!blogPostsPage.hasNext()} ? 'disabled' : ''">
-                <a th:href="@{/techInfo(page=${blogPostsPage.number + 2})}" class="page-link">Next</a>
-            </li>
-        </ul> 
+      <!-- 페이지네이션 -->
+      <div class="pagination-container tech-pagination-container d-flex justify-content-center">
+          <ul class="pagination">
+              <!-- 이전 페이지 -->
+              <li class="page-item" th:classappend="${!blogPostsPage.hasPrevious()} ? 'disabled' : ''">
+                  <a th:href="@{/techInfo(page=${blogPostsPage.number})}" class="page-link">Previous</a>
+              </li>
+      
+              <!-- 페이지 번호 -->
+              <li th:each="i : ${#numbers.sequence(1, blogPostsPage.totalPages)}"
+                  th:classappend="${i == blogPostsPage.number + 1} ? 'active' : ''" class="page-item">
+                  <a th:href="@{/techInfo(page=${i})}" th:text="${i}" class="page-link"></a>
+              </li>
+      
+              <!-- Next 버튼 -->
+              <li class="page-item" th:classappend="${!blogPostsPage.hasNext()} ? 'disabled' : ''">
+                  <a th:href="@{/techInfo(page=${blogPostsPage.number + 2})}" class="page-link">Next</a>
+              </li>
+          </ul> 
       </div>
-    </div>
-  </body>
+  </div>
 </html>

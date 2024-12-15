@@ -121,9 +121,12 @@ body {
     color: #000000;
 } */
 .container {
-    list-style: none;
-    margin: 90px 200px 0 200px;
-    padding: 0 108px 0 108px;
+    margin: 90px auto 0 auto; /* 상단 90px, 좌우는 auto로 가운데 정렬 */
+    padding: 0; /* 패딩 제거 */
+    max-width: 100%; /* 최대 너비 설정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 내용 가운데 정렬 */
 }
 
 .container-list {
