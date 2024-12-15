@@ -66,6 +66,7 @@ public class UserService {
     //비밀번호 변경 매서드
     @Transactional
     public void changePassword(String userId, String newPassword) {
+        logger.debug("(UserService)비밀번호 변경 요청 - 아이디: {}", userId);
         User user = userRepository.findById(userId).orElse(null);
         if (user != null) {
             user.setPassword(passwordEncoder.encode(newPassword));

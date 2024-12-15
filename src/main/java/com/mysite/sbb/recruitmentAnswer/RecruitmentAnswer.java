@@ -34,7 +34,7 @@ public class RecruitmentAnswer {
     @JsonIgnore
     private RecruitmentQuestion question; 
     
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "id") // USER_TABLE 참조 확인
     private User author;
     

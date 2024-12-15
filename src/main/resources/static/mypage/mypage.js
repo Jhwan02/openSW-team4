@@ -62,7 +62,7 @@ document.getElementById('submit-password').addEventListener('click', function ()
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `newPassword=${encodeURIComponent(newPassword)}` // 값 전달
+        body: `newPassword=${encodeURIComponent(newPassword)}`, // URL-encoded 데이터
     })
     .then(response => {
         if (response.ok) {
