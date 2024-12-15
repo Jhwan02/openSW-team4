@@ -18,13 +18,12 @@ public class WebCrawlerEntity {
     private String title;
     private String date;
     private int view;
-    public WebCrawlerEntity() {
-    }
 
-    public WebCrawlerEntity(String imageUrl, String title, String date) {
+    public WebCrawlerEntity(String imageUrl, String title, String date, int view) {
         this.imageUrl = imageUrl;
         this.title = title;
         this.date = date;
+        this.view = view;
     }
 
     // Getters and setters
