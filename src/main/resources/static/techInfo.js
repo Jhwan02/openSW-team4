@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeModal = document.getElementById("closeModal");
     const searchInput = document.getElementById("searchInput");
     const searchResults = document.getElementById("searchResults");
-    const container = document.querySelector(".container"); // 데이터가 표시되는 리스트 컨테이너
+    // const container = document.querySelector(".container"); // 데이터가 표시되는 리스트 컨테이너
 
-    const listItems = Array.from(container.children); // 컨테이너 안의 모든 데이터 항목
+    // const listItems = Array.from(container.children); // 컨테이너 안의 모든 데이터 항목
 
 
     // 모달 열기
@@ -17,12 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // 모달 닫기
     closeModal.addEventListener("click", () => {
         searchModal.style.display = "none";
+        searchResults.innerHTML = ""; // 검색 결과 초기화
+        searchInput.value = ""; // 검색어 초기화
     });
 
     // 모달 외부 클릭 시 닫기
     window.addEventListener("click", (event) => {
         if (event.target === searchModal) {
             searchModal.style.display = "none";
+            searchResults.innerHTML = ""; // 검색 결과 초기화
+            searchInput.value = ""; // 검색어 초기화
         }
     });
 

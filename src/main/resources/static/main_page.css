@@ -38,7 +38,7 @@ body {
 }
 
 .nav-bar{
-    max-width: 700px;
+    max-width: 750px;
     display: flex;
     align-items: center;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .nav-bar li{
-    margin: 20px 40px 0 40px;
+    margin: 20px 45px 0 45px;
     list-style: none;
     display: flex;
     align-items: center;
