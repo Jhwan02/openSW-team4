@@ -2,7 +2,6 @@ package com.mysite.sbb.login;
 
 import java.util.List;
 
-import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswer;
 import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
 
 import jakarta.persistence.CascadeType;

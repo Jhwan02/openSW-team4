@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import com.mysite.sbb.recruitmentQuestion.*;
 import com.mysite.sbb.question.*;
 
+import com.mysite.sbb.answer.*;
+import com.mysite.sbb.recruitmentAnswer.*;
+
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.data.domain.PageImpl;
 
 @RestController
 @RequestMapping("/auth")
@@ -36,6 +37,12 @@ public class AuthController {
     
     @Autowired
     private QuestionService questionService;
+
+    @Autowired
+    private AnswerService answerService;
+
+    @Autowired
+    private RecruitmentAnswerService recruitmentAnswerService;
 
     @GetMapping("path")
     public String getMethodName(@RequestParam String param) {
@@ -133,7 +140,7 @@ public class AuthController {
     }
 
     //마이페이지 필요 api
-    
+
     @GetMapping("/posts")   //유저이름에 해당하는 모든 게시물 가져오기
     @ResponseBody
     public Page<PostResponse> listAsJson(
@@ -169,6 +176,43 @@ public class AuthController {
         Page<PostResponse> postPage = new PageImpl<>(combinedList.subList(start, end), pageable, combinedList.size());
 
         return postPage;
+    }
+
+    @GetMapping("/comments")   //유저이름에 해당하는 모든 댓글글 가져오기
+    @ResponseBody
+    public Page<CommentResponse> listCommentsAsJson(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            HttpSession session) {
+
+        // 세션에서 유저 이름(author) 가져오기
+        User user = (User) session.getAttribute("user");
+        String author = user.getUsername();
+        if (author == null || author.isEmpty()) {
+            throw new IllegalArgumentException("로그인이 필요합니다."); // 예외 처리
+        }
+
+        // RecruitmentAnswer 가져오기
+        Page<RecruitmentAnswer> recruitmentAnswers = this.recruitmentAnswerService.getListByAuthor(page, author);
+
+        // Answer 가져오기
+        Page<Answer> answers = this.answerService.getListByAuthor(page, author);
+
+        // 두 결과를 합치기
+        List<CommentResponse> combinedList = new ArrayList<>();
+        recruitmentAnswers.getContent().forEach(item -> 
+            combinedList.add(new CommentResponse("공모전", item))
+        );
+        answers.getContent().forEach(item -> 
+            combinedList.add(new CommentResponse("자유", item))
+        );
+
+        // 합친 결과를 Page 형태로 변환
+        Pageable pageable = PageRequest.of(page, 10);
+        int start = (int)pageable.getOffset();
+        int end = Math.min((start + pageable.getPageSize()), combinedList.size());
+        Page<CommentResponse> commentPage = new PageImpl<>(combinedList.subList(start, end), pageable, combinedList.size());
+
+        return commentPage;
     }
 }
 

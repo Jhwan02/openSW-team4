@@ -13,6 +13,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mysite.sbb.login.User;
 @Getter
 @Setter
@@ -29,11 +31,12 @@ public class Answer {
 	 private LocalDateTime createDate; 
 	 
 	 @ManyToOne
+	 @JsonIgnore
 	 private Question question;  
 	 
-	 @ManyToOne
-	    @JoinColumn(name = "author_id", referencedColumnName = "id") // USER_TABLE 참조 확인
-	    private User author;
+	@ManyToOne
+	@JoinColumn(name = "author_id", referencedColumnName = "id") // USER_TABLE 참조 확인
+	private User author;
 	    
 	 
 
