@@ -12,5 +12,6 @@ public interface RecruitmentQuestionRepository extends JpaRepository <Recruitmen
     List<RecruitmentQuestion> findBySubjectLike(String subject);
     Page<RecruitmentQuestion> findAll(Pageable pageable);
     Page<RecruitmentQuestion> findByAuthorUsername(String author, Pageable pageable); //유저이름 기준 글 찾기
+    Page<RecruitmentQuestion> findById(int id, Pageable pageable); //글번호 기준 글 찾기
 }
 

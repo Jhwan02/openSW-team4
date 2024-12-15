@@ -32,7 +32,7 @@ public class Answer {
 	 
 	 @ManyToOne
 	 @JsonIgnore
-	 private Question question;  
+	 private Question question;
 	 
 	@ManyToOne
 	@JoinColumn(name = "author_id", referencedColumnName = "id") // USER_TABLE 참조 확인
