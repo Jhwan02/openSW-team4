@@ -20,7 +20,7 @@
           <ul class="pagination">
               <!-- 이전 페이지 -->
               <li class="page-item" th:classappend="${!blogPostsPage.hasPrevious()} ? 'disabled' : ''">
-                  <a th:href="@{/techInfo(page=${blogPostsPage.number})}" class="page-link">Previous</a>
+                  <a th:href="@{/techInfo(page=${blogPostsPage.number})}" class="page-link">이전</a>
               </li>
       
               <!-- 페이지 번호 -->
@@ -31,7 +31,7 @@
       
               <!-- Next 버튼 -->
               <li class="page-item" th:classappend="${!blogPostsPage.hasNext()} ? 'disabled' : ''">
-                  <a th:href="@{/techInfo(page=${blogPostsPage.number + 2})}" class="page-link">Next</a>
+                  <a th:href="@{/techInfo(page=${blogPostsPage.number + 2})}" class="page-link">다음</a>
               </li>
           </ul> 
       </div>
