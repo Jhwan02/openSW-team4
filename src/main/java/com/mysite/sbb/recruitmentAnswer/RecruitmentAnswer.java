@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mysite.sbb.login.User;
 import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion; // Import 추가
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class RecruitmentAnswer {
     @JsonIgnore
     private RecruitmentQuestion question; 
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "id") // USER_TABLE 참조 확인
     private User author;
     
