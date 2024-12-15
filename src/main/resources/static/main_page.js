@@ -86,7 +86,7 @@ async function fetchAndRenderHotCompetitions() {
                       <img src="${competition.imageUrl}" class="card-img-top" alt="HOT 게시물 ${index + 1}">
                       <div class="card-body">
                           <h5 class="card-title">${competition.title}</h5>
-                          <p class="card-text">D-Day: ${competition.date}</p>
+                          <p class="card-text">${competition.date}</p>
                           <p class="card-text">조회수: ${competition.view}</p>
                           <a href="http://localhost:8080/competitions" target="_blank" class="btn btn-primary">더 보기</a>
                       </div>
