@@ -1,7 +1,12 @@
 package com.mysite.sbb.answer;
 
 import com.mysite.sbb.question.Question;
+
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.mysite.sbb.login.User;
 import java.time.LocalDateTime;
@@ -20,5 +25,12 @@ public class AnswerService {
         answer.setQuestion(question);
         answer.setAuthor(author);
         this.answerRepository.save(answer);
+    }
+
+    //마이페이지 필요
+    // 작성자의 글만 가져오기
+    public Page<Answer> getListByAuthor(int page, String author) {
+        Pageable pageable = PageRequest.of(page, 10);
+        return this.answerRepository.findByAuthorUsername(author, pageable);
     }
 }

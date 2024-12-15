@@ -9,8 +9,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
-
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
     Question findBySubject(String subject);
     Question findBySubjectAndContent(String subject, String content);

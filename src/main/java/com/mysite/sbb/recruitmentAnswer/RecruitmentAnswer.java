@@ -2,6 +2,7 @@ package com.mysite.sbb.recruitmentAnswer;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mysite.sbb.login.User;
 import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion; // Import 추가
 
@@ -29,6 +30,7 @@ public class RecruitmentAnswer {
     private LocalDateTime createDate;
 
     @ManyToOne
+    @JsonIgnore
     private RecruitmentQuestion question; 
     
     @ManyToOne

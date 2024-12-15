@@ -1,6 +1,5 @@
 package com.mysite.sbb.question;
 import com.mysite.sbb.login.User;
-import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
 
 import java.time.Duration;
 import java.time.format.DateTimeFormatter;
