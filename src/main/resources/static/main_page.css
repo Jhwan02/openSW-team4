@@ -732,7 +732,7 @@ footer {
 /* 카드 이미지 스타일 */
 .hot-post img {
     max-width: 100%; /* 이미지 너비 조정 */
-    height: 300px; /* 이미지 높이 비율 유지 */
+    height: 510px; /* 이미지 고정 높이 */
     object-fit: cover; /* 이미지가 카드에 꽉 차도록 조정 */
     border-top-left-radius: 8px; /* 모서리 둥글게 */
     border-top-right-radius: 8px;
@@ -746,6 +746,7 @@ footer {
 
 /* 카드 제목 스타일 */
 .hot-post .card-title {
+    height: 36px; /* 제목 높이 */
     font-size: 18px; /* 제목 크기 */
     margin-bottom: 10px; /* 제목과 설명 간격 */
     font-weight: bold;
