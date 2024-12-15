@@ -23,6 +23,26 @@
             <ul id="searchResults" style="list-style: none; padding: 0;"></ul>
         </div>
       </div>
+
+      <div class="pagination-container tech-pagination-container">
+        <ul class="pagination">
+            <!-- 이전 페이지 -->
+            <li class="page-item" th:classappend="${!blogPostsPage.hasPrevious()} ? 'disabled' : ''">
+              <a th:href="@{/techInfo(page=${blogPostsPage.number})}" class="page-link">Previous</a>
+            </li>
+  
+            <!-- 페이지 번호 -->
+            <li th:each="i : ${#numbers.sequence(1, blogPostsPage.totalPages)}"
+                th:classappend="${i == blogPostsPage.number + 1} ? 'active' : ''" class="page-item">
+                <a th:href="@{/techInfo(page=${i})}" th:text="${i}" class="page-link"></a>
+            </li>
+  
+            <!-- Next 버튼 -->
+            <li class="page-item" th:classappend="${!blogPostsPage.hasNext()} ? 'disabled' : ''">
+                <a th:href="@{/techInfo(page=${blogPostsPage.number + 2})}" class="page-link">Next</a>
+            </li>
+        </ul> 
+      </div>
     </div>
   </body>
 </html>
