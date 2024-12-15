@@ -4,10 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+//import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.data.domain.Sort;
+
 
 import java.util.List;
 
@@ -31,8 +35,12 @@ public class blogPostController {
         return "techInfo"; // techInfo.html로 이동
     }
 
-    @GetMapping("/api/search")
-    public List<blogPost> searchBlogPosts(@RequestParam("keyword") String keyword) {
-        return blogPostRepository.findByTitleContainingIgnoreCase(keyword); // 검색 기능 유지
+   @GetMapping("/api/search")
+    @ResponseBody
+    public List<blogPost> searchBlogPosts(
+            @RequestParam("keyword") String keyword
+            //@PageableDefault(size = 10, sort = "date", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        return blogPostRepository.findByTitleContainingIgnoreCaseOrderByDateDesc(keyword);
     }
 }
