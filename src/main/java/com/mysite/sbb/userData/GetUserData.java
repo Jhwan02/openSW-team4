@@ -17,13 +17,13 @@ public class GetUserData {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
     @GetMapping("/getuserdata")
     public ResponseEntity<Map<String, Object>> getSessionInfo(HttpSession session) {
-        logger.debug("getuserdata 실행됨.");
+        logger.debug("(User)getuserdata 실행됨.");
         User user = (User) session.getAttribute("user");
         Map<String, Object> response = new HashMap<>();
         if (user != null) {
             response.put("username", user.getUsername());
             response.put("id", user.getId());
-            logger.debug("접속 유저 정보 아이디: {}, 이름: {}", user.getId(), user.getUsername());
+            logger.debug("(User)접속 유저 정보 아이디: {}, 이름: {}", user.getId(), user.getUsername());
             return ResponseEntity.ok(response);
         } else {
             logger.debug("로그인 상태: false");

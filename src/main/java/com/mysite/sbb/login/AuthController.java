@@ -28,17 +28,17 @@ public class AuthController {
     // 로그인 메서드
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody LoginRequest request, HttpSession session) {
-        logger.debug("로그인 요청 - 아이디: {}", request.getId());
+        logger.debug("(Auth)로그인 요청 - 아이디: {}", request.getId());
         User user = userService.authenticate(request.getId(), request.getPassword());
         Map<String, Object> response = new HashMap<>();
         if (user != null) {
             session.setAttribute("user", user); // 세션에 사용자 정보 저장
-            logger.debug("로그인 성공 - 아이디: {}", request.getId());
+            logger.debug("(Auth)로그인 성공 - 아이디: {}", request.getId());
             response.put("success", true);
             response.put("username", user.getUsername());
             return ResponseEntity.ok(response);
         } else {
-            logger.debug("로그인 실패 - 아이디: {}", request.getId());
+            logger.debug("(Auth)로그인 실패 - 아이디: {}", request.getId());
             response.put("success", false);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
@@ -47,13 +47,13 @@ public class AuthController {
     // 회원가입 메서드
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
-        logger.debug("회원가입 요청 - 아이디: {}", request.getId());
+        logger.debug("(Auth)회원가입 요청 - 아이디: {}", request.getId());
         boolean result = userService.register(request.getUsername(), request.getId(), request.getPassword());
         if (result) {
-            logger.debug("회원가입 성공 - 아이디: {}", request.getId());
+            logger.debug("(Auth)회원가입 성공 - 아이디: {}", request.getId());
             return ResponseEntity.ok("success");
         } else {
-            logger.debug("회원가입 실패 - 아이디: {}", request.getId());
+            logger.debug("(Auth)회원가입 실패 - 아이디: {}", request.getId());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("fail");
         }
     }
@@ -65,11 +65,11 @@ public class AuthController {
             response.put("loggedIn", true);
             response.put("username", user.getUsername());
             response.put("id", user.getId());
-            logger.debug("세션 확인 - 로그인 상태: true, 아이디: {}, 이름: {}", user.getId(), user.getUsername());
+            logger.debug("(Auth)세션 확인 - 로그인 상태: true, 아이디: {}, 이름: {}", user.getId(), user.getUsername());
             return ResponseEntity.ok(response);
         } else {
             response.put("loggedIn", false);
-            logger.debug("세션 확인 - 로그인 상태: false");
+            logger.debug("(Auth)세션 확인 - 로그인 상태: false");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
         
@@ -85,11 +85,25 @@ public class AuthController {
     public ResponseEntity<String> deleteUser(HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (user != null) {
-            logger.debug("/user/delete 요청 - 아이디: {}", user.getId());
+            logger.debug("(Auth)/user/delete 요청 - 아이디: {}", user.getId());
             userService.deleteUserById(user.getId());
             session.invalidate();
-            logger.debug("/user/delete 성공 - 아이디: {} 탈퇴완료", user.getId());
+            logger.debug("(Auth)/user/delete 성공 - 아이디: {} 탈퇴완료", user.getId());
             return ResponseEntity.ok("회원탈퇴 성공");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 후 이용해주세요");
+        }
+    }
+
+    //비밀번호 변경 메서드
+    @PostMapping("/change-password")
+    public ResponseEntity<String> changePassword(String newPassword, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
+            logger.debug("(Auth)비밀번호 변경 요청 - 아이디: {}", user.getId());
+            userService.changePassword(user.getId(), newPassword);
+            logger.debug("(Auth)비밀번호 변경 성공 - 아이디: {}", user.getId());
+            return ResponseEntity.ok("비밀번호 변경 성공");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 후 이용해주세요");
         }

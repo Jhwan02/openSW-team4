@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.mysite.sbb.login.User;
 public interface RecruitmentQuestionRepository extends JpaRepository <RecruitmentQuestion, Integer>{
 	
 	RecruitmentQuestionRepository findBySubject(String subject);
