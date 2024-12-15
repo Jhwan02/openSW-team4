@@ -38,17 +38,17 @@ fetch('/auth/comments?page=0')
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${item.boardName}</td>
+                    <td>${item.questionTitle}</td>
                     <td>${item.data.content}</td>
                     <td>${item.data.createDate ? new Date(item.data.createDate).toLocaleString() : 'Unknown'}</td>
                 `;
-                /*
+                
                 row.addEventListener('click', () => {
                     if(item.boardName === '공모전')
-                        window.location.href = `/recruit/detail/${item.data.question.id}`;
+                        window.location.href = `/recruit/detail/${item.questionId}`;
                     else if(item.boardName === '자유')
-                        window.location.href = `/question/detail/${item.data.id.qusetion.id}`;
+                        window.location.href = `/question/detail/${item.qusetionId}`;
                 });
-                */ //댓글로 이동하는 기능인데 아직 구현 안함.
 
                 tableBody.appendChild(row);
             });
