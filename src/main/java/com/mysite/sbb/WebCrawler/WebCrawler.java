@@ -1,4 +1,3 @@
-/*
 package com.mysite.sbb.WebCrawler;
 
 import org.jsoup.Jsoup;
@@ -31,7 +30,7 @@ public class WebCrawler {
                 String date = item.select(".info").text();
 
                 // Save directly to database
-                WebCrawlerEntity entity = new WebCrawlerEntity(imageUrl, title, date);
+                WebCrawlerEntity entity = new WebCrawlerEntity(imageUrl, title, date,0);
 
                 // Save using CrawlerRepository
                 crawlerRepository.save(entity);
@@ -41,4 +40,3 @@ public class WebCrawler {
         }
     }
 }
-    */

@@ -1,4 +1,3 @@
-/*
 package com.mysite.sbb.WebCrawler;
 
 import org.springframework.stereotype.Controller;
@@ -31,4 +30,3 @@ public class CompetitionController {
         return "competitions"; // competitions.html로 전달
     }
 }
-*/
