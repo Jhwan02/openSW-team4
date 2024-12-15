@@ -17,6 +17,13 @@ body {
     border-radius: 8px;
 }
 
+footer {
+    background-color: #f8f9fa; /* 배경색 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 10px 0; /* 상하 여백 */
+    margin-top: 20px; /* 콘텐츠와의 간격 */
+}
+
 /* Header Section */
 h1 {
     text-align: center;

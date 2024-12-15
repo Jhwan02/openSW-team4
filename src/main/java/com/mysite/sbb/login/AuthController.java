@@ -1,24 +1,47 @@
 package com.mysite.sbb.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.mysite.sbb.recruitmentQuestion.*;
+import com.mysite.sbb.question.*;
+
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import org.springframework.data.domain.PageImpl;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
+    
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
-
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private RecruitmentQuestionService recruitQuestionService;
+    
+    @Autowired
+    private QuestionService questionService;
+
+    @GetMapping("path")
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
     
     @GetMapping("/login")
     public String showLoginPage() {
@@ -108,4 +131,44 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 후 이용해주세요");
         }
     }
+
+    //마이페이지 필요 api
+    
+    @GetMapping("/posts")   //유저이름에 해당하는 모든 게시물 가져오기
+    @ResponseBody
+    public Page<PostResponse> listAsJson(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            HttpSession session) {
+
+        // 세션에서 유저 이름(author) 가져오기
+        User user = (User) session.getAttribute("user");
+        String author = user.getUsername();
+        if (author == null || author.isEmpty()) {
+            throw new IllegalArgumentException("로그인이 필요합니다."); // 예외 처리
+        }
+
+        // RecruitmentQuestion 가져오기
+        Page<RecruitmentQuestion> recruitmentQuestions = this.recruitQuestionService.getListByAuthor(page, author);
+
+        // Question 가져오기
+        Page<Question> questions = this.questionService.getListByAuthor(page, author);
+
+        // 두 결과를 합치기
+        List<PostResponse> combinedList = new ArrayList<>();
+        recruitmentQuestions.getContent().forEach(item -> 
+            combinedList.add(new PostResponse("공모전", item))
+        );
+        questions.getContent().forEach(item -> 
+            combinedList.add(new PostResponse("자유", item))
+        );
+
+        // 합친 결과를 Page 형태로 변환
+        Pageable pageable = PageRequest.of(page, 10);
+        int start = (int)pageable.getOffset();
+        int end = Math.min((start + pageable.getPageSize()), combinedList.size());
+        Page<PostResponse> postPage = new PageImpl<>(combinedList.subList(start, end), pageable, combinedList.size());
+
+        return postPage;
+    }
 }
+

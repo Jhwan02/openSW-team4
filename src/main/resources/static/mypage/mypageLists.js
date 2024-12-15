@@ -1,4 +1,4 @@
-fetch('/recruit/posts?page=0')
+fetch('/auth/posts?page=0')
         .then(response => response.json())
         .then(data => {
             const tableBody = document.querySelector('#recruit-table tbody');
@@ -6,15 +6,21 @@ fetch('/recruit/posts?page=0')
             // 데이터의 각 항목을 테이블에 추가
             data.content.forEach(item => {
                 const row = document.createElement('tr');
-
+                if(item.boardName === '자유'){ //자유게시판 데이터인 경우 카테고리를 자유게시판으로 설정
+                    item.data.category = '자유';
+                }
                 row.innerHTML = `
-                    <td>${item.id}</td>
-                    <td>${item.subject}</td>
-                    <td>${item.category}</td>
-                    <td>${item.createDate ? new Date(item.createDate).toLocaleString() : 'Unknown'}</td>
+                    <td>${item.boardName}</td>
+                    <td>${item.data.id}</td>
+                    <td>${item.data.subject}</td>
+                    <td>${item.data.category}</td>
+                    <td>${item.data.createDate ? new Date(item.data.createDate).toLocaleString() : 'Unknown'}</td>
                 `;
                 row.addEventListener('click', () => {
-                    window.location.href = `/recruit/detail/${item.id}`;
+                    if(item.boardName === '공모전')
+                        window.location.href = `/recruit/detail/${item.data.id}`;
+                    else if(item.boardName === '자유')
+                        window.location.href = `/question/detail/${item.data.id}`;
                 });
 
                 tableBody.appendChild(row);

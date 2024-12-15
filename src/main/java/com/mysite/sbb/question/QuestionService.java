@@ -1,5 +1,6 @@
 package com.mysite.sbb.question;
 import com.mysite.sbb.login.User;
+import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
 
 import java.time.Duration;
 import java.time.format.DateTimeFormatter;
@@ -101,5 +102,12 @@ public class QuestionService {
             // 오늘 이전 작성된 글 -> "MM/dd"
             return createDate.format(DateTimeFormatter.ofPattern("MM/dd"));
         }
+    }
+    
+    //마이페이지 필요
+    // 작성자의 글만 가져오기
+    public Page<Question> getListByAuthor(int page, String author) {
+        Pageable pageable = PageRequest.of(page, 10);
+        return this.questionRepository.findByAuthorUsername(author, pageable);
     }
 }

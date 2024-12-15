@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
+
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
     Question findBySubject(String subject);
     Question findBySubjectAndContent(String subject, String content);
@@ -19,4 +21,6 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
     @Modifying
     @Query("UPDATE Question q SET q.likes = q.likes + 1 WHERE q.id = :id")
     void incrementLikes(@Param("id") Integer id);
+
+    Page<Question> findByAuthorUsername(String author, Pageable pageable); //유저이름 기준 글 찾기
 }

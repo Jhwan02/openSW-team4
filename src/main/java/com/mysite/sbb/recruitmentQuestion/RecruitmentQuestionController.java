@@ -154,23 +154,6 @@ public class RecruitmentQuestionController {
         }
         return results;
     }
-
-
-    //마이페이지 필요 api
-    @GetMapping("/posts")
-    @ResponseBody
-    public Page<RecruitmentQuestion> listAsJson(
-            @RequestParam(value = "page", defaultValue = "0") int page,
-            @RequestParam(value = "author", required = false) String author) {
-        
-        // 작성자를 기준으로 검색
-        if (author != null && !author.isEmpty()) {
-            return this.recruitQuestionService.getListByAuthor(page, author);
-        }
-
-        // 작성자 필터가 없으면 모든 글 가져오기
-        return this.recruitQuestionService.getList(page);
-    }
 }
 
 
