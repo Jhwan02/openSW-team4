@@ -44,7 +44,7 @@ public class CrawlerService {
 
                     // 중복 검사
                     if (!competitionRepository.existsByTitleAndDate(title, dDay)) {
-                        WebCrawlerEntity competition = new WebCrawlerEntity(title, dDay, imageUrl, view);
+                        WebCrawlerEntity competition = new WebCrawlerEntity(imageUrl, title, dDay, view);
 
                         competitionRepository.save(competition);
                         logger.debug("(CrawlerService) 데이터 저장 완료: {}", competition);
