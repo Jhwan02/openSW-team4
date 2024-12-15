@@ -16,3 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error fetching user info:", error);
         });
 });
+
+function deleteUser(id) {
+    if (confirm("정말로 탈퇴하시겠습니까?")) {
+        fetch('/auth/delete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("탈퇴되었습니다.");
+                window.location.href = "/"; // 탈퇴 후 리다이렉트
+            } else {
+                alert("탈퇴 중 오류가 발생했습니다.");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    }
+}

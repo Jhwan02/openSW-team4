@@ -79,4 +79,19 @@ public class AuthController {
         session.invalidate(); // 세션 무효화
         return ResponseEntity.ok("로그아웃 성공");
     }
+
+    // 회원탈퇴 메서드
+    @PostMapping("/delete")
+    public ResponseEntity<String> deleteUser(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
+            logger.debug("/user/delete 요청 - 아이디: {}", user.getId());
+            userService.deleteUserById(user.getId());
+            session.invalidate();
+            logger.debug("/user/delete 성공 - 아이디: {} 탈퇴완료", user.getId());
+            return ResponseEntity.ok("회원탈퇴 성공");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 후 이용해주세요");
+        }
+    }
 }

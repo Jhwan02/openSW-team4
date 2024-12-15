@@ -20,6 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // 페이지 로드 시 세션 정보 확인
     checkSession();
 
-    // 5분마다 세션 정보 확인
-    setInterval(checkSession, 10000); // 10000
+    // 1분마다
+    setInterval(checkSession, 60000); // 1분 = 60000밀리초
 });

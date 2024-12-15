@@ -8,11 +8,12 @@ import org.slf4j.LoggerFactory;
 import java.util.Optional;
 import com.mysite.sbb.DataNotFoundException;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
-
     @Autowired
     private UserRepository userRepository;
 
@@ -55,7 +56,12 @@ public class UserService {
             throw new DataNotFoundException("siteuser not found");
         }
     }
-
+    
+    //회원탈퇴 메서드
+    @Transactional
+    public void deleteUserById(String userId) {
+        userRepository.deleteById(userId);
     }
+}
 
 
