@@ -127,7 +127,7 @@ public class AuthController {
 
     //비밀번호 변경 메서드
     @PostMapping("/change-password")
-    public ResponseEntity<String> changePassword(String newPassword, HttpSession session) {
+    public ResponseEntity<String> changePassword(@RequestParam("newPassword") String newPassword, HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (user != null) {
             logger.debug("(Auth)비밀번호 변경 요청 - 아이디: {}", user.getId());

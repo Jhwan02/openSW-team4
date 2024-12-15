@@ -2,6 +2,9 @@ package com.mysite.sbb.login;
 
 import java.util.List;
 
+import com.mysite.sbb.answer.Answer;
+import com.mysite.sbb.question.Question;
+import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswer;
 import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
 
 import jakarta.persistence.CascadeType;
@@ -50,4 +53,13 @@ public class User {
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<RecruitmentQuestion> questions;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<RecruitmentAnswer> answers;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Question> userQuestions;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Answer> userAnswers;
 }
