@@ -139,7 +139,7 @@
        <div class="notice-section">
            <a href="/notice/list"><h3>공지사항</h3></a>
            <ul class="notice-list">
-               <li th:each="question : ${question}">
+               <li th:each="question : ${question}">,,,,,,
                    <a th:href="@{/notice/detail/{id}(id=${question.id})}" 
                       th:text="|공지: ${question.subject}|"></a>
                </li>
