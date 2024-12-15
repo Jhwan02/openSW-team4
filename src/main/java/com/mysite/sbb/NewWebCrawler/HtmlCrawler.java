@@ -24,7 +24,7 @@ public class HtmlCrawler {
                     .uri(URI.create("https://api.campuspick.com/find/activity/list"))
                     .header("Accept", "application/json, text/javascript, */*; q=0.01")
                     .header("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
-                    .POST(HttpRequest.BodyPublishers.ofString("target=1&limit=20&offset=0")) // 요청 본문 추가
+                    .POST(HttpRequest.BodyPublishers.ofString("target=1&limit=20&offset=0&categoryId=108")) // 요청 본문 추가
                     .build();
 
             // HTTP 요청 보내기

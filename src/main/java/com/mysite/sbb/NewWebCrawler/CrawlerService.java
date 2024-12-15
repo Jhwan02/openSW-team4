@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.mysite.sbb.WebCrawler.*;
@@ -13,6 +14,7 @@ import com.mysite.sbb.WebCrawler.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Service
 public class CrawlerService {
@@ -35,6 +37,7 @@ public class CrawlerService {
                     String title = jsonObject.has("title") ? jsonObject.get("title").getAsString() : "N/A";
                     String date = jsonObject.has("endDate") ? jsonObject.get("endDate").getAsString() : "N/A";
                     String imageUrl = jsonObject.has("image") ? jsonObject.get("image").getAsString() : "N/A";
+                    int view = jsonObject.has("viewCount") ? jsonObject.get("viewCount").getAsInt() : 0;
 
                     // D-Day 계산
                     String dDay = calculateDDay(date);
@@ -45,6 +48,7 @@ public class CrawlerService {
                         competition.setTitle(title);
                         competition.setDate(dDay); // D-Day 값으로 저장
                         competition.setImageUrl(imageUrl);
+                        competition.setView(view);
 
                         competitionRepository.save(competition);
                         logger.debug("(CrawlerService) 데이터 저장 완료: {}", competition);
@@ -80,6 +84,26 @@ public class CrawlerService {
         } catch (Exception e) {
             logger.error("(CrawlerService) D-Day 계산 중 오류 발생: ", e);
             return "Invalid Date";
+        }
+    }
+
+    public ResponseEntity<List<WebCrawlerEntity>> getTop3Data() {
+        logger.debug("(CrawlerService) getTop3Data() 호출됨.");
+    
+        try {
+            // 조회된 데이터: views 기준 내림차순 정렬 후 상위 3개
+            List<WebCrawlerEntity> top3Competitions = competitionRepository.findTop3ByOrderByViewDesc();
+    
+            // 로그 출력
+            top3Competitions.forEach(competition -> logger.debug("(CrawlerService) 조회된 데이터: {}", competition));
+    
+            // JSON 형식으로 반환
+            return ResponseEntity.ok(top3Competitions);
+        } catch (Exception e) {
+            logger.error("(CrawlerService) getTop3Data() 실행 중 오류 발생: ", e);
+    
+            // 오류 발생 시 500 Internal Server Error 반환
+            return ResponseEntity.status(500).build();
         }
     }
 }

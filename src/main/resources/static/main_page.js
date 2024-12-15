@@ -60,3 +60,46 @@ document.addEventListener("click", (event) => {
   showSlide(currentSlide);
   startSlider();
 });
+
+
+async function fetchAndRenderHotCompetitions() {
+  try {
+      // API 호출
+      const response = await fetch('/api/crawler/top3');
+      if (!response.ok) {
+          throw new Error('데이터를 가져오는 데 실패했습니다.');
+      }
+
+      // JSON 데이터로 파싱
+      const competitions = await response.json();
+
+      // HTML DOM에 렌더링
+      const hotSection = document.querySelector('.hot-section .row');
+      hotSection.innerHTML = ''; // 기존 정적 콘텐츠 제거
+      // 공모전 데이터 디버그
+      console.log(competitions);
+      // 각 공모전 데이터를 HTML로 생성
+      competitions.forEach((competition, index) => {
+          const hotPostHTML = `
+              <div class="col-md-4 mb-4">
+                  <div class="hot-post card">
+                      <img src="${competition.imageUrl}" class="card-img-top" alt="HOT 게시물 ${index + 1}">
+                      <div class="card-body">
+                          <h5 class="card-title">${competition.title}</h5>
+                          <p class="card-text">D-Day: ${competition.date}</p>
+                          <p class="card-text">조회수: ${competition.view}</p>
+                          <a href="http://localhost:8080/competitions" target="_blank" class="btn btn-primary">더 보기</a>
+                      </div>
+                  </div>
+              </div>
+          `;
+          hotSection.insertAdjacentHTML('beforeend', hotPostHTML);
+      });
+  } catch (error) {
+      console.error('Error fetching competitions:', error);
+      alert('🔥인기 공모전 데이터를 가져오는 데 문제가 발생했습니다.');
+  }
+}
+
+// 페이지 로드 시 인기 공모전 데이터 가져오기
+document.addEventListener('DOMContentLoaded', fetchAndRenderHotCompetitions);

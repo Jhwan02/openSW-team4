@@ -17,7 +17,7 @@ public class WebCrawlerEntity {
     private String imageUrl;
     private String title;
     private String date;
-
+    private int view;
     public WebCrawlerEntity() {
     }
 
@@ -54,5 +54,13 @@ public class WebCrawlerEntity {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getView() {
+        return view;
+    }
+
+    public void setView(int view) {
+        this.view = view;
     }
 }
