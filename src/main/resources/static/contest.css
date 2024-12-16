@@ -135,12 +135,6 @@ body {
     color: #ffcc00 !important;
 }
 
-.btn-primary {
-    background-color: white;
-    color: #000000;
-    border-color: #000000;
-}
-
 .category-badge {
     font-size: 1rem;
     font-weight: bold;
