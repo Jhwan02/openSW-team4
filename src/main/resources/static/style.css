@@ -135,12 +135,6 @@ body {
     color: #ffcc00 !important; /* 호버 강조 색상 */
 }
 
-.btn-primary {
-    background-color: white;
-    color: #000000;
-    border-color: #000000;
-}
-
 .category-badge {
     font-size: 1rem;
     font-weight: bold;
@@ -539,4 +533,17 @@ footer{
 
 .modal-body button:hover {
     background-color: #0056b3;
+}
+
+.myPageButtonContainer .btn-primary{ 
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.myPageButtonContainer .btn-primary:hover {
+    background-color: #0056b3;
+    color: white;
 }
