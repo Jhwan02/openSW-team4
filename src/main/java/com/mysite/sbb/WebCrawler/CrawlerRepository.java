@@ -10,7 +10,7 @@ public interface CrawlerRepository extends JpaRepository<WebCrawlerEntity, Long>
 
     List<WebCrawlerEntity> findAllByOrderByIdAsc();
 
-    boolean existsByTitleAndDate(String title, String date);
+    boolean existsByTitle(String title);
 
     List<WebCrawlerEntity> findTop3ByOrderByViewDesc();
 

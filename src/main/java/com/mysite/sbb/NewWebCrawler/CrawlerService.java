@@ -43,7 +43,7 @@ public class CrawlerService {
                     String dDay = calculateDDay(date);
 
                     // 중복 검사
-                    if (!competitionRepository.existsByTitleAndDate(title, dDay)) {
+                    if (!competitionRepository.existsByTitle(title)) {
                         WebCrawlerEntity competition = new WebCrawlerEntity(imageUrl, title, dDay, view);
 
                         competitionRepository.save(competition);
