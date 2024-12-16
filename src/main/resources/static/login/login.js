@@ -15,7 +15,6 @@ document.getElementById("loginButton").addEventListener("click", function(event)
     .then(data => {
         if (data.success) {
             const loginModal = document.getElementById("loginModal"); // 모달의 ID
-            alert("로그인 성공!");
             if (loginModal) {
                 // Bootstrap을 사용하는 경우
                 const bootstrapModal = bootstrap.Modal.getInstance(loginModal);
