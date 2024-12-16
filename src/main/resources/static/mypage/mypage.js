@@ -9,10 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(data => {
             // 데이터를 HTML 요소에 삽입
-            document.getElementById("name").textContent = data.username;
-            document.getElementById("id").textContent = data.id;
+            document.getElementById("username").textContent = data.username;
+            document.getElementById("userid").textContent = data.id;
         })
         .catch(error => {
+            console.log("받아온 데이터:", data); // 디버깅용
             console.error("Error fetching user info:", error);
         });
 });
