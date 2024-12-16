@@ -26,7 +26,7 @@ body {
 /* Navbar */
 .Header {
     background-color: #ffffff;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 10px 0;
 }
 /* 네비게이션 공통 스타일 */
 .nav {
@@ -243,6 +243,13 @@ body {
     .nav-right {
         margin-left: auto;
     }
+}
+
+.nav .logo {
+    width: 120px;
+    height: 65px;
+    cursor: pointer;
+    color: black;
 }
 
 /* Hero Section */

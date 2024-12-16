@@ -125,7 +125,12 @@ body {
     width: 100%;
     margin-bottom: 1rem;
 }
-
+.nav .logo {
+    width: 120px;
+    height: 65px;
+    cursor: pointer;
+    color: black;
+}
 .navbar-secondary .navbar-brand,
 .navbar-secondary .nav-link {
     color: black !important;
