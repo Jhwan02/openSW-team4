@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif; /* 기존과 동일 */
+    font-family: 'SUIT-Regular';
     background-color: #ffffff; /* 전체 배경 흰색 설정 */
     color: black; /* 기본 텍스트 색상 */
 }
@@ -128,12 +135,6 @@ body {
     color: #ffcc00 !important; /* 호버 강조 색상 */
 }
 
-.btn-primary {
-    background-color: white;
-    color: #000000;
-    border-color: #000000;
-}
-
 .category-badge {
     font-size: 1rem;
     font-weight: bold;
@@ -144,10 +145,12 @@ body {
 }
 
 .container {
-    background-color: #ffffff; /* 콘텐츠 배경 흰색 */
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 1200px; /* 최대 폭 제한 */
+    list-style: none;
+    margin: 10px auto; /* 좌우 margin을 auto로 설정 */
+    padding: 0 20px; /* 패딩을 조정 */
+    box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 크기 설정 */
+    max-width: 1200px; /* 최대 너비 설정 */
+    width: 100%; /* 부모 요소의 전체 너비 사용 */
 }
 
 .board-table {
@@ -260,10 +263,6 @@ body {
 
 /* techInfo 페이지 전용 페이징 컨테이너 */
 .tech-pagination-container {
-    position: relative; /* 위치 고정 */
-    bottom: 0; /* 화면 아래에서 20px 위로 배치 */
-    left: 60%; /* 화면의 중앙 정렬 */
-    transform: translateX(-50%); /* 가로축 중앙 정렬 */
     display: flex;
     justify-content: center; /* 버튼 중앙 정렬 */
     align-items: center;
@@ -435,12 +434,6 @@ textarea.form-control {
     margin: 10px 0;
 }
 
-.container {
-    list-style: none;
-    margin: 10px 200px 0 200px;
-    padding: 0 108px 0 108px;
-}
-
 .container-list {
     display: flex;
     flex-direction: column;
@@ -469,4 +462,88 @@ footer{
     margin-top: 50px;
     position: relative;
     bottom: 0;
+}
+
+/* modal */
+/* Modal Styles */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #ffffff;
+    color: #000000;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-header .btn-close {
+    background-color: white;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    line-height: 0;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-close:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body label {
+    color: #000000;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.modal-body input {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.modal-body button {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.modal-body button:hover {
+    background-color: #0056b3;
+}
+
+.myPageButtonContainer .btn-primary{ 
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.myPageButtonContainer .btn-primary:hover {
+    background-color: #0056b3;
+    color: white;
 }
