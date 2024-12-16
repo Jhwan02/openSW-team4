@@ -9,11 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.mysite.sbb.recruitmentQuestion.*;
-import com.mysite.sbb.question.*;
-
-import com.mysite.sbb.answer.*;
-import com.mysite.sbb.recruitmentAnswer.*;
+import com.mysite.sbb.Board.Free.answer.*;
+import com.mysite.sbb.Board.Free.question.*;
+import com.mysite.sbb.Board.Recruit.recruitmentAnswer.*;
+import com.mysite.sbb.Board.Recruit.recruitmentQuestion.*;
 
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;

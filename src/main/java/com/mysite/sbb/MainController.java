@@ -6,10 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.mysite.sbb.notice.Notice;
-import com.mysite.sbb.notice.NoticeService;
-import com.mysite.sbb.techInfo.blogPost;
-import com.mysite.sbb.techInfo.blogPostRepository;
+import com.mysite.sbb.Board.Notice.notice.Notice;
+import com.mysite.sbb.Board.Notice.notice.NoticeService;
+import com.mysite.sbb.Board.Tech.techInfo.blogPost;
+import com.mysite.sbb.Board.Tech.techInfo.blogPostRepository;
 
 @Controller
 public class MainController {

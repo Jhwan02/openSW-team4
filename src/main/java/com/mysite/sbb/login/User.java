@@ -2,10 +2,10 @@ package com.mysite.sbb.login;
 
 import java.util.List;
 
-import com.mysite.sbb.answer.Answer;
-import com.mysite.sbb.question.Question;
-import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswer;
-import com.mysite.sbb.recruitmentQuestion.RecruitmentQuestion;
+import com.mysite.sbb.Board.Free.answer.Answer;
+import com.mysite.sbb.Board.Free.question.Question;
+import com.mysite.sbb.Board.Recruit.recruitmentAnswer.RecruitmentAnswer;
+import com.mysite.sbb.Board.Recruit.recruitmentQuestion.RecruitmentQuestion;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

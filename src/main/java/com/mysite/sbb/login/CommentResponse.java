@@ -1,7 +1,7 @@
 package com.mysite.sbb.login;
 
-import com.mysite.sbb.answer.Answer;
-import com.mysite.sbb.recruitmentAnswer.RecruitmentAnswer;
+import com.mysite.sbb.Board.Free.answer.Answer;
+import com.mysite.sbb.Board.Recruit.recruitmentAnswer.RecruitmentAnswer;
 
 public class CommentResponse {
     private String boardName; // 게시판 이름
